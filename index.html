@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заказ услуги</title>
+  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+<div class="main-container">
+  <div class="title-position">
+    <h2 class="services-title">Услуги</h2>
+  </div>
+  <div class="services-container">
+    <!-- Недавно предоставленные услуги + консультация менеджера -->
+    <div class="services-left">
+
+      <div class="recent-services">
+        <div class="recent-services-header">
+          <h3 class="recent-services-title">Недавно предоставленные услуги</h3>
+          <p>
+            Для активации услуг - подпишите
+            <a href="#">договор</a>
+          </p>
+        </div>
+
+        <ul class="services-list">
+          <li class="services-list-item">
+            <div class="service-info">
+              <span class="service-name">Информирование – Робот</span>
+            </div>
+            <div class="service-content">
+              <span class="service-price">от <span class="price-value">4,8</span> ₽/шт</span>
+              <button class="service-button">Оставить заявку</button>
+            </div>
+          </li>
+          <li class="services-list-item-medium">
+            <div class="service-info">
+              <span class="service-name">Информирование – SMS</span>
+            </div>
+            <div class="service-content">
+              <span class="service-price">от <span class="price-value">8,7</span> ₽/шт</span>
+              <button class="service-button">Оставить заявку</button>
+            </div>
+          </li>
+          <li class="services-list-item">
+            <div class="service-info">
+              <span class="service-name">Судебная работа – Получение приказа</span>
+            </div>
+            <div class="service-content">
+              <span class="service-price">от <span class="price-value">1413</span> ₽/шт</span>
+              <button class="service-button">Оставить заявку</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="manager-consultation">
+        <h3 class="manager-title">Консультация менеджера</h3>
+        <p>Ваш менеджер Виталий</p>
+        <p class="manager-phone">
+          <a href="tel:+7987654321">+7 987 65 43 21</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Правая колонка (картинка + текст) -->
+    <div class="services-right">
+      <img
+        src="img/heroInfo.png"
+        alt="Информирование, роботизированный звонок, SMS, судебная работа и т.д."
+        class="services-reminder-image"
+      />
+      <p class="info-note">
+        Для проведения судебной работы Вам необходимо ознакомиться с условиями договора и направить нам подписанный
+        договор по системе ЭДО
+      </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
