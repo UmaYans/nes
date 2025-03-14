@@ -1,12 +1,13 @@
 :root {
-  --color-secondary: #FF6900;
-  --color-primary: #1A47A9;
-  --color-text-main: #232735;
-  --color-text-muted: #777;
-  --color-bg: #FFFFFF;
-  --color-medium-gray: #616D94;
-  --color-bg-page: #F3F5F7;
-  --color-dark-gray: #DDDDDD;
+  --color-secondary: #FF6900;   /* Pure (or mostly pure) orange. */
+  --color-primary: #1A47A9;     /* Blue. */
+  --color-text-main: #232735;   /* Very dark grayish blue. */
+  --color-text-muted: #616D94;     /* Второстепенный текст */
+  --color-bg: #FFFFFF;          /* White. */
+  --color-medium-gray: #616D94; /* Mostly desaturated dark blue */
+  --color-bg-page: #F3F5F7;     /* Light grayish blue. */
+  --color-dark-gray: #DDDDDD;   /* Very light gray. */
+  --color-success: #00B753;     /* из элемента подписано*/
 }
 
 * {
@@ -26,7 +27,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding: 0 20px 20px 20px;
+  padding: 0 20px 80px 20px;
   gap: 20px;
 }
 
@@ -60,12 +61,14 @@
   font-weight: 400;
   color: var(--color-primary);
 }
+
 .recent-services-title {
   font-weight: 600;
   font-size: 22px;
   margin-bottom: 4px;
   color: var(--color-text-main);
 }
+
 .manager-title {
   margin-bottom: 15px;
   font-size: 22px;
@@ -75,35 +78,33 @@
 .recent-services-header {
   margin-bottom: 24px;
   color: var(--color-text-main);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
 }
+
 .recent-services-header a {
   color: var(--color-primary);
   text-decoration: underline;
 }
 
-.recent-services-header {
-  font-family: Inter, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-}
-
 .services-list {
   list-style: none;
 }
-.services-list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-}
+
+.services-list-item,
 .services-list-item-medium {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--color-dark-gray);
-  border-top: 1px solid var(--color-dark-gray);
   padding: 12px 0;
 }
+
+.services-list-item-medium {
+  border-bottom: 1px solid var(--color-dark-gray);
+  border-top: 1px solid var(--color-dark-gray);
+}
+
 .service-info {
   display: flex;
   flex-direction: row;
@@ -122,9 +123,11 @@
   padding-left: 16px;
   color: var(--color-primary);
 }
+
 .service-date {
   color: var(--color-text-muted);
 }
+
 .service-price {
   font-weight: 400;
   font-size: 14px;
@@ -148,8 +151,10 @@
   font-size: 16px;
   line-height: 20px;
 }
-.service-button:hover {
-  background-color: var(--color-secondary)
+
+/* изменить стиль кнопке при добавлении логики*/
+.service-button-active {
+  background-color: var(--color-secondary);
 }
 
 .manager-consultation {
@@ -174,6 +179,7 @@
   font-weight: 600;
   font-size: 16px;
 }
+
 .manager-phone a:hover {
   text-decoration: underline;
 }
@@ -185,11 +191,62 @@
 }
 
 .info-note {
-  font-family: Oswald, sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 16px;
   font-weight: 300;
-  color: var(--color-text-muted);
+  color: var(--color-text-main);
   line-height: 24px;
   text-align: center;
   padding: 0 50px;
+}
+
+/* ========================================== */
+/*             СТИЛИ ДЛЯ TOOLTIP             */
+/* ========================================== */
+
+.tooltip-global {
+  position: absolute;
+  display: none;
+  background: #fff;
+  border: 1px solid var(--color-dark-gray);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 12px 16px;
+  max-width: 200px;
+  font-size: 14px;
+  color: var(--color-text-main);
+  z-index: 999;
+}
+.tooltip-global::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #fff;
+}
+
+.tooltip-text {
+  display: inline-block;
+  font-weight: 600;
+}
+
+.tooltip-text a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.tooltip-close svg {
+  color: var(--color-primary);
+}
+
+.tooltip-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--color-primary);
 }

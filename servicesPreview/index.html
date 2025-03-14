@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Услуги Превью</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+          rel="stylesheet"
+  />
+  <link
+          href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+  />
+</head>
+<body>
+<div class="main-container">
+  <div class="title-position">
+    <h2 class="services-title">Услуги</h2>
+  </div>
+  <div class="services-container">
+    <!-- Левая колонка -->
+    <div class="services-left">
+      <div class="recent-services">
+        <div class="recent-services-header">
+          <h3 class="recent-services-title">Недавно предоставленные услуги</h3>
+          <p>
+            Для активации услуг - подпишите
+            <a href="#">договор</a>
+          </p>
+        </div>
+        <ul class="services-list">
+          <li class="services-list-item">
+            <div class="service-info">
+              <span class="service-name">Информирование – Робот</span>
+            </div>
+            <div class="service-content">
+              <span class="service-price">от <span class="price-value">4,8</span> ₽/шт</span>
+              <button
+                      class="service-button tooltip-button"
+                      data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
+              >
+                Оставить заявку
+              </button>
+            </div>
+          </li>
+          <li class="services-list-item-medium">
+            <div class="service-info">
+              <span class="service-name">Информирование – SMS</span>
+            </div>
+            <div class="service-content">
+              <span class="service-price">от <span class="price-value">8,7</span> ₽/шт</span>
+              <button
+                      class="service-button tooltip-button"
+                      data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
+              >
+                Оставить заявку
+              </button>
+            </div>
+          </li>
+          <li class="services-list-item">
+            <div class="service-info">
+              <span class="service-name">Судебная работа – Получение приказа</span>
+            </div>
+            <div class="service-content">
+              <span class="service-price">от <span class="price-value">1413</span> ₽/шт</span>
+              <button
+                      class="service-button tooltip-button"
+                      data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
+              >
+                Оставить заявку
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="manager-consultation">
+        <h3 class="manager-title">Консультация менеджера</h3>
+        <p>Ваш менеджер Виталий</p>
+        <p class="manager-phone">
+          <a href="tel:+7987654321">+7 987 65 43 21</a>
+        </p>
+      </div>
+    </div>
+    <!-- Правая колонка (картинка + текст) -->
+    <div class="services-right">
+      <img
+              src="img/heroInfo.png"
+              alt="Информирование, роботизированный звонок, SMS, судебная работа и т.д."
+              class="services-reminder-image"
+      />
+      <p class="info-note">
+        Для проведения судебной работы Вам необходимо ознакомиться с условиями договора и направить нам подписанный
+        договор по системе ЭДО
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ОДИН общий tooltip для всех кнопок -->
+<div class="tooltip-global" id="global-tooltip">
+  <!-- Текст подсказки -->
+  <span class="tooltip-text" id="tooltip-text"></span>
+  <!-- Кнопка закрытия -->
+  <span class="tooltip-close" id="tooltip-close">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.60396 3.60396C3.82266 3.38527 4.17723 3.38527 4.39592 3.60396L7.99995 7.20799L11.604 3.60396C11.8227 3.38527 12.1772 3.38527 12.3959 3.60396C12.6146 3.82266 12.6146 4.17723 12.3959 4.39592L8.79191 7.99995L12.3959 11.6039C12.6146 11.8226 12.6146 12.1772 12.3959 12.3959C12.1772 12.6146 11.8226 12.6146 11.6039 12.3959L7.99995 8.79191L4.39592 12.3959C4.17723 12.6146 3.82266 12.6146 3.60396 12.3959C3.38527 12.1772 3.38527 11.8227 3.60396 11.604L7.20799 7.99995L3.60396 4.39592C3.38527 4.17723 3.38527 3.82266 3.60396 3.60396Z" fill="currentColor"/>
+    </svg>
+</span>
+</div>
+
+<!-- JS для управления тултипом -->
+<script>
+  const tooltip = document.getElementById('global-tooltip');
+  const tooltipText = document.getElementById('tooltip-text');
+  const tooltipClose = document.getElementById('tooltip-close');
+
+  function positionTooltip(target) {
+    const rect = target.getBoundingClientRect();
+
+    const tooltipWidth = tooltip.offsetWidth;
+    const tooltipHeight = tooltip.offsetHeight;
+
+    const top = rect.top + window.scrollY - tooltipHeight - 10; // 10px отступ
+    const left = rect.left + window.scrollX + (rect.width / 2) - (tooltipWidth / 2);
+
+    tooltip.style.top = `${top}px`;
+    tooltip.style.left = `${left}px`;
+  }
+
+  document.addEventListener('click', (e) => {
+    const button = e.target.closest('.tooltip-button');
+    if (button) {
+      e.stopPropagation();
+      tooltipText.innerHTML = button.getAttribute('data-tooltip') || 'Подпишите договор'
+      tooltip.style.display = 'block';
+      positionTooltip(button);
+    } else {
+      if (!tooltip.contains(e.target)) {
+        tooltip.style.display = 'none';
+      }
+    }
+  });
+
+  tooltipClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    tooltip.style.display = 'none';
+  });
+
+  window.addEventListener('scroll', () => {
+    if (tooltip.style.display === 'block') {
+      const activeButton = document.querySelector('.tooltip-button[data-active="true"]');
+      if (activeButton) {
+        positionTooltip(activeButton);
+      }
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (tooltip.style.display === 'block') {
+      const activeButton = document.querySelector('.tooltip-button[data-active="true"]');
+      if (activeButton) {
+        positionTooltip(activeButton);
+      }
+    }
+  });
+</script>
+</body>
+</html>
