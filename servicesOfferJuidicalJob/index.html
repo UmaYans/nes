@@ -169,7 +169,20 @@
             </div>
 
                 <div class="button-line">
-                    <button class="send-button">Отправить</button>
+                    <button class="send-button" id="openModalBtn">Отправить</button>
+
+                    <!-- модалка + затемнение фона (оверлей) -->
+                    <div class="modal-overlay" id="modalOverlay">
+                        <div class="modal-window">
+                            <h2>Заявка была отправлена!</h2>
+                            <p>Номер обращения: <span class="request">NES___</span></p>
+                            <p>Отслеживайте статус заявки в <a href="#">истории заказов</a></p>
+                            <div class="modal-buttons">
+                                <button class="close-button" id="closeModalBtn">Закрыть</button>
+                                <button class="order-list-button" id="ordersListBtn">История заказов</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,6 +237,28 @@
             }
         });
     });
+
+    //открытие модалки
+
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalOverlay = document.getElementById('modalOverlay');
+
+    openModalBtn.addEventListener('click', () => {
+        modalOverlay.classList.add('show');
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+        modalOverlay.classList.remove('show');
+    });
+
+    // закрытие при клике мимо модалки
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove('show');
+        }
+    });
+
 </script>
 
 </body>
