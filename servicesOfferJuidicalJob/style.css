@@ -149,7 +149,7 @@
   display: flex;
   justify-content: space-between;
   font-weight: 600;
-  color: var(--color-medium-gray);
+  color: var(--color-primary);
 }
 
 .dropdown-label{
@@ -169,6 +169,11 @@
 }
 .custom-dropdown summary::-webkit-details-marker {
   display: none;
+}
+
+details.custom-dropdown.disabled summary {
+  pointer-events: none;
+  color: var(--color-medium-gray);
 }
 
 .dropdown-arrow {
@@ -557,3 +562,4 @@
   opacity: 1;
   pointer-events: auto;
 }
+
