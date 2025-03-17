@@ -1,0 +1,84 @@
+/* ========================================== */
+/*         КАСТОМНЫЙ ДатаПикер (flatpickr)      */
+/* ========================================== */
+
+.flatpickr-calendar {
+    border: 1px solid var(--color-dark-gray);
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.flatpickr-months .flatpickr-month {
+    background: var(--color-bg-page);
+    border-radius: 10px 10px 0 0;
+}
+.flatpickr-months .flatpickr-month .cur-month {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+.flatpickr-months .flatpickr-months .flatpickr-next-month,
+.flatpickr-months .flatpickr-months .flatpickr-prev-month {
+    color: var(--color-primary);
+    opacity: 0.8;
+}
+.flatpickr-months .flatpickr-months .flatpickr-next-month:hover,
+.flatpickr-months .flatpickr-months .flatpickr-prev-month:hover {
+    opacity: 1;
+}
+
+.flatpickr-weekday {
+    color: var(--color-medium-gray);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.flatpickr-day {
+    font-size: 14px;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    margin: 2px 0;
+    border-radius: 4px;
+    border: none;
+    color: var(--color-text-main);
+}
+.flatpickr-day:hover {
+    background: var(--color-dark-gray);
+}
+
+/* Выбранная дата */
+.flatpickr-day.selected {
+    background: var(--color-primary);
+    color: var(--color-bg);
+}
+
+/* Другой месяц (не в текущем месяце) */
+.flatpickr-day.inRange,
+.flatpickr-day.nextMonthDay,
+.flatpickr-day.prevMonthDay {
+    color: #BDBDBD;
+}
+
+/* Неактивные дни */
+.flatpickr-day.disabled,
+.flatpickr-day.disabled:hover {
+    background: transparent;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.flatpickr-day.weekday-sat,
+.flatpickr-day.weekday-sun {
+    color: var(--color-medium-gray);
+}
+
+.blue-bg {
+    background-color: var(--color-primary) !important;
+    color: var(--color-bg) !important;
+}
+
+.blue-border {
+    border: 1px solid var(--color-primary) !important;
+}
+

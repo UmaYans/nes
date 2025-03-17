@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заказ услуги (Судебная работа)</title>
+    <title>Заказ услуги (Информирование)</title>
     <link rel="stylesheet" href="style.css">
     <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
@@ -13,6 +13,10 @@
             href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
+    <link rel="stylesheet" href="custom-flatpickr.css">
 </head>
 <body>
 <div class="main-container">
@@ -53,7 +57,7 @@
                                         </li>
                                         <!-- Опция 1 (выбранная) -->
                                         <li class="dropdown-item selected">
-                                            <div class="item-name-approved">Судебная работа</div>
+                                            <div class="item-name-approved">Информирование</div>
                                             <span class="item-status-approved">
           <img src="img/item-status-approved.svg" alt="V">
           Подписан
@@ -61,7 +65,7 @@
                                         </li>
                                         <!-- Опция 2 (невыбранная) -->
                                         <li class="dropdown-item">
-                                            <div class="item-name">Информирование</div>
+                                            <div class="item-name">Судебная работа</div>
                                             <span class="item-status">
           <img src="img/item-status.svg" alt="status">
           Подписать
@@ -90,12 +94,12 @@
                                     <ul class="dropdown-list">
                                         <!-- Опция 1 (выбранная) -->
                                         <li class="dropdown-item">
-                                            <div class="type-item-name">Направление заявления</div>
+                                            <div class="type-item-name">Роботизированный звонок</div>
 
                                         </li>
                                         <!-- Опция 2 (невыбранная) -->
                                         <li class="dropdown-item">
-                                            <div class="type-item-name">Заявление на выдачу судебного приказа</div>
+                                            <div class="type-item-name">СМС</div>
                                         </li>
                                     </ul>
                                 </details>
@@ -116,34 +120,71 @@
                     <div class="download-links">
                         <div class="one-link">
                             <img src="img/file-checked.svg" alt="file">
-                            <a href="#">Скачать шаблон для заполнения реестра должников</a>
+                            <a href="#">Скачать шаблон для заполнения реестра информирования</a>
                         </div>
                     </div>
                     <div class="download-links">
                         <div class="one-link">
                             <img src="img/file-checked.svg" alt="file">
-                            <a href="#">Скачать инструкцию для заполнения реестра должников</a>
+                            <a href="#">Скачать инструкцию для заполнения реестра информирования</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- почта -->
+                <!-- выбор даты и ввод почты -->
 
-                <div class="dropdown-container-email">
-                    <label for="emailInput" class="dropdown-label">
-                        <span class="asterisk">*</span>
-                        Ваша почта, на которую мы ответим
-                        <div class="tooltip-container">
-                            <img src="img/help.svg" alt="?"/>
-                            <div class="tooltip-text">
-                                Вы можете изменить адрес электронной почты
+                <div class="date-email-container">
+
+                    <!-- дата-->
+                    <div class="dropdown-container-date">
+                        <label for="myDatepicker" class="dropdown-label">
+                            <span class="asterisk">*</span>
+                            Выберите дату начала периода
+                            <!-- Обёртка для иконки + подсказка -->
+                            <div class="tooltip-container">
+                                <img src="img/help.svg" alt="?" class="help-icon" />
+                                <div class="tooltip-text">
+                                    <ul>Вне зависимости от выбранной даты, период предоставления услуги составит:
+                                        <li class="description-line">3 дня <span class="description-muted">текст уведомления уже проходил проверку</span>
+                                        </li>
+                                        <li class="description-line">7 дней <span class="description-muted">текст будет проверен специалистом</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
+                        </label>
+                        <div class="date-wrapper">
+                            <input type="text" id="myDatepicker" class="date-input" placeholder="дд/мм/гггг">
+                            <span class="date-arrow" id="myDateArrow">
+        <img src="img/dropdown-arrow.svg" alt="v">
+      </span>
                         </div>
-                    </label>
-                    <input type="email" id="emailInput" class="email-input" placeholder="example@ya.ru">
+                    </div>
+
+                    <!-- Блок для почты -->
+                    <div class="dropdown-container-email">
+                        <label for="emailInput" class="dropdown-label">
+                            <span class="asterisk">*</span>
+                            Ваша почта, на которую мы ответим
+                            <div class="tooltip-container">
+                                <img src="img/help.svg" alt="?"/>
+                                <div class="tooltip-text">
+                                    Вы можете изменить адрес электронной почты
+                                </div>
+                            </div>
+                        </label>
+                        <input type="email" id="emailInput" class="email-input" placeholder="example@ya.ru">
+                    </div>
+
                 </div>
 
                 <div class="button-line">
+                    <ul class="description">Вне зависимости от выбранной даты, период предоставления услуги составит:
+                        <li class="description-line">3 дня <span class="description-muted">текст уведомления уже проходил проверку</span>
+                        </li>
+                        <li class="description-line">7 дней <span class="description-muted">текст будет проверен специалистом</span>
+                        </li>
+                    </ul>
                     <button class="send-button" id="openModalBtn">Отправить</button>
 
                     <!-- модалка + затемнение фона (оверлей) -->
@@ -165,20 +206,96 @@
         <!-- Правая колонка (картинка + текст) -->
         <div class="services-right">
             <img
-                    src="img/JudicialJob.png"
-                    alt="Информирование, роботизированный звонок, SMS, судебная работа и т.д."
+                    src="img/Information.png"
+                    alt="Информирование"
                     class="services-reminder-image"
             />
             <p class="info-note">
-                Для проведения судебной работы Вам необходимо ознакомиться с условиями договора и направить нам
-                подписанный
-                договор по системе ЭДО
+                Вы можете воспользоваться нашей накопленной базой контактов или использовать свою
             </p>
         </div>
     </div>
 </div>
 
 <script>
+    // кастомный календарь
+
+    //сравнение дат
+    function isSameDay(d1, d2) {
+        return d1.getFullYear() === d2.getFullYear() &&
+            d1.getMonth() === d2.getMonth() &&
+            d1.getDate() === d2.getDate();
+    }
+
+    function getNextWorkingDays(startDate, count) {
+        let result = [];
+        let current = new Date(startDate);
+        while (result.length < count) {
+            if (current.getDay() !== 0 && current.getDay() !== 6) {
+                result.push(new Date(current));
+            }
+            current.setDate(current.getDate() + 1);
+        }
+        return result;
+    }
+
+
+    const dateInput = document.getElementById('myDatepicker');
+    dateInput.addEventListener('input', () =>{
+        if (!dateInput.value.trim()) {
+            fp.clear();
+        }
+    })
+    const dateArrow = document.getElementById('myDateArrow');
+
+    const fp = flatpickr('#myDatepicker', {
+        dateFormat: 'd.m.Y',
+        locale: 'ru',
+        position: 'above',
+        minDate: (function () {
+            let d = new Date();
+            d.setDate(d.getDate() + 1);
+            return d;
+        })(),
+        disable: [
+            function (date) {
+                return (date.getDay() === 0 || date.getDay() === 6);
+            }
+        ],
+        onChange: function (selectedDates, dateStr, instance) {
+            if (selectedDates.length > 0) {
+                const start = selectedDates[0];
+                const blueRange = getNextWorkingDays(start, 3);
+
+                const nextDay = new Date(blueRange[blueRange.length - 1]);
+                nextDay.setDate(nextDay.getDate() + 1);
+                const blueBorderRange = getNextWorkingDays(nextDay, 4);
+
+                instance.blueRange = blueRange;
+                instance.blueBorderRange = blueBorderRange;
+
+                instance.redraw();
+            }
+        },
+        onOpen: function (selectedDates, dateStr, instance) {
+            dateArrow.classList.add('open');
+        },
+        onClose: function () {
+            dateArrow.classList.remove('open')
+        },
+        onDayCreate: function (_, __, fp, dayElem) {
+
+            const dateObj = dayElem.dateObj;
+            if (!dateObj) return;
+
+            if (fp.blueRange && fp.blueRange.some(d => isSameDay(d, dateObj))) {
+                dayElem.classList.add('blue-bg');
+            } else if (fp.blueBorderRange && fp.blueBorderRange.some(d => isSameDay(d, dateObj))) {
+                dayElem.classList.add('blue-border');
+            }
+        }
+    });
+
     document.querySelectorAll('.custom-dropdown').forEach((dropdown) => {
         const summary = dropdown.querySelector('summary');
         const arrow = summary.querySelector('.dropdown-arrow');
@@ -248,7 +365,7 @@
             fileToggleBtn.textContent = 'Удалить реестр';
             fileToggleBtn.classList.remove('button-add-file');
             fileToggleBtn.classList.add('button-delete-file');
-            fileStatusSpan.textContent = 'Реестр_должников_ЖКХ_Ромашка.xls';
+            fileStatusSpan.textContent = 'Реестр_контактов_ЖКХ_Ромашка.xls';
             fileSelected = true;
         } else {
             fileToggleBtn.textContent = 'Добавить реестр';
@@ -261,6 +378,14 @@
     });
 
     //изменение цвета кнопки "отправить" в зависимости от выбранных полей
+
+    const emailInput = document.getElementById('emailInput')
+    emailInput.addEventListener('input', checkAllForms);
+    emailInput.addEventListener('blur', checkAllForms);
+
+    //dateInput инициализирована выше
+    dateInput.addEventListener('input', checkAllForms)
+    dateInput.addEventListener('blur', checkAllForms)
 
     function checkAllForms() {
 
@@ -276,19 +401,18 @@
 
         const fileStatus = document.getElementById('fileStatus').textContent.trim()
 
-        const emailInput = document.getElementById('emailInput')
-        emailInput.addEventListener('input', checkAllForms);
-        emailInput.addEventListener('blur', checkAllForms);
         const emailValue = emailInput.value.trim()
+        const dateValue =dateInput.value.trim()
 
         const isServiceChosen = (serviceText !== 'Не выбрано');
         const isTypeChosen = (typeText !== 'Не выбрано');
         const isFileChosen = (fileStatus !== 'Реестр не выбран');
         const isEmailFilled = (emailValue !== '');
+        const isDateFilled = (dateValue !== '')
 
         const sendButton = document.getElementById('openModalBtn');
 
-        if (isEmailFilled && isFileChosen && isServiceChosen && isTypeChosen) {
+        if (isEmailFilled && isFileChosen && isServiceChosen && isTypeChosen && isDateFilled) {
             sendButton.classList.add('send-button-active')
             sendButton.classList.remove('send-button')
         } else {
@@ -296,7 +420,6 @@
             sendButton.classList.remove('send-button-active')
         }
     }
-
     window.addEventListener('load', checkAllForms);
 
 </script>
