@@ -269,6 +269,15 @@
             .querySelector('summary')
         const serviceText = serviceSummary.textContent.trim()
 
+        const typeDetails = document.getElementById('secondDropdown');
+
+        // Если в первом селекторе не выбрано значение, то второй неактивен
+        if (serviceText === 'Не выбрано') {
+            typeDetails.classList.add('disabled');
+        } else {
+            typeDetails.classList.remove('disabled');
+        }
+
         const typeSummary = document
             .getElementById('secondDropdown')
             .querySelector('summary')
