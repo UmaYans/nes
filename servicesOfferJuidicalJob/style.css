@@ -143,12 +143,14 @@
 .custom-dropdown summary {
   align-items: center;
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 10px 16px;
   font-size: 14px;
   border: 1px solid var(--color-light-gray);
   border-radius: 4px;
   background: var(--color-bg);
   -webkit-user-select: none;
+  box-sizing: border-box;
+  height: 40px;
 }
 .custom-dropdown summary::-webkit-details-marker {
   display: none;
@@ -348,13 +350,14 @@ details.custom-dropdown.disabled summary {
 
 .email-input {
   width: 100%;
-  padding: 8px 40px 8px 12px;
+  padding: 10px 40px 10px 16px;
   border: 1px solid var(--color-light-gray);
   border-radius: 4px;
   font-size: 14px;
   color: var(--color-text-main);
-  background: var(--color-bg) url("img/inputImg.png") no-repeat right 12px center;
+  background: var(--color-bg) url("img/inputImg.png") no-repeat right 16px center;
   background-size: 20px 20px;
+  height: 40px;
 }
 .email-input::placeholder {
   color: var(--color-text-muted);
