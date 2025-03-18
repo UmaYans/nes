@@ -1,15 +1,16 @@
 :root {
-  --color-secondary: #FF6900;   /* Pure (or mostly pure) orange. */
-  --color-primary: #1A47A9;     /* Blue. */
-  --color-text-main: #232735;   /* Very dark grayish blue. */
-  --color-text-muted: #616D94;     /* Второстепенный текст */
-  --color-bg: #FFFFFF;          /* White. */
-  --color-medium-gray: #616D94; /* Mostly desaturated dark blue */
-  --color-bg-page: #F3F5F7;     /* Light grayish blue. */
-  --color-dark-gray: #DDDDDD;   /* Very light gray. */
-  --color-success: #00B753;     /* из элемента подписано*/
+  --color-secondary: #FF6900;   /* Оранжевый */
+  --color-primary: #1A47A9;     /* Синий */
+  --color-text-main: #232735;   /* Текст темный */
+  --color-text-muted: #616D94;  /* Мут текст */
+  --color-bg: #FFFFFF;          /* Белый */
+  --color-medium-gray: #616D94; /* Темно-серый */
+  --color-bg-page: #F3F5F7;       /* Бело-синий */
+  --color-light-gray: #DDDDDD;     /* Очень светлый */
+  --color-success: #00B753;       /* Из элемента "подписано" */
 }
 
+/* Сброс и базовые стили */
 * {
   margin: 0;
   padding: 0;
@@ -17,12 +18,14 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+/* Основные блоки */
 .main-container {
   display: flex;
   flex-direction: column;
   background-color: var(--color-bg-page);
 }
 
+/* Контейнер услуг */
 .services-container {
   display: flex;
   flex-wrap: wrap;
@@ -31,14 +34,18 @@
   gap: 20px;
 }
 
+/* Заголовок страницы */
 .title-position {
   padding: 24px 20px 20px 20px;
 }
 
+/* Левая колонка */
 .services-left {
   width: calc(57% - 10px);
   border-radius: 20px;
 }
+
+/* Правая колонка */
 .services-right {
   width: calc(43% - 10px);
   background-color: var(--color-bg);
@@ -46,6 +53,7 @@
   border-radius: 20px;
 }
 
+/* Блок "Recent Services" */
 .recent-services {
   width: 100%;
   border-radius: 20px;
@@ -54,20 +62,19 @@
   margin-bottom: 20px;
 }
 
+/* Заголовки */
 .services-title {
   padding: 0 16px;
   font-size: 32px;
   font-weight: 400;
   color: var(--color-primary);
 }
-
 .recent-services-title {
   font-weight: 600;
   font-size: 22px;
   margin-bottom: 4px;
   color: var(--color-text-main);
 }
-
 .recent-services-header {
   margin-bottom: 24px;
   font-family: 'Inter', sans-serif;
@@ -80,17 +87,18 @@
   text-decoration: underline;
 }
 
+/* Селекторы (dropdown) */
 .selectors {
   display: flex;
   gap: 20px;
   padding-bottom: 32px;
 }
-
 .selectors > .services-list,
 .selectors > .services-types {
   flex: 0 0 calc(50% - 10px);
 }
 
+/* Список услуг */
 .services-list {
   list-style: none;
 }
@@ -101,12 +109,12 @@
   padding: 12px 0;
 }
 
+/* Изображения */
 .services-reminder-image {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
 .info-note {
   font-family: 'Oswald', sans-serif;
   font-size: 16px;
@@ -117,69 +125,58 @@
   padding: 0 50px;
 }
 
-/* ========================================== */
-/*         КАСТОМНЫЙ СЕЛЕКТОР (DROPDOWN)      */
-/* ========================================== */
-
+/* Кастомный селектор (Dropdown) */
 .dropdown-container {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-
 .custom-dropdown {
   position: relative;
   display: inline-block;
   width: 100%;
   font-family: 'Open Sans', sans-serif;
 }
-
 .asterisk {
   color: var(--color-secondary);
 }
-
 .dropdown-toggle {
   display: flex;
   justify-content: space-between;
   font-weight: 600;
   color: var(--color-primary);
 }
-
 .dropdown-toggle-type {
   display: flex;
   justify-content: space-between;
   font-weight: 600;
   color: var(--color-medium-gray);
 }
-
-.dropdown-label{
+.dropdown-label {
   margin-bottom: 4px;
 }
-
 .custom-dropdown summary {
   align-items: center;
-  list-style: none;
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 10px 16px;
   font-size: 14px;
-  border: 1px solid var(--color-dark-gray);
+  border: 1px solid var(--color-light-gray);
   border-radius: 4px;
   background: var(--color-bg);
   -webkit-user-select: none;
+  box-sizing: border-box;
+  height: 40px;
 }
 .custom-dropdown summary::-webkit-details-marker {
   display: none;
 }
-
 .dropdown-arrow {
   display: inline-block;
   transition: transform 0.3s ease;
 }
-
 .custom-dropdown[open] .dropdown-arrow {
   transform: rotate(180deg);
 }
-
 .dropdown-list {
   position: absolute;
   top: calc(100% + 4px);
@@ -188,13 +185,12 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  border: 1px solid var(--color-dark-gray);
+  border: 1px solid var(--color-light-gray);
   border-radius: 4px;
   background: var(--color-bg);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
-/* Заголовок внутри списка (информационная строка, не кликабельная) */
+/* Заголовок внутри списка */
 .dropdown-header-row {
   display: flex;
   justify-content: space-between;
@@ -205,7 +201,6 @@
   border-bottom: none;
   pointer-events: none;
 }
-
 .dropdown-list li {
   display: flex;
   justify-content: space-between;
@@ -213,7 +208,7 @@
   font-size: 14px;
   color: var(--color-text-main);
   cursor: pointer;
-  border-bottom: 1px solid var(--color-dark-gray);
+  border-bottom: 1px solid var(--color-light-gray);
 }
 .dropdown-list li:last-child {
   border-bottom: none;
@@ -222,12 +217,12 @@
   border-bottom: none;
   color: var(--color-text-muted);
 }
-
 .dropdown-item div:hover {
   background: var(--color-bg-page);
   color: var(--color-text-main);
 }
 
+/* Стили для статуса выбранного элемента */
 .item-status-approved {
   display: flex;
   align-items: center;
@@ -246,7 +241,6 @@
   width: 30%;
   justify-content: end;
 }
-
 .item-name {
   display: flex;
   flex-wrap: wrap;
@@ -254,7 +248,6 @@
   padding: 10px 16px;
   color: var(--color-text-muted);
 }
-
 .item-name-approved {
   display: flex;
   flex-wrap: wrap;
@@ -262,7 +255,6 @@
   padding: 10px 16px;
   color: var(--color-text-main);
 }
-
 .type-item-name {
   display: flex;
   flex-wrap: wrap;
@@ -271,11 +263,11 @@
   width: 100%;
 }
 
+/* Блок кнопок отправки */
 .button-line {
   justify-self: end;
   margin-right: 20px;
 }
-
 .send-button {
   font-size: 16px;
   width: 125px;
@@ -283,12 +275,11 @@
   gap: 8px;
   padding: 10px 20px;
   border-radius: 4px;
-  background: var(--color-dark-gray);
+  background: var(--color-light-gray);
   color: white;
   border: none;
   cursor: pointer;
 }
-
 .send-button-active {
   font-size: 16px;
   width: 125px;
@@ -300,4 +291,48 @@
   border: none;
   cursor: pointer;
   background: var(--color-secondary);
+}
+
+/* Тултип */
+.tooltip-global {
+  position: absolute;
+  display: none;
+  background: #fff;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 12px 16px;
+  max-width: 200px;
+  font-size: 14px;
+  color: var(--color-text-main);
+  z-index: 999;
+}
+.tooltip-global::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #fff;
+}
+.tooltip-text {
+  display: inline-block;
+  font-weight: 600;
+}
+.tooltip-text a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+.tooltip-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--color-primary);
+}
+.tooltip-close svg {
+  color: var(--color-primary);
 }

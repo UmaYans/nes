@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Договор</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+    />
+</head>
+<body>
+<div class="main-container">
+    <div class="title-position">
+        <h2 class="services-title">Договор</h2>
+    </div>
+    <div class="services-container">
+        <!--Селектор договора и текст договора-->
+        <div class="services-left">
+                <div class="agreement-section">
+                    <div class="agreement-and-text">
+                        <div class="dropdown-container">
+                            <details class="custom-dropdown">
+                                <summary class="dropdown-toggle-type">Договор
+                                    <span class="dropdown-arrow">
+      <img src="img/dropdown-arrow.svg" alt="v">
+    </span>
+                                </summary>
+                                <ul class="dropdown-list">
+                                    <!-- Опция 1 (выбранная) -->
+                                    <li class="dropdown-item">
+                                        <div class="type-item-name">Договор 1</div>
+
+                                    </li>
+                                    <!-- Опция 2 (невыбранная) -->
+                                    <li class="dropdown-item">
+                                        <div class="type-item-name">Договор 2</div>
+                                    </li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                    <button class="agreement-open-button">Открыть</button>
+                </div>
+
+            <div class="document-area">
+
+                <!-- почта -->
+
+
+                <div class="button-line">
+                    <button class="send-button" id="openModalBtn">Отправить</button>
+
+                    <!-- модалка + затемнение фона (оверлей) -->
+                    <div class="modal-overlay" id="modalOverlay">
+                        <div class="modal-window">
+                            <h2>Заявка была отправлена!</h2>
+                            <p>Номер обращения: <span class="request">NES___</span></p>
+                            <p>Отслеживайте статус заявки в <a href="#">истории заказов</a></p>
+                            <div class="modal-buttons">
+                                <button class="close-button" id="closeModalBtn">Закрыть</button>
+                                <button class="order-list-button" id="ordersListBtn">История заказов</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая колонка (картинка + текст) -->
+        <div class="services-right">
+            <div class="menu">
+                <span class="info-note">Проверьте ваши данные в договоре, в случае неточности отредактируйте в “Настройках профиля”</span>
+                <button class="profile-settings-button">Настройки профиля</button>
+            </div>
+            <div class="signing-area">
+                <span class="signing-title">
+                    <span>Получить доступ к услугам?</span>
+                    <span>Подпишите договор</span>
+                </span>
+                <div class="services-contract">
+                    <div class="check-line">
+                        <img src="img/unchecked.svg" alt="[]">
+                        <div class="contract-name-and-data">
+                            <span class="contract-name-title">Договор предоставления услуг</span>
+                            <span class="contract-date-title">Дата согласия: 14.02.2025</span>
+                        </div>
+                    </div>
+                    <div class="confirmed">
+                        <img src="img/item-status-approved.svg" alt="V">
+                        Подписан
+                    </div>
+                </div>
+                <div class="signing-line">
+                    <div class="pdf-line">
+                        <img src="img/pdf-file.svg" alt="file">
+                        <a href="#">Скачать PDF</a>
+                    </div>
+                    <button class="sign-button"><img src="img/item-status.svg" alt="status">Подписать</button>
+                </div>
+            </div>
+            <div class="down-menu">
+                <span class="download-documents-title">Скачайте пакет документов и отправьте по системе ЭДО</span>
+                <button class="download-documents-button">Скачать пакет документов</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.custom-dropdown').forEach((dropdown) => {
+        const summary = dropdown.querySelector('summary');
+        const arrow = summary.querySelector('.dropdown-arrow');
+        const arrowHTML = arrow ? arrow.outerHTML : '';
+        const items = dropdown.querySelectorAll('.dropdown-item');
+        items.forEach((item) => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                let selectedText = '';
+                const approvedName = item.querySelector('.item-name-approved');
+                const normalName = item.querySelector('.item-name');
+                const typeName = item.querySelector('.type-item-name');
+                if (approvedName) {
+                    selectedText = approvedName.textContent.trim();
+                } else if (normalName) {
+                    selectedText = normalName.textContent.trim();
+                } else if (typeName) {
+                    selectedText = typeName.textContent.trim();
+                } else {
+                    selectedText = item.textContent.trim();
+                }
+                summary.innerHTML = selectedText + arrowHTML;
+                dropdown.removeAttribute('open');
+                //проверяем заполнены ли все поля
+                checkAllForms();
+            });
+        });
+    });
+    document.addEventListener('click', (e) => {
+        document.querySelectorAll('.custom-dropdown').forEach((dropdown) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.removeAttribute('open');
+            }
+        });
+    });
+
+    //открытие модалки
+
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalOverlay = document.getElementById('modalOverlay');
+
+    openModalBtn.addEventListener('click', () => {
+        modalOverlay.classList.add('show');
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+        modalOverlay.classList.remove('show');
+    });
+
+    // закрытие при клике мимо модалки
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove('show');
+        }
+    });
+
+    //кнопка загрузки и удаления реестров
+    const fileToggleBtn = document.getElementById('fileToggleBtn');
+    const fileStatusSpan = document.getElementById('fileStatus');
+
+    //флаг выбран ли реестр
+    let fileSelected = false;
+
+    fileToggleBtn.addEventListener('click', () => {
+        if (!fileSelected) {
+            fileToggleBtn.textContent = 'Удалить реестр';
+            fileToggleBtn.classList.remove('button-add-file');
+            fileToggleBtn.classList.add('button-delete-file');
+            fileStatusSpan.textContent = 'Реестр_должников_ЖКХ_Ромашка.xls';
+            fileSelected = true;
+        } else {
+            fileToggleBtn.textContent = 'Добавить реестр';
+            fileToggleBtn.classList.remove('button-delete-file');
+            fileToggleBtn.classList.add('button-add-file');
+            fileStatusSpan.textContent = 'Реестр не выбран';
+            fileSelected = false;
+        }
+        checkAllForms();
+    });
+
+    //изменение цвета кнопки "отправить" в зависимости от выбранных полей
+
+    function checkAllForms() {
+
+        const serviceSummary = document
+            .getElementById('customDropdown')
+            .querySelector('summary')
+        const serviceText = serviceSummary.textContent.trim()
+
+        const typeDetails = document.getElementById('secondDropdown');
+
+        // Если в первом селекторе не выбрано значение, то второй неактивен
+        if (serviceText === 'Не выбрано') {
+            typeDetails.classList.add('disabled');
+        } else {
+            typeDetails.classList.remove('disabled');
+        }
+
+        const typeSummary = document
+            .getElementById('secondDropdown')
+            .querySelector('summary')
+        const typeText = typeSummary.textContent.trim()
+
+        const fileStatus = document.getElementById('fileStatus').textContent.trim()
+
+        const emailInput = document.getElementById('emailInput')
+        emailInput.addEventListener('input', checkAllForms);
+        emailInput.addEventListener('blur', checkAllForms);
+        const emailValue = emailInput.value.trim()
+
+        const isServiceChosen = (serviceText !== 'Не выбрано');
+        const isTypeChosen = (typeText !== 'Не выбрано');
+        const isFileChosen = (fileStatus !== 'Реестр не выбран');
+        const isEmailFilled = (emailValue !== '');
+
+        const sendButton = document.getElementById('openModalBtn');
+
+        if (isEmailFilled && isFileChosen && isServiceChosen && isTypeChosen) {
+            sendButton.classList.add('send-button-active')
+            sendButton.classList.remove('send-button')
+        } else {
+            sendButton.classList.add('send-button')
+            sendButton.classList.remove('send-button-active')
+        }
+    }
+
+    window.addEventListener('load', checkAllForms);
+
+</script>
+
+</body>
+</html>
