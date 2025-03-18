@@ -1,15 +1,16 @@
 :root {
-  --color-secondary: #FF6900;   /* Pure (or mostly pure) orange. */
-  --color-primary: #1A47A9;     /* Blue. */
-  --color-text-main: #232735;   /* Very dark grayish blue. */
-  --color-text-muted: #616D94;     /* Второстепенный текст */
-  --color-bg: #FFFFFF;          /* White. */
-  --color-medium-gray: #616D94; /* Mostly desaturated dark blue */
-  --color-bg-page: #F3F5F7;     /* Light grayish blue. */
-  --color-dark-gray: #DDDDDD;   /* Very light gray. */
-  --color-success: #00B753;     /* из элемента подписано*/
+  --color-secondary: #FF6900;   /* Оранжевый */
+  --color-primary: #1A47A9;     /* Синий */
+  --color-text-main: #232735;   /* Текст темный */
+  --color-text-muted: #616D94;  /* Мут текст */
+  --color-bg: #FFFFFF;          /* Белый */
+  --color-medium-gray: #616D94; /* Темно-серый */
+  --color-bg-page: #F3F5F7;       /* Бело-синий */
+  --color-light-gray: #DDDDDD;     /* Очень светлый */
+  --color-success: #00B753;       /* Из элемента "подписано" */
 }
 
+/* Сброс и базовые стили */
 * {
   margin: 0;
   padding: 0;
@@ -17,12 +18,12 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+/* Основные блоки */
 .main-container {
   display: flex;
   flex-direction: column;
   background-color: var(--color-bg-page);
 }
-
 .services-container {
   display: flex;
   flex-wrap: wrap;
@@ -30,16 +31,13 @@
   padding: 0 20px 80px 20px;
   gap: 20px;
 }
-
 .title-position {
   padding: 24px 20px 20px 20px;
 }
-
 .services-left {
   width: calc(57% - 10px);
   border-radius: 20px;
 }
-
 .services-right {
   width: calc(43% - 10px);
   background-color: var(--color-bg);
@@ -47,6 +45,7 @@
   border-radius: 20px;
 }
 
+/* Недавние услуги  */
 .recent-services {
   width: 100%;
   border-radius: 20px;
@@ -54,44 +53,63 @@
   background-color: var(--color-bg);
   margin-bottom: 20px;
 }
-
 .services-title {
   padding: 0 16px;
   font-size: 32px;
   font-weight: 400;
   color: var(--color-primary);
 }
-
 .recent-services-title {
   font-weight: 600;
   font-size: 22px;
   margin-bottom: 4px;
   color: var(--color-text-main);
 }
-
-.manager-title {
-  margin-bottom: 15px;
-  font-size: 22px;
-  color: var(--color-text-main);
-}
-
 .recent-services-header {
   margin-bottom: 24px;
-  color: var(--color-text-main);
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
+  color: var(--color-text-main);
 }
-
 .recent-services-header a {
   color: var(--color-primary);
   text-decoration: underline;
 }
 
+/* Консультант блок */
+.manager-title {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: var(--color-text-main);
+}
+.manager-consultation {
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: var(--color-bg);
+}
+.manager-consultation p {
+  font-weight: 400;
+  font-size: 16px;
+}
+.manager-phone {
+  padding-top: 8px;
+}
+.manager-phone a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+.manager-phone a:hover {
+  text-decoration: underline;
+}
+
+/* Список услуг */
 .services-list {
   list-style: none;
 }
-
 .services-list-item,
 .services-list-item-medium {
   display: flex;
@@ -99,49 +117,45 @@
   align-items: center;
   padding: 12px 0;
 }
-
 .services-list-item-medium {
-  border-bottom: 1px solid var(--color-dark-gray);
-  border-top: 1px solid var(--color-dark-gray);
+  border-top: 1px solid var(--color-light-gray);
+  border-bottom: 1px solid var(--color-light-gray);
 }
 
+/* Инфо об услугах */
 .service-info {
   display: flex;
   flex-direction: row;
   gap: 3px;
 }
-
 .service-content {
   display: flex;
   flex-direction: row;
   gap: 40px;
   align-items: center;
 }
-
 .service-name {
   font-weight: 600;
   padding-left: 16px;
   color: var(--color-primary);
 }
-
 .service-date {
   color: var(--color-text-muted);
 }
-
 .service-price {
   font-weight: 400;
   font-size: 14px;
   color: var(--color-medium-gray);
 }
-
 .price-value {
   color: var(--color-text-main);
   font-size: 14px;
   font-weight: 600;
 }
 
+/* Кнопки услуг */
 .service-button {
-  background-color: var(--color-dark-gray);
+  background-color: var(--color-light-gray);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -151,45 +165,16 @@
   font-size: 16px;
   line-height: 20px;
 }
-
-/* изменить стиль кнопке при добавлении логики*/
 .service-button-active {
   background-color: var(--color-secondary);
 }
 
-.manager-consultation {
-  width: 100%;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: var(--color-bg);
-}
-
-.manager-consultation p {
-  font-weight: 400;
-  font-size: 16px;
-}
-
-.manager-phone {
-  padding-top: 8px;
-}
-
-.manager-phone a {
-  color: var(--color-primary);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.manager-phone a:hover {
-  text-decoration: underline;
-}
-
+/* Изображение*/
 .services-reminder-image {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
 .info-note {
   font-family: 'Oswald', sans-serif;
   font-size: 16px;
@@ -198,17 +183,16 @@
   line-height: 24px;
   text-align: center;
   padding: 0 50px;
+  max-width: 410px;
+  justify-self: center;
 }
 
-/* ========================================== */
-/*             СТИЛИ ДЛЯ TOOLTIP             */
-/* ========================================== */
-
+/* Тултип */
 .tooltip-global {
   position: absolute;
   display: none;
   background: #fff;
-  border: 1px solid var(--color-dark-gray);
+  border: 1px solid var(--color-light-gray);
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   padding: 12px 16px;
@@ -226,21 +210,14 @@
   border: 8px solid transparent;
   border-top-color: #fff;
 }
-
 .tooltip-text {
   display: inline-block;
   font-weight: 600;
 }
-
 .tooltip-text a {
   color: var(--color-primary);
   text-decoration: underline;
 }
-
-.tooltip-close svg {
-  color: var(--color-primary);
-}
-
 .tooltip-close {
   position: absolute;
   top: 4px;
@@ -248,5 +225,8 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;
+  color: var(--color-primary);
+}
+.tooltip-close svg {
   color: var(--color-primary);
 }
