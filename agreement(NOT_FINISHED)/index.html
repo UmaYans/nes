@@ -79,29 +79,65 @@
                 <button class="profile-settings-button">Настройки профиля</button>
             </div>
             <div class="signing-area">
-                <span class="signing-title">
+                <span class="signing-title" id="signing-title">
                     <span>Получить доступ к услугам?</span>
                     <span>Подпишите договор</span>
                 </span>
                 <div class="services-contract">
                     <div class="check-line">
-                        <img src="img/unchecked.svg" alt="[]">
-                        <div class="contract-name-and-data">
+                        <img id="checkbox" src="img/unchecked.svg" alt="[]">
+                        <div class="contract-name-and-data" id="contractInfo">
                             <span class="contract-name-title">Договор предоставления услуг</span>
                             <span class="contract-date-title">Дата согласия: 14.02.2025</span>
                         </div>
                     </div>
-                    <div class="confirmed">
+                    <div class="confirmed" id="confirmation">
                         <img src="img/item-status-approved.svg" alt="V">
                         Подписан
                     </div>
                 </div>
-                <div class="signing-line">
+                <div class="extra-services">
+                    <div class="extra-services-title">Подключите все возможности системы:</div>
+                    <div class="notifications">
+                        <div class="notifications-label">Автоматизируйте важные уведомления</div>
+                        <div class="check-line">
+                            <img id="notificationsCheckbox" src="img/unchecked.svg" alt="[]">
+                            <div class="contract-name-and-data" id="notificationsContractInfo">
+                                <span class="contract-name-title">Подключить услугу информирования</span>
+                                <span class="contract-date-title">Дата согласия: 14.02.2025</span>
+                            </div>
+                        </div>
+                        <div class="extra-services-signing-line" id="signing-line2">
+                            <div class="pdf-line">
+                                <img src="img/pdf-file.svg" alt="file">
+                                <a href="#">Скачать PDF</a>
+                            </div>
+                            <button id="sign-button2" class="sign-button"><img src="img/item-status.svg" alt="status">Подключить</button>
+                        </div>
+                    </div>
+                    <img src="img/separator.png" alt="_____" class="separator">
+                    <div class="notifications-label">Доверьте судебную работу экспертам</div>
+                    <div class="check-line">
+                        <img id="judicialCheckbox" src="img/unchecked.svg" alt="[]">
+                        <div class="contract-name-and-data" id="judicialContractInfo">
+                            <span class="contract-name-title">Подключить эксперта для судебной работы</span>
+                            <span class="contract-date-title">Дата согласия: 14.02.2025</span>
+                        </div>
+                    </div>
+                    <div class="extra-services-signing-line" id="signing-line3">
+                        <div class="pdf-line">
+                            <img src="img/pdf-file.svg" alt="file">
+                            <a href="#">Скачать PDF</a>
+                        </div>
+                        <button id="sign-button3" class="sign-button"><img src="img/item-status.svg" alt="status">Подключить</button>
+                    </div>
+                </div>
+                <div class="signing-line" id="signing-line">
                     <div class="pdf-line">
                         <img src="img/pdf-file.svg" alt="file">
                         <a href="#">Скачать PDF</a>
                     </div>
-                    <button class="sign-button"><img src="img/item-status.svg" alt="status">Подписать</button>
+                    <button id="sign-button" class="sign-button"><img src="img/item-status.svg" alt="status">Подписать</button>
                 </div>
             </div>
             <div class="down-menu">
@@ -149,50 +185,62 @@
         });
     });
 
-    //открытие модалки
+    //замена в правом меню чеккбокса без галочки на чекбокс с галочкой
 
-    const openModalBtn = document.getElementById('openModalBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const modalOverlay = document.getElementById('modalOverlay');
+    document.addEventListener("DOMContentLoaded", function (){
+        const checkbox = document.getElementById('checkbox')
+        const signButton = document.getElementById('sign-button')
 
-    openModalBtn.addEventListener('click', () => {
-        modalOverlay.classList.add('show');
-    });
+        checkbox.addEventListener("click", function () {
+            if (checkbox.src.endsWith('unchecked.svg')){
+                checkbox.src = 'img/checked.svg'
+                checkbox.alt = '[v]'
+                signButton.classList.remove('sign-button')
+                signButton.classList.add('sign-button-active')
+            } else {
+                checkbox.src = 'img/unchecked.svg'
+                checkbox.alt = '[]'
+                signButton.classList.remove('sign-button-active')
+                signButton.classList.add('sign-button')
+            }
+        })
 
-    closeModalBtn.addEventListener('click', () => {
-        modalOverlay.classList.remove('show');
-    });
+        // сокрытие элементов при клике на кнопку "подписать"
 
-    // закрытие при клике мимо модалки
-    modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-            modalOverlay.classList.remove('show');
-        }
-    });
+        const signingTitle = document.getElementById('signing-title')
+        const signingLine = document.getElementById('signing-line')
+        const confirmation = document.getElementById('confirmation')
+        const contractInfo = document.getElementById('contractInfo')
 
-    //кнопка загрузки и удаления реестров
-    const fileToggleBtn = document.getElementById('fileToggleBtn');
-    const fileStatusSpan = document.getElementById('fileStatus');
+        let isContractSigned = false
 
-    //флаг выбран ли реестр
-    let fileSelected = false;
+        signButton.addEventListener("click", function () {
+            if (!isContractSigned) {
+                signingTitle.classList.remove('signing-title')
+                signingTitle.classList.add('signing-title-hidden')
+                signingLine.classList.remove('signing-line')
+                signingLine.classList.add('signing-line-hidden')
+                confirmation.classList.remove('confirmed')
+                confirmation.classList.add('confirmed-display')
+                checkbox.classList.add('checkbox-hidden')
+                contractInfo.classList.remove('contract-name-and-data')
+                contractInfo.classList.add('contract-name-and-data-signed')
+                isContractSigned = true
+            } else {
+                signingTitle.classList.remove('signing-title-hidden')
+                signingTitle.classList.add('signing-title')
+                signingLine.classList.remove('signing-line-hidden')
+                signingLine.classList.add('signing-line')
+                confirmation.classList.remove('confirmed-display')
+                confirmation.classList.add('confirmed')
+                checkbox.classList.remove('checkbox-hidden')
+                contractInfo.classList.remove('contract-name-and-data-signed')
+                contractInfo.classList.add('contract-name-and-data')
+                isContractSigned = false
+            }
+        })
+    })
 
-    fileToggleBtn.addEventListener('click', () => {
-        if (!fileSelected) {
-            fileToggleBtn.textContent = 'Удалить реестр';
-            fileToggleBtn.classList.remove('button-add-file');
-            fileToggleBtn.classList.add('button-delete-file');
-            fileStatusSpan.textContent = 'Реестр_должников_ЖКХ_Ромашка.xls';
-            fileSelected = true;
-        } else {
-            fileToggleBtn.textContent = 'Добавить реестр';
-            fileToggleBtn.classList.remove('button-delete-file');
-            fileToggleBtn.classList.add('button-add-file');
-            fileStatusSpan.textContent = 'Реестр не выбран';
-            fileSelected = false;
-        }
-        checkAllForms();
-    });
 
     //изменение цвета кнопки "отправить" в зависимости от выбранных полей
 
