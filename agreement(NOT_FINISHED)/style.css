@@ -58,6 +58,19 @@
     padding: 20px;
     background-color: var(--color-bg);
     overflow-y: scroll;
+    position: relative;
+}
+
+.document-img {
+    width: 225px;
+    height: 54px;
+    position: absolute;
+    right: 12px;
+    top: 24px;
+    rotate: -10deg;
+}
+.document-img-hidden{
+    display: none;
 }
 
 /* Заголовки */

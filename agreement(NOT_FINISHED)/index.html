@@ -50,7 +50,10 @@
 
             <!-- Область прокручиваемого договора-->
             <div class="document-area">
-
+                <img src="img/read-contract.png" alt="Изучите договор" class="document-img" id="readContract">
+                <img src="img/not-signed-contract.png" alt="Не подписан" class="document-img-hidden" id="notSignedContract">
+                <img src="img/signed-contract.png" alt="Подписан в ЛК" class="document-img-hidden" id="signedContract">
+                <img src="img/signed-edo-contract.png" alt="Подписан по ЭДО" class="document-img-hidden" id="signedEdoContract">
             </div>
         </div>
 
@@ -192,6 +195,7 @@
     });
 
     //замена в правом меню чекбокса без галочки на чекбокс с галочкой
+    //+ замена надписей "изучите договор" на "не подписан"
 
     document.addEventListener("DOMContentLoaded", function () {
 
@@ -202,6 +206,10 @@
         const notificationSignButton = document.getElementById('notificationSignButton')
         const judicialCheckbox = document.getElementById('judicialCheckbox')
         const judicialSignButton = document.getElementById('judicialSignButton')
+        const readContract = document.getElementById('readContract')
+        const notSignedContract = document.getElementById('notSignedContract')
+        const signedContract = document.getElementById('signedContract')
+        const signedEdoContract = document.getElementById('signedEdoContract')
 
         checkbox.addEventListener("click", function () {
             if (checkbox.src.endsWith('unchecked.svg')) {
@@ -209,26 +217,43 @@
                 checkbox.alt = '[v]'
                 signButton.classList.remove('sign-button')
                 signButton.classList.add('sign-button-active')
+                readContract.classList.remove('document-img')
+                readContract.classList.add('document-img-hidden')
+                notSignedContract.classList.remove('document-img-hidden')
+                notSignedContract.classList.add('document-img')
             } else {
                 checkbox.src = 'img/unchecked.svg'
                 checkbox.alt = '[]'
                 signButton.classList.remove('sign-button-active')
                 signButton.classList.add('sign-button')
+                readContract.classList.remove('document-img-hidden')
+                readContract.classList.add('document-img')
+                notSignedContract.classList.remove('document-img')
+                notSignedContract.classList.add('document-img-hidden')
             }
         })
 
         // секция уведомлений
+        // смена надписи "подписан в лк" на "подписан по эдо"
         notificationCheckbox.addEventListener('click', function () {
             if (notificationCheckbox.src.endsWith('unchecked.svg')) {
                 notificationCheckbox.src = 'img/checked.svg'
                 notificationCheckbox.alt = '[v]'
                 notificationSignButton.classList.remove('sign-button')
                 notificationSignButton.classList.add('sign-button-active')
+                signedContract.classList.remove('document-img')
+                signedContract.classList.add('document-img-hidden')
+                signedEdoContract.classList.remove('document-img-hidden')
+                signedEdoContract.classList.add('document-img')
             } else {
                 notificationCheckbox.src = 'img/unchecked.svg'
                 notificationCheckbox.alt = '[]'
                 notificationSignButton.classList.remove('sign-button-active')
                 notificationSignButton.classList.add('sign-button')
+                signedContract.classList.remove('document-img-hidden')
+                signedContract.classList.add('document-img')
+                signedEdoContract.classList.remove('document-img')
+                signedEdoContract.classList.add('document-img-hidden')
             }
         })
 
@@ -248,6 +273,7 @@
         })
 
         // сокрытие элементов при клике на кнопку "подписать"
+        //смена "печати" "не подписан" на "подписан в лк"
 
         const signingTitle = document.getElementById('signing-title')
         const signingLine = document.getElementById('signingLine')
@@ -282,6 +308,10 @@
                 contractInfo.classList.add('contract-name-and-data-signed')
                 extraServiceContainer.classList.remove('extra-services-container-hidden')
                 extraServiceContainer.classList.add('extra-services-container')
+                notSignedContract.classList.remove('document-img')
+                notSignedContract.classList.add('document-img-hidden')
+                signedContract.classList.remove('document-img-hidden')
+                signedContract.classList.add('document-img')
                 isContractSigned = true
             } else {
                 signingTitle.classList.remove('signing-title-hidden')
@@ -295,6 +325,10 @@
                 contractInfo.classList.add('contract-name-and-data')
                 extraServiceContainer.classList.remove('extra-services-container')
                 extraServiceContainer.classList.add('extra-services-container-hidden')
+                notSignedContract.classList.remove('document-img-hidden')
+                notSignedContract.classList.add('document-img')
+                signedContract.classList.remove('document-img')
+                signedContract.classList.add('document-img-hidden')
                 isContractSigned = false
             }
         })
