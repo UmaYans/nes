@@ -418,7 +418,6 @@ details.custom-dropdown.disabled summary {
   align-items: center;
   cursor: pointer;
   border: none;
-  margin-right: 20px;
 }
 .send-button {
   background: var(--color-light-gray);
