@@ -50,9 +50,7 @@
 
             <!-- Область прокручиваемого договора-->
             <div class="document-area">
-                <div class="button-line">
-                    <button class="send-button" id="openModalBtn">Отправить</button>
-                </div>
+
             </div>
         </div>
 
@@ -71,7 +69,7 @@
                 <!-- чекбокс с услугами-->
                 <div class="services-contract">
                     <div class="check-line">
-                        <img id="checkbox" src="img/unchecked.svg" alt="[]">
+                        <img id="checkbox" src="img/unchecked.svg" alt="[]" class="img-pointer">
                         <div class="contract-name-and-data" id="contractInfo">
                             <span class="contract-name-title">Договор предоставления услуг</span>
                             <span class="contract-date-title">Дата согласия: 14.02.2025</span>
@@ -89,7 +87,7 @@
                     <div class="extra-services-label">Автоматизируйте важные уведомления</div>
                     <div class="extra-services">
                         <div class="check-line">
-                            <img id="notificationsCheckbox" src="img/unchecked.svg" alt="[]">
+                            <img id="notificationsCheckbox" src="img/unchecked.svg" alt="[]" class="img-pointer">
                             <div class="contract-name-and-data" id="notificationsContractInfo">
                                 <span class="contract-name-title" id="notificationUncheckedTitle">Подключить услугу информирования</span>
                                 <span class="contract-name-title-hidden" id="notificationCheckedTitle">Услуга информирования</span>
@@ -115,7 +113,7 @@
                     <!-- судебная работа экспертам-->
                     <div class="extra-services">
                         <div class="check-line">
-                            <img id="judicialCheckbox" src="img/unchecked.svg" alt="[]">
+                            <img id="judicialCheckbox" src="img/unchecked.svg" alt="[]" class="img-pointer">
                             <div class="contract-name-and-data" id="judicialContractInfo">
                                 <span class="contract-name-title" id="judicialUncheckedTitle">Подключить эксперта для судебной работы</span>
                                 <span class="contract-name-title-hidden" id="judicialCheckedTitle">Эксперт для судебной работы</span>
@@ -363,55 +361,6 @@
             }
         })
     })
-
-
-    //изменение цвета кнопки "отправить" в зависимости от выбранных полей
-
-    function checkAllForms() {
-
-        const serviceSummary = document
-            .getElementById('customDropdown')
-            .querySelector('summary')
-        const serviceText = serviceSummary.textContent.trim()
-
-        const typeDetails = document.getElementById('secondDropdown');
-
-        // Если в первом селекторе не выбрано значение, то второй неактивен
-        if (serviceText === 'Не выбрано') {
-            typeDetails.classList.add('disabled');
-        } else {
-            typeDetails.classList.remove('disabled');
-        }
-
-        const typeSummary = document
-            .getElementById('secondDropdown')
-            .querySelector('summary')
-        const typeText = typeSummary.textContent.trim()
-
-        const fileStatus = document.getElementById('fileStatus').textContent.trim()
-
-        const emailInput = document.getElementById('emailInput')
-        emailInput.addEventListener('input', checkAllForms);
-        emailInput.addEventListener('blur', checkAllForms);
-        const emailValue = emailInput.value.trim()
-
-        const isServiceChosen = (serviceText !== 'Не выбрано');
-        const isTypeChosen = (typeText !== 'Не выбрано');
-        const isFileChosen = (fileStatus !== 'Реестр не выбран');
-        const isEmailFilled = (emailValue !== '');
-
-        const sendButton = document.getElementById('openModalBtn');
-
-        if (isEmailFilled && isFileChosen && isServiceChosen && isTypeChosen) {
-            sendButton.classList.add('send-button-active')
-            sendButton.classList.remove('send-button')
-        } else {
-            sendButton.classList.add('send-button')
-            sendButton.classList.remove('send-button-active')
-        }
-    }
-
-    window.addEventListener('load', checkAllForms);
 
 </script>
 
