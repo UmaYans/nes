@@ -48,26 +48,10 @@
                 <button class="agreement-open-button">Открыть</button>
             </div>
 
+            <!-- Область прокручиваемого договора-->
             <div class="document-area">
-
-                <!-- почта -->
-
-
                 <div class="button-line">
                     <button class="send-button" id="openModalBtn">Отправить</button>
-
-                    <!-- модалка + затемнение фона (оверлей) -->
-                    <div class="modal-overlay" id="modalOverlay">
-                        <div class="modal-window">
-                            <h2>Заявка была отправлена!</h2>
-                            <p>Номер обращения: <span class="request">NES___</span></p>
-                            <p>Отслеживайте статус заявки в <a href="#">истории заказов</a></p>
-                            <div class="modal-buttons">
-                                <button class="close-button" id="closeModalBtn">Закрыть</button>
-                                <button class="order-list-button" id="ordersListBtn">История заказов</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -126,8 +110,9 @@
                         </button>
                     </div>
                     <img src="img/separator.png" alt="_____" class="separator">
-                    <!-- судебная работа экспертам-->
+                    <!-- судебная работа экспертам label-->
                     <div class="extra-services-label">Доверьте судебную работу экспертам</div>
+                    <!-- судебная работа экспертам-->
                     <div class="extra-services">
                         <div class="check-line">
                             <img id="judicialCheckbox" src="img/unchecked.svg" alt="[]">
@@ -142,6 +127,7 @@
                             Подключен
                         </div>
                     </div>
+                    <!-- конец для "судебная работа экспертам"-->
                     <div class="extra-services-signing-line" id="judicialSigningLine">
                         <div class="pdf-line">
                             <img src="img/pdf-file.svg" alt="file">
@@ -160,6 +146,7 @@
                     </button>
                 </div>
             </div>
+            <!-- Подвал меню справа. Кнопка скачивания документов-->
             <div class="down-menu">
                 <span class="download-documents-title">Скачайте пакет документов и отправьте по системе ЭДО</span>
                 <button class="download-documents-button">Скачать пакет документов</button>
@@ -169,6 +156,7 @@
 </div>
 
 <script>
+    //Выбор договора в селекторе
     document.querySelectorAll('.custom-dropdown').forEach((dropdown) => {
         const summary = dropdown.querySelector('summary');
         const arrow = summary.querySelector('.dropdown-arrow');
