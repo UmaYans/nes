@@ -169,7 +169,7 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 32px;
-    padding: 12px 4px 8px 4px;
+    padding: 12px 16px 8px;
 }
 .signing-title-hidden{
     display: none;
@@ -179,7 +179,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 4px 0 4px;
+    padding: 12px 16px 0;
     margin-bottom: 16px;
 }
 .check-line{
@@ -198,7 +198,6 @@
 .contract-name-and-data-signed{
     display: flex;
     flex-direction: column;
-    padding-left: 16px;
 }
 .contract-name-title{
     font-weight: 400;
@@ -206,6 +205,9 @@
     height: 19px;
     line-height: 100%;
     color: var(--color-text-main);
+}
+.contract-name-title-hidden{
+    display: none;
 }
 .contract-date-title{
     font-weight: 400;
@@ -236,14 +238,16 @@
     align-items: center;
     gap: 8px;
     color: var(--color-success);
-    margin-right: 16px;
 }
-.extra-services{
+.extra-services-container{
     margin: 4px;
     gap: 20px;
     border-radius: 12px;
     padding: 24px 20px;
     background: var(--color-bg);
+}
+.extra-services-container-hidden{
+    display: none;
 }
 .extra-services-title{
     font-weight: 400;
@@ -252,11 +256,12 @@
     color: var(--color-primary);
     margin-bottom: 20px;
 }
-.notifications{
+.extra-services{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
 }
-.notifications-label {
+.extra-services-label {
     font-weight: 600;
     font-size: 18px;
     line-height: 100%;
@@ -269,7 +274,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    padding: 0 4px;
+    padding: 0 16px;
     margin-bottom: 12px;
 }
 .signing-line-hidden{
@@ -286,7 +291,7 @@
     cursor: pointer;
 }
 .sign-button{
-    width: 33%;
+    min-width: 33%;
     height: 40px;
     color: var(--color-bg);
     background: var(--color-light-gray);
@@ -304,7 +309,7 @@
 }
 
 .sign-button-active {
-    width: 33%;
+    min-width: 33%;
     height: 40px;
     color: var(--color-bg);
     border-radius: 4px;

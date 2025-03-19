@@ -22,31 +22,31 @@
     <div class="services-container">
         <!--Селектор договора и текст договора-->
         <div class="services-left">
-                <div class="agreement-section">
-                    <div class="agreement-and-text">
-                        <div class="dropdown-container">
-                            <details class="custom-dropdown">
-                                <summary class="dropdown-toggle-type">Договор
-                                    <span class="dropdown-arrow">
+            <div class="agreement-section">
+                <div class="agreement-and-text">
+                    <div class="dropdown-container">
+                        <details class="custom-dropdown">
+                            <summary class="dropdown-toggle-type">Договор
+                                <span class="dropdown-arrow">
       <img src="img/dropdown-arrow.svg" alt="v">
     </span>
-                                </summary>
-                                <ul class="dropdown-list">
-                                    <!-- Опция 1 (выбранная) -->
-                                    <li class="dropdown-item">
-                                        <div class="type-item-name">Договор 1</div>
+                            </summary>
+                            <ul class="dropdown-list">
+                                <!-- Опция 1 (выбранная) -->
+                                <li class="dropdown-item">
+                                    <div class="type-item-name">Договор 1</div>
 
-                                    </li>
-                                    <!-- Опция 2 (невыбранная) -->
-                                    <li class="dropdown-item">
-                                        <div class="type-item-name">Договор 2</div>
-                                    </li>
-                                </ul>
-                            </details>
-                        </div>
+                                </li>
+                                <!-- Опция 2 (невыбранная) -->
+                                <li class="dropdown-item">
+                                    <div class="type-item-name">Договор 2</div>
+                                </li>
+                            </ul>
+                        </details>
                     </div>
-                    <button class="agreement-open-button">Открыть</button>
                 </div>
+                <button class="agreement-open-button">Открыть</button>
+            </div>
 
             <div class="document-area">
 
@@ -72,17 +72,19 @@
             </div>
         </div>
 
-        <!-- Правая колонка (картинка + текст) -->
+        <!-- Правая колонка (интерактив) -->
         <div class="services-right">
             <div class="menu">
                 <span class="info-note">Проверьте ваши данные в договоре, в случае неточности отредактируйте в “Настройках профиля”</span>
                 <button class="profile-settings-button">Настройки профиля</button>
             </div>
+            <!-- конец настроек профиля-->
             <div class="signing-area">
                 <span class="signing-title" id="signing-title">
                     <span>Получить доступ к услугам?</span>
                     <span>Подпишите договор</span>
                 </span>
+                <!-- чекбокс с услугами-->
                 <div class="services-contract">
                     <div class="check-line">
                         <img id="checkbox" src="img/unchecked.svg" alt="[]">
@@ -96,48 +98,66 @@
                         Подписан
                     </div>
                 </div>
-                <div class="extra-services">
+                <!-- дополнительные соглашения "подключите все возможности системы)-->
+                <div class="extra-services-container-hidden" id="extraServiceContainer">
                     <div class="extra-services-title">Подключите все возможности системы:</div>
-                    <div class="notifications">
-                        <div class="notifications-label">Автоматизируйте важные уведомления</div>
+                    <!-- уведомления-->
+                    <div class="extra-services-label">Автоматизируйте важные уведомления</div>
+                    <div class="extra-services">
                         <div class="check-line">
                             <img id="notificationsCheckbox" src="img/unchecked.svg" alt="[]">
                             <div class="contract-name-and-data" id="notificationsContractInfo">
-                                <span class="contract-name-title">Подключить услугу информирования</span>
+                                <span class="contract-name-title" id="notificationUncheckedTitle">Подключить услугу информирования</span>
+                                <span class="contract-name-title-hidden" id="notificationCheckedTitle">Услуга информирования</span>
                                 <span class="contract-date-title">Дата согласия: 14.02.2025</span>
                             </div>
                         </div>
-                        <div class="extra-services-signing-line" id="signing-line2">
-                            <div class="pdf-line">
-                                <img src="img/pdf-file.svg" alt="file">
-                                <a href="#">Скачать PDF</a>
-                            </div>
-                            <button id="sign-button2" class="sign-button"><img src="img/item-status.svg" alt="status">Подключить</button>
+                        <div class="confirmed" id="notificationConfirmation">
+                            <img src="img/item-status-approved.svg" alt="V">
+                            Подключена
                         </div>
                     </div>
-                    <img src="img/separator.png" alt="_____" class="separator">
-                    <div class="notifications-label">Доверьте судебную работу экспертам</div>
-                    <div class="check-line">
-                        <img id="judicialCheckbox" src="img/unchecked.svg" alt="[]">
-                        <div class="contract-name-and-data" id="judicialContractInfo">
-                            <span class="contract-name-title">Подключить эксперта для судебной работы</span>
-                            <span class="contract-date-title">Дата согласия: 14.02.2025</span>
-                        </div>
-                    </div>
-                    <div class="extra-services-signing-line" id="signing-line3">
+                    <div class="extra-services-signing-line" id="notificationSigningLine">
                         <div class="pdf-line">
                             <img src="img/pdf-file.svg" alt="file">
                             <a href="#">Скачать PDF</a>
                         </div>
-                        <button id="sign-button3" class="sign-button"><img src="img/item-status.svg" alt="status">Подключить</button>
+                        <button id="notificationSignButton" class="sign-button"><img src="img/item-status.svg" alt="status">Подключить
+                        </button>
+                    </div>
+                    <img src="img/separator.png" alt="_____" class="separator">
+                    <!-- судебная работа экспертам-->
+                    <div class="extra-services-label">Доверьте судебную работу экспертам</div>
+                    <div class="extra-services">
+                        <div class="check-line">
+                            <img id="judicialCheckbox" src="img/unchecked.svg" alt="[]">
+                            <div class="contract-name-and-data" id="judicialContractInfo">
+                                <span class="contract-name-title" id="judicialUncheckedTitle">Подключить эксперта для судебной работы</span>
+                                <span class="contract-name-title-hidden" id="judicialCheckedTitle">Эксперт для судебной работы</span>
+                                <span class="contract-date-title">Дата согласия: 14.02.2025</span>
+                            </div>
+                        </div>
+                        <div class="confirmed" id="judicialConfirmation">
+                            <img src="img/item-status-approved.svg" alt="V">
+                            Подключен
+                        </div>
+                    </div>
+                    <div class="extra-services-signing-line" id="judicialSigningLine">
+                        <div class="pdf-line">
+                            <img src="img/pdf-file.svg" alt="file">
+                            <a href="#">Скачать PDF</a>
+                        </div>
+                        <button id="judicialSignButton" class="sign-button"><img src="img/item-status.svg" alt="status">Подключить
+                        </button>
                     </div>
                 </div>
-                <div class="signing-line" id="signing-line">
+                <div class="signing-line" id="signingLine">
                     <div class="pdf-line">
                         <img src="img/pdf-file.svg" alt="file">
                         <a href="#">Скачать PDF</a>
                     </div>
-                    <button id="sign-button" class="sign-button"><img src="img/item-status.svg" alt="status">Подписать</button>
+                    <button id="signButton" class="sign-button"><img src="img/item-status.svg" alt="status">Подписать
+                    </button>
                 </div>
             </div>
             <div class="down-menu">
@@ -185,14 +205,20 @@
         });
     });
 
-    //замена в правом меню чеккбокса без галочки на чекбокс с галочкой
+    //замена в правом меню чекбокса без галочки на чекбокс с галочкой
 
-    document.addEventListener("DOMContentLoaded", function (){
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const extraServiceContainer = document.getElementById('extraServiceContainer')
         const checkbox = document.getElementById('checkbox')
-        const signButton = document.getElementById('sign-button')
+        const signButton = document.getElementById('signButton')
+        const notificationCheckbox = document.getElementById('notificationsCheckbox')
+        const notificationSignButton = document.getElementById('notificationSignButton')
+        const judicialCheckbox = document.getElementById('judicialCheckbox')
+        const judicialSignButton = document.getElementById('judicialSignButton')
 
         checkbox.addEventListener("click", function () {
-            if (checkbox.src.endsWith('unchecked.svg')){
+            if (checkbox.src.endsWith('unchecked.svg')) {
                 checkbox.src = 'img/checked.svg'
                 checkbox.alt = '[v]'
                 signButton.classList.remove('sign-button')
@@ -205,15 +231,58 @@
             }
         })
 
+        // секция уведомлений
+        notificationCheckbox.addEventListener('click', function () {
+            if (notificationCheckbox.src.endsWith('unchecked.svg')) {
+                notificationCheckbox.src = 'img/checked.svg'
+                notificationCheckbox.alt = '[v]'
+                notificationSignButton.classList.remove('sign-button')
+                notificationSignButton.classList.add('sign-button-active')
+            } else {
+                notificationCheckbox.src = 'img/unchecked.svg'
+                notificationCheckbox.alt = '[]'
+                notificationSignButton.classList.remove('sign-button-active')
+                notificationSignButton.classList.add('sign-button')
+            }
+        })
+
+            // секция судебных работ для экспертов
+            judicialCheckbox.addEventListener('click', function () {
+                if (judicialCheckbox.src.endsWith('unchecked.svg')) {
+                    judicialCheckbox.src = 'img/checked.svg'
+                    judicialCheckbox.alt = '[v]'
+                    judicialSignButton.classList.remove('sign-button')
+                    judicialSignButton.classList.add('sign-button-active')
+                } else {
+                    judicialCheckbox.src = 'img/unchecked.svg'
+                    judicialCheckbox.alt = '[]'
+                    judicialSignButton.classList.remove('sign-button-active')
+                    judicialSignButton.classList.add('sign-button')
+                }
+        })
+
         // сокрытие элементов при клике на кнопку "подписать"
 
         const signingTitle = document.getElementById('signing-title')
-        const signingLine = document.getElementById('signing-line')
+        const signingLine = document.getElementById('signingLine')
+        const notificationSigningLine = document.getElementById('notificationSigningLine')
+        const judicialSigningLine = document.getElementById('judicialSigningLine')
         const confirmation = document.getElementById('confirmation')
+        const notificationConfirmation = document.getElementById('notificationConfirmation')
+        const judicialConfirmation = document.getElementById('judicialConfirmation')
         const contractInfo = document.getElementById('contractInfo')
+        const notificationContractInfo = document.getElementById('notificationsContractInfo')
+        const judicialContractInfo = document.getElementById('judicialContractInfo')
+        const notificationUncheckedTitle = document.getElementById('notificationUncheckedTitle')
+        const notificationCheckedTitle = document.getElementById('notificationCheckedTitle')
+        const judicialUncheckedTitle = document.getElementById('judicialUncheckedTitle')
+        const judicialCheckedTitle = document.getElementById('judicialCheckedTitle')
 
         let isContractSigned = false
+        let isNotificationContractSigned = false
+        let isJudicialContractSigned = false
 
+        //общая кнопка
         signButton.addEventListener("click", function () {
             if (!isContractSigned) {
                 signingTitle.classList.remove('signing-title')
@@ -225,6 +294,8 @@
                 checkbox.classList.add('checkbox-hidden')
                 contractInfo.classList.remove('contract-name-and-data')
                 contractInfo.classList.add('contract-name-and-data-signed')
+                extraServiceContainer.classList.remove('extra-services-container-hidden')
+                extraServiceContainer.classList.add('extra-services-container')
                 isContractSigned = true
             } else {
                 signingTitle.classList.remove('signing-title-hidden')
@@ -236,7 +307,71 @@
                 checkbox.classList.remove('checkbox-hidden')
                 contractInfo.classList.remove('contract-name-and-data-signed')
                 contractInfo.classList.add('contract-name-and-data')
+                extraServiceContainer.classList.remove('extra-services-container')
+                extraServiceContainer.classList.add('extra-services-container-hidden')
                 isContractSigned = false
+            }
+        })
+
+        //кнопка в блоке уведомлений
+        notificationSignButton.addEventListener("click", function () {
+            if (!isNotificationContractSigned) {
+                notificationSigningLine.classList.remove('signing-line')
+                notificationSigningLine.classList.add('signing-line-hidden')
+                notificationConfirmation.classList.remove('confirmed')
+                notificationConfirmation.classList.add('confirmed-display')
+                notificationCheckbox.classList.add('checkbox-hidden')
+                notificationContractInfo.classList.remove('contract-name-and-data')
+                notificationContractInfo.classList.add('contract-name-and-data-signed')
+                notificationUncheckedTitle.classList.remove('contract-name-title')
+                notificationUncheckedTitle.classList.add('contract-name-title-hidden')
+                notificationCheckedTitle.classList.remove('contract-name-title-hidden')
+                notificationCheckedTitle.classList.add('contract-name-title')
+                isNotificationContractSigned = true
+            } else {
+                notificationSigningLine.classList.remove('signing-line-hidden')
+                notificationSigningLine.classList.add('signing-line')
+                notificationConfirmation.classList.remove('confirmed-display')
+                notificationConfirmation.classList.add('confirmed')
+                notificationCheckbox.classList.remove('checkbox-hidden')
+                notificationContractInfo.classList.remove('contract-name-and-data-signed')
+                notificationContractInfo.classList.add('contract-name-and-data')
+                notificationUncheckedTitle.classList.remove('contract-name-title-hidden')
+                notificationUncheckedTitle.classList.add('contract-name-title')
+                notificationCheckedTitle.classList.remove('contract-name-title')
+                notificationCheckedTitle.classList.add('contract-name-title-hidden')
+                isNotificationContractSigned = false
+            }
+        })
+
+        //кнопка в блоке судебных работ для эксперта
+        judicialSignButton.addEventListener("click", function () {
+            if (!isJudicialContractSigned) {
+                judicialSigningLine.classList.remove('signing-line')
+                judicialSigningLine.classList.add('signing-line-hidden')
+                judicialConfirmation.classList.remove('confirmed')
+                judicialConfirmation.classList.add('confirmed-display')
+                judicialCheckbox.classList.add('checkbox-hidden')
+                judicialContractInfo.classList.remove('contract-name-and-data')
+                judicialContractInfo.classList.add('contract-name-and-data-signed')
+                judicialUncheckedTitle.classList.remove('contract-name-title')
+                judicialUncheckedTitle.classList.add('contract-name-title-hidden')
+                judicialCheckedTitle.classList.remove('contract-name-title-hidden')
+                judicialCheckedTitle.classList.add('contract-name-title')
+                isJudicialContractSigned = true
+            } else {
+                judicialSigningLine.classList.remove('signing-line-hidden')
+                judicialSigningLine.classList.add('signing-line')
+                judicialConfirmation.classList.remove('confirmed-display')
+                judicialConfirmation.classList.add('confirmed')
+                judicialCheckbox.classList.remove('checkbox-hidden')
+                judicialContractInfo.classList.remove('contract-name-and-data-signed')
+                judicialContractInfo.classList.add('contract-name-and-data')
+                judicialUncheckedTitle.classList.remove('contract-name-title-hidden')
+                judicialUncheckedTitle.classList.add('contract-name-title')
+                judicialCheckedTitle.classList.remove('contract-name-title')
+                judicialCheckedTitle.classList.add('contract-name-title-hidden')
+                isJudicialContractSigned = false
             }
         })
     })
