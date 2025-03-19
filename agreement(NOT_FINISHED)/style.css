@@ -119,6 +119,7 @@
     color: var(--color-bg);
     font-size: 16px;
     font-weight: 400;
+    cursor: pointer;
 }
 
 /* Изображения*/
@@ -153,6 +154,7 @@
     border: 1px solid var(--color-primary);
     color: var(--color-primary);
     background: var(--color-bg);
+    cursor: pointer;
 }
 .signing-area{
     display: flex;
@@ -167,14 +169,17 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 32px;
-    padding: 12px 4px;
+    padding: 12px 16px 8px;
+}
+.signing-title-hidden{
+    display: none;
 }
 .services-contract{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 4px;
+    padding: 12px 16px 0;
     margin-bottom: 16px;
 }
 .check-line{
@@ -182,22 +187,47 @@
     align-items: flex-start;
     gap: 8px;
 }
+.checkbox-hidden{
+    display: none;
+}
 .contract-name-and-data{
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
+.contract-name-and-data-signed{
+    display: flex;
+    flex-direction: column;
+}
 .contract-name-title{
     font-weight: 400;
     font-size: 16px;
+    height: 19px;
     line-height: 100%;
     color: var(--color-text-main);
+}
+.contract-name-title-hidden{
+    display: none;
 }
 .contract-date-title{
     font-weight: 400;
     font-size: 14px;
+    height: 19px;
     line-height: 100%;
     color: var(--color-text-muted);
+}
+.extra-services-signing-line{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 16px;
+}
+.separator{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
 .confirmed {
     display: none;
@@ -208,7 +238,35 @@
     align-items: center;
     gap: 8px;
     color: var(--color-success);
-    margin-right: 28px;
+}
+.extra-services-container{
+    margin: 4px;
+    gap: 20px;
+    border-radius: 12px;
+    padding: 24px 20px;
+    background: var(--color-bg);
+}
+.extra-services-container-hidden{
+    display: none;
+}
+.extra-services-title{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+.extra-services{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.extra-services-label {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    color: var(--color-text-main);
+    margin-bottom: 16px;
 }
 .signing-line{
     display: flex;
@@ -216,8 +274,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    padding: 0 4px;
+    padding: 0 16px;
     margin-bottom: 12px;
+}
+.signing-line-hidden{
+    display: none;
 }
 .pdf-line{
     display: flex;
@@ -230,7 +291,7 @@
     cursor: pointer;
 }
 .sign-button{
-    width: 33%;
+    min-width: 33%;
     height: 40px;
     color: var(--color-bg);
     background: var(--color-light-gray);
@@ -244,11 +305,25 @@
     justify-content: center;
     gap: 8px;
     padding: 10px 20px;
+    pointer-events: none;
 }
 
 .sign-button-active {
+    min-width: 33%;
+    height: 40px;
+    color: var(--color-bg);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
     background: var(--color-primary);
     border: 1px solid var(--color-primary);
+    cursor: pointer;
 }
 
 .down-menu {
@@ -277,6 +352,7 @@
     border: 1px solid var(--color-secondary);
     color: var(--color-bg);
     background: var(--color-secondary);
+    cursor: pointer;
 }
 
 /* Кастомный селектор (dropdown) */
