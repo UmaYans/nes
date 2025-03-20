@@ -8,7 +8,6 @@
     --color-bg-page: #F3F5F7;     /* Бело-синий */
     --color-light-gray: #DDDDDD;  /* Очень светлый */
     --color-success: #00B753;     /* Из элемента "подписано" */
-    --color-error: #FF0000        /* Из элемента "Не подписан"*/
 }
 
 /* Сброс и базовые стили */
@@ -53,10 +52,10 @@
     flex-direction: column;
 }
 
-.document-container{
+.document-area {
     width: 100%;
     height: 700px;
-    padding: 120px 50px 0;
+    padding: 20px;
     background-color: var(--color-bg);
     overflow-y: scroll;
     position: relative;
@@ -71,17 +70,6 @@
     rotate: -10deg;
 }
 .document-img-hidden{
-    display: none;
-}
-
-.contract-style, .contract-style-hidden {
-    width: 100%;
-    height: 100%;
-    border: none;
-    overflow: hidden;
-}
-
-.contract-style-hidden {
     display: none;
 }
 
@@ -138,7 +126,7 @@
     font-weight: 400;
     color: var(--color-text-main);
     line-height: 24px;
-    max-width: 430px;
+    max-width: 410px;
     justify-self: center;
 }
 
@@ -348,8 +336,8 @@
     justify-content: center;
     gap: 8px;
     padding: 10px 20px;
-    background: var(--color-error);
-    border: 1px solid var(--color-error);
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
     cursor: pointer;
 }
 
@@ -447,7 +435,6 @@ details.custom-dropdown.disabled summary {
     border-radius: 4px;
     background: var(--color-bg);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 1;
 }
 
 .dropdown-list li {
@@ -471,25 +458,3 @@ details.custom-dropdown.disabled summary {
     color: var(--color-text-main);
     width: 100%;
 }
-
-/* Для отображения pdf */
-.pdf-viewer, .pdf-viewer-hidden {
-    overflow-y: hidden;
-    overflow-x: hidden;
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.pdf-viewer-hidden {
-    display: none;
-}
-
-.canvas {
-    display: block;
-    margin-bottom: 10px;
-    max-width: 100%;
-    height: auto;
-}
-
