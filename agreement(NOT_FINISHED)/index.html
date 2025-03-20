@@ -49,7 +49,9 @@
             </div>
 
             <!-- Область прокручиваемого договора-->
-            <div class="document-area">
+            <div class="document-container">
+                <div class="document-area">
+                </div>
                 <img src="img/read-contract.png" alt="Изучите договор" class="document-img" id="readContract">
                 <img src="img/not-signed-contract.png" alt="Не подписан" class="document-img-hidden" id="notSignedContract">
                 <img src="img/signed-contract.png" alt="Подписан в ЛК" class="document-img-hidden" id="signedContract">
@@ -57,7 +59,7 @@
             </div>
         </div>
 
-        <!-- Правая колонка (интерактив) -->
+        <!-- Правая колонка с меню (интерактивная) -->
         <div class="services-right">
             <div class="menu">
                 <span class="info-note">Проверьте ваши данные в договоре, в случае неточности отредактируйте в “Настройках профиля”</span>
@@ -234,26 +236,17 @@
         })
 
         // секция уведомлений
-        // смена надписи "подписан в лк" на "подписан по эдо"
         notificationCheckbox.addEventListener('click', function () {
             if (notificationCheckbox.src.endsWith('unchecked.svg')) {
                 notificationCheckbox.src = 'img/checked.svg'
                 notificationCheckbox.alt = '[v]'
                 notificationSignButton.classList.remove('sign-button')
                 notificationSignButton.classList.add('sign-button-active')
-                signedContract.classList.remove('document-img')
-                signedContract.classList.add('document-img-hidden')
-                signedEdoContract.classList.remove('document-img-hidden')
-                signedEdoContract.classList.add('document-img')
             } else {
                 notificationCheckbox.src = 'img/unchecked.svg'
                 notificationCheckbox.alt = '[]'
                 notificationSignButton.classList.remove('sign-button-active')
                 notificationSignButton.classList.add('sign-button')
-                signedContract.classList.remove('document-img-hidden')
-                signedContract.classList.add('document-img')
-                signedEdoContract.classList.remove('document-img')
-                signedEdoContract.classList.add('document-img-hidden')
             }
         })
 
@@ -334,6 +327,7 @@
         })
 
         //кнопка в блоке уведомлений
+        // смена надписи "подписан в лк" на "подписан по эдо" при нажатии кнопки
         notificationSignButton.addEventListener("click", function () {
             if (!isNotificationContractSigned) {
                 notificationSigningLine.classList.remove('signing-line')
@@ -347,6 +341,10 @@
                 notificationUncheckedTitle.classList.add('contract-name-title-hidden')
                 notificationCheckedTitle.classList.remove('contract-name-title-hidden')
                 notificationCheckedTitle.classList.add('contract-name-title')
+                signedContract.classList.remove('document-img')
+                signedContract.classList.add('document-img-hidden')
+                signedEdoContract.classList.remove('document-img-hidden')
+                signedEdoContract.classList.add('document-img')
                 isNotificationContractSigned = true
             } else {
                 notificationSigningLine.classList.remove('signing-line-hidden')
@@ -360,6 +358,10 @@
                 notificationUncheckedTitle.classList.add('contract-name-title')
                 notificationCheckedTitle.classList.remove('contract-name-title')
                 notificationCheckedTitle.classList.add('contract-name-title-hidden')
+                signedContract.classList.remove('document-img-hidden')
+                signedContract.classList.add('document-img')
+                signedEdoContract.classList.remove('document-img')
+                signedEdoContract.classList.add('document-img-hidden')
                 isNotificationContractSigned = false
             }
         })
