@@ -13,6 +13,7 @@
             href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 </head>
 <body>
 <div class="main-container">
@@ -34,12 +35,12 @@
                             <ul class="dropdown-list">
                                 <!-- Опция 1 (выбранная) -->
                                 <li class="dropdown-item">
-                                    <div class="type-item-name">Договор 1</div>
+                                    <div class="type-item-name">Информирование</div>
 
                                 </li>
                                 <!-- Опция 2 (невыбранная) -->
                                 <li class="dropdown-item">
-                                    <div class="type-item-name">Договор 2</div>
+                                    <div class="type-item-name">Судебная работа</div>
                                 </li>
                             </ul>
                         </details>
@@ -49,7 +50,10 @@
             </div>
 
             <!-- Область прокручиваемого договора-->
-            <div class="document-area">
+            <div class="document-container">
+                <div id="pdfViewer" class="pdf-viewer"></div>
+                <div id="pdfViewerInformation" class="pdf-viewer-hidden"></div>
+                <div id="pdfViewerJudicial" class="pdf-viewer-hidden"></div>
                 <img src="img/read-contract.png" alt="Изучите договор" class="document-img" id="readContract">
                 <img src="img/not-signed-contract.png" alt="Не подписан" class="document-img-hidden" id="notSignedContract">
                 <img src="img/signed-contract.png" alt="Подписан в ЛК" class="document-img-hidden" id="signedContract">
@@ -60,8 +64,8 @@
         <!-- Правая колонка (интерактив) -->
         <div class="services-right">
             <div class="menu">
-                <span class="info-note">Проверьте ваши данные в договоре, в случае неточности отредактируйте в “Настройках профиля”</span>
-                <button class="profile-settings-button">Настройки профиля</button>
+                <span class="info-note">Проверьте ваши данные в договоре, в случае неточности отредактируйте в “Отредактировать реквизиты договора”</span>
+                <button class="profile-settings-button">Отредактировать реквизиты</button>
             </div>
             <!-- конец настроек профиля-->
             <div class="signing-area">
@@ -210,6 +214,30 @@
         const notSignedContract = document.getElementById('notSignedContract')
         const signedContract = document.getElementById('signedContract')
         const signedEdoContract = document.getElementById('signedEdoContract')
+        const commonContract = document.getElementById('pdfViewer')
+        const informationContract = document.getElementById('pdfViewerInformation')
+        const judicialContract = document.getElementById('pdfViewerJudicial')
+
+        // Функция для проверки состояния чекбоксов (если хотя бы один выбран, отображать "Изучите договор"
+        function updateContractImage() {
+            if (notificationCheckbox.src.endsWith('unchecked.svg') && judicialCheckbox.src.endsWith('unchecked.svg')) {
+                // Если оба чекбокса НЕ выбраны, показываем "Подписан в ЛК"
+                readContract.classList.add('document-img-hidden');
+                readContract.classList.remove('document-img');
+                signedContract.classList.remove('document-img-hidden');
+                signedContract.classList.add('document-img');
+                notSignedContract.classList.add('document-img-hidden');
+                notSignedContract.classList.remove('document-img');
+            } else {
+                // Если хотя бы один чекбокс выбран, показываем "Изучите договор"
+                readContract.classList.remove('document-img-hidden');
+                readContract.classList.add('document-img');
+                signedContract.classList.add('document-img-hidden');
+                signedContract.classList.remove('document-img');
+                notSignedContract.classList.remove('document-img');
+                notSignedContract.classList.add('document-img-hidden');
+            }
+        }
 
         checkbox.addEventListener("click", function () {
             if (checkbox.src.endsWith('unchecked.svg')) {
@@ -241,37 +269,50 @@
                 notificationCheckbox.alt = '[v]'
                 notificationSignButton.classList.remove('sign-button')
                 notificationSignButton.classList.add('sign-button-active')
-                signedContract.classList.remove('document-img')
-                signedContract.classList.add('document-img-hidden')
-                signedEdoContract.classList.remove('document-img-hidden')
-                signedEdoContract.classList.add('document-img')
+                commonContract.classList.remove('pdf-viewer')
+                commonContract.classList.add('pdf-viewer-hidden')
+                informationContract.classList.remove('pdf-viewer-hidden')
+                informationContract.classList.add('pdf-viewer')
+                judicialContract.classList.remove('pdf-viewer')
+                judicialContract.classList.add('pdf-viewer-hidden')
             } else {
                 notificationCheckbox.src = 'img/unchecked.svg'
                 notificationCheckbox.alt = '[]'
                 notificationSignButton.classList.remove('sign-button-active')
                 notificationSignButton.classList.add('sign-button')
-                signedContract.classList.remove('document-img-hidden')
-                signedContract.classList.add('document-img')
-                signedEdoContract.classList.remove('document-img')
-                signedEdoContract.classList.add('document-img-hidden')
+                informationContract.classList.remove('pdf-viewer')
+                informationContract.classList.add('pdf-viewer-hidden')
+                commonContract.classList.remove('pdf-viewer-hidden')
+                commonContract.classList.add('pdf-viewer')
             }
+            updateContractImage()
         })
 
-            // секция судебных работ для экспертов
-            judicialCheckbox.addEventListener('click', function () {
-                if (judicialCheckbox.src.endsWith('unchecked.svg')) {
-                    judicialCheckbox.src = 'img/checked.svg'
-                    judicialCheckbox.alt = '[v]'
-                    judicialSignButton.classList.remove('sign-button')
-                    judicialSignButton.classList.add('sign-button-active')
-                } else {
-                    judicialCheckbox.src = 'img/unchecked.svg'
-                    judicialCheckbox.alt = '[]'
-                    judicialSignButton.classList.remove('sign-button-active')
-                    judicialSignButton.classList.add('sign-button')
-                }
+        // секция судебных работ для экспертов
+        judicialCheckbox.addEventListener('click', function () {
+            if (judicialCheckbox.src.endsWith('unchecked.svg')) {
+                judicialCheckbox.src = 'img/checked.svg'
+                judicialCheckbox.alt = '[v]'
+                judicialSignButton.classList.remove('sign-button')
+                judicialSignButton.classList.add('sign-button-active')
+                commonContract.classList.remove('pdf-viewer')
+                commonContract.classList.add('pdf-viewer-hidden')
+                informationContract.classList.remove('pdf-viewer')
+                informationContract.classList.add('pdf-viewer-hidden')
+                judicialContract.classList.remove('pdf-viewer-hidden')
+                judicialContract.classList.add('pdf-viewer')
+            } else {
+                judicialCheckbox.src = 'img/unchecked.svg'
+                judicialCheckbox.alt = '[]'
+                judicialSignButton.classList.remove('sign-button-active')
+                judicialSignButton.classList.add('sign-button')
+                judicialContract.classList.remove('pdf-viewer')
+                judicialContract.classList.add('pdf-viewer-hidden')
+                commonContract.classList.remove('pdf-viewer-hidden')
+                commonContract.classList.add('pdf-viewer')
+            }
+            updateContractImage()
         })
-
         // сокрытие элементов при клике на кнопку "подписать"
         //смена "печати" "не подписан" на "подписан в лк"
 
@@ -333,7 +374,8 @@
             }
         })
 
-        //кнопка в блоке уведомлений
+        //кнопка в блоке информирования
+        // При появлении договора информирования, смена надписи "изучите договор" на "подписан в лк" при нажатии кнопки
         notificationSignButton.addEventListener("click", function () {
             if (!isNotificationContractSigned) {
                 notificationSigningLine.classList.remove('signing-line')
@@ -347,6 +389,10 @@
                 notificationUncheckedTitle.classList.add('contract-name-title-hidden')
                 notificationCheckedTitle.classList.remove('contract-name-title-hidden')
                 notificationCheckedTitle.classList.add('contract-name-title')
+                readContract.classList.remove('document-img')
+                readContract.classList.add('document-img-hidden')
+                signedContract.classList.remove('document-img-hidden')
+                signedContract.classList.add('document-img')
                 isNotificationContractSigned = true
             } else {
                 notificationSigningLine.classList.remove('signing-line-hidden')
@@ -360,11 +406,16 @@
                 notificationUncheckedTitle.classList.add('contract-name-title')
                 notificationCheckedTitle.classList.remove('contract-name-title')
                 notificationCheckedTitle.classList.add('contract-name-title-hidden')
+                readContract.classList.remove('document-img-hidden')
+                readContract.classList.add('document-img')
+                signedContract.classList.remove('document-img-hidden')
+                signedContract.classList.add('document-img')
                 isNotificationContractSigned = false
             }
         })
 
         //кнопка в блоке судебных работ для эксперта
+        // При появлении договора судебных работ, смена надписи "изучите договор" на "подписан в лк" при нажатии кнопки
         judicialSignButton.addEventListener("click", function () {
             if (!isJudicialContractSigned) {
                 judicialSigningLine.classList.remove('signing-line')
@@ -378,6 +429,10 @@
                 judicialUncheckedTitle.classList.add('contract-name-title-hidden')
                 judicialCheckedTitle.classList.remove('contract-name-title-hidden')
                 judicialCheckedTitle.classList.add('contract-name-title')
+                readContract.classList.remove('document-img')
+                readContract.classList.add('document-img-hidden')
+                signedContract.classList.remove('document-img-hidden')
+                signedContract.classList.add('document-img')
                 isJudicialContractSigned = true
             } else {
                 judicialSigningLine.classList.remove('signing-line-hidden')
@@ -391,10 +446,83 @@
                 judicialUncheckedTitle.classList.add('contract-name-title')
                 judicialCheckedTitle.classList.remove('contract-name-title')
                 judicialCheckedTitle.classList.add('contract-name-title-hidden')
+                readContract.classList.remove('document-img-hidden')
+                readContract.classList.add('document-img')
+                signedContract.classList.remove('document-img-hidden')
+                signedContract.classList.add('document-img')
                 isJudicialContractSigned = false
             }
         })
     })
+
+    //pdf файл подключается (договор)
+    const urlCommon = 'contract/common-contract.pdf';
+    const urlInformation = 'contract/information-contract.pdf';
+
+    // путь к рабочему скрипту PDF.js
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+    function renderPage(page, container) {
+        // Множитель масштабирования
+        const scale = 1.5;
+        const viewport = page.getViewport({ scale: scale });
+
+        // Создаем элемент canvas
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        container.appendChild(canvas);
+
+        //параметры рендеринга
+        const renderContext = {
+            canvasContext: context,
+            viewport: viewport
+        };
+
+        // Рендер страницы
+        page.render(renderContext).promise.then(() => {
+        });
+    }
+
+    // Загружаем PDF документ
+    // сначала общий, потом для судебной работы, потом для информирования
+    pdfjsLib.getDocument(urlCommon).promise.then(pdfDoc => {
+        console.log('PDF документ загружен');
+        const container = document.getElementById('pdfViewer');
+        for (let pageNum = 1; pageNum <= 7; pageNum++) {
+            pdfDoc.getPage(pageNum).then(page => {
+                renderPage(page, container);
+            });
+        }
+    }).catch(err => {
+        console.error('Ошибка загрузки PDF: ' + err);
+    });
+
+
+    pdfjsLib.getDocument(urlCommon).promise.then(pdfDoc => {
+        console.log('PDF документ загружен');
+        const container = document.getElementById('pdfViewerJudicial');
+        for (let pageNum = 8; pageNum <= pdfDoc.numPages; pageNum++) {
+            pdfDoc.getPage(pageNum).then(page => {
+                renderPage(page, container);
+            });
+        }
+    }).catch(err => {
+        console.error('Ошибка загрузки PDF: ' + err);
+    });
+
+    pdfjsLib.getDocument(urlInformation).promise.then(pdfDoc => {
+        console.log('PDF документ загружен');
+        const container = document.getElementById('pdfViewerInformation');
+        for (let pageNum = 8; pageNum <= pdfDoc.numPages; pageNum++) {
+            pdfDoc.getPage(pageNum).then(page => {
+                renderPage(page, container);
+            });
+        }
+    }).catch(err => {
+        console.error('Ошибка загрузки PDF: ' + err);
+    });
 
 </script>
 
