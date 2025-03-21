@@ -107,75 +107,78 @@
                         </div>
                     </div>
                 </div>
-                <!-- кнопка добавления реестра-->
-                <div class="add-file-line">
-                    <button class="button-add-file" id="fileToggleBtn">
-                        Добавить реестр
-                    </button>
-                    <span class="status-add-file" id="fileStatus">Реестр не выбран</span>
-                </div>
 
-                <!-- Ссылки на скачивание шаблонов-->
-                <div class="download-links-container">
-                    <div class="download-links">
-                        <div class="one-link">
-                            <img src="img/file-checked.svg" alt="file">
-                            <a href="#">Скачать шаблон для заполнения реестра информирования</a>
-                        </div>
+                <div class="interactive-elements-container" id="informationContainer">
+                    <!-- кнопка добавления реестра-->
+                    <div class="add-file-line">
+                        <button class="button-add-file" id="fileToggleBtn">
+                            Добавить реестр
+                        </button>
+                        <span class="status-add-file" id="fileStatus">Реестр не выбран</span>
                     </div>
-                    <div class="download-links">
-                        <div class="one-link">
-                            <img src="img/file-checked.svg" alt="file">
-                            <a href="#">Скачать инструкцию для заполнения реестра информирования</a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- выбор даты и ввод почты -->
-
-                <div class="date-email-container">
-
-                    <!-- дата-->
-                    <div class="dropdown-container-date">
-                        <label for="myDatepicker" class="dropdown-label">
-                            <span class="asterisk">*</span>
-                            Выберите дату начала периода
-                            <!-- Обёртка для иконки + подсказка -->
-                            <div class="tooltip-container">
-                                <img src="img/help.svg" alt="?" class="help-icon" />
-                                <div class="tooltip-text">
-                                    <ul>Вне зависимости от выбранной даты, период предоставления услуги составит:
-                                        <li class="description-line">3 дня <span class="description-muted">текст уведомления уже проходил проверку</span>
-                                        </li>
-                                        <li class="description-line">7 дней <span class="description-muted">текст будет проверен специалистом</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                    <!-- Ссылки на скачивание шаблонов-->
+                    <div class="download-links-container">
+                        <div class="download-links">
+                            <div class="one-link">
+                                <img src="img/file-checked.svg" alt="file">
+                                <a href="#">Скачать шаблон для заполнения реестра информирования</a>
                             </div>
-                        </label>
-                        <div class="date-wrapper">
-                            <input type="text" id="myDatepicker" class="date-input" placeholder="дд/мм/гггг">
-                            <span class="date-arrow" id="myDateArrow">
+                        </div>
+                        <div class="download-links">
+                            <div class="one-link">
+                                <img src="img/file-checked.svg" alt="file">
+                                <a href="#">Скачать инструкцию для заполнения реестра информирования</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- выбор даты и ввод почты -->
+
+                    <div class="date-email-container">
+
+                        <!-- дата-->
+                        <div class="dropdown-container-date">
+                            <label for="myDatepicker" class="dropdown-label">
+                                <span class="asterisk">*</span>
+                                Выберите дату начала периода
+                                <!-- Обёртка для иконки + подсказка -->
+                                <div class="tooltip-container">
+                                    <img src="img/help.svg" alt="?" class="help-icon" />
+                                    <div class="tooltip-text">
+                                        <ul>Вне зависимости от выбранной даты, период предоставления услуги составит:
+                                            <li class="description-line">3 дня <span class="description-muted">текст уведомления уже проходил проверку</span>
+                                            </li>
+                                            <li class="description-line">7 дней <span class="description-muted">текст будет проверен специалистом</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </label>
+                            <div class="date-wrapper">
+                                <input type="text" id="myDatepicker" class="date-input" placeholder="дд/мм/гггг">
+                                <span class="date-arrow" id="myDateArrow">
         <img src="img/dropdown-arrow.svg" alt="v">
       </span>
-                        </div>
-                    </div>
-
-                    <!-- Блок для почты -->
-                    <div class="dropdown-container-email">
-                        <label for="emailInput" class="dropdown-label">
-                            <span class="asterisk">*</span>
-                            Ваша почта, на которую мы ответим
-                            <div class="tooltip-container">
-                                <img src="img/help.svg" alt="?"/>
-                                <div class="tooltip-text">
-                                    Вы можете изменить адрес электронной почты
-                                </div>
                             </div>
-                        </label>
-                        <input type="email" id="emailInput" class="email-input" placeholder="example@ya.ru">
-                    </div>
+                        </div>
 
+                        <!-- Блок для почты -->
+                        <div class="dropdown-container-email">
+                            <label for="emailInput" class="dropdown-label">
+                                <span class="asterisk">*</span>
+                                Ваша почта, на которую мы ответим
+                                <div class="tooltip-container">
+                                    <img src="img/help.svg" alt="?"/>
+                                    <div class="tooltip-text">
+                                        Вы можете изменить адрес электронной почты
+                                    </div>
+                                </div>
+                            </label>
+                            <input type="email" id="emailInput" class="email-input" placeholder="example@ya.ru">
+                        </div>
+
+                    </div>
                 </div>
 
                 <div class="button-line">

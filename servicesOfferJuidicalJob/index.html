@@ -15,6 +15,7 @@
     />
 </head>
 <body>
+
 <div class="main-container">
     <div class="title-position">
         <h2 class="services-title">Заказ услуги</h2>
@@ -22,7 +23,6 @@
     <div class="services-container">
         <!-- Окно выбора услуг -->
         <div class="services-left">
-
             <div class="recent-services">
                 <div class="recent-services-header">
                     <h3 class="recent-services-title">Выберите вид желаемой услуги</h3>
@@ -42,8 +42,8 @@
                                 <details id="customDropdown" class="custom-dropdown">
                                     <summary class="dropdown-toggle">Не выбрано
                                         <span class="dropdown-arrow">
-      <img src="img/dropdown-arrow.svg" alt="v"/>
-    </span>
+                                            <img src="img/dropdown-arrow.svg" alt="v"/>
+                                        </span>
                                     </summary>
                                     <ul class="dropdown-list">
                                         <!-- Невыбираемая строка (типа "хедер" для опций) -->
@@ -55,17 +55,17 @@
                                         <li class="dropdown-item selected">
                                             <div class="item-name-approved">Судебная работа</div>
                                             <span class="item-status-approved">
-          <img src="img/item-status-approved.svg" alt="V">
-          Подписан
-        </span>
+                                                <img src="img/item-status-approved.svg" alt="V">
+                                                    Подписан
+                                            </span>
                                         </li>
                                         <!-- Опция 2 (невыбранная) -->
                                         <li class="dropdown-item">
                                             <div class="item-name">Информирование</div>
                                             <span class="item-status">
-          <img src="img/item-status.svg" alt="status">
-          Подписать
-        </span>
+                                                <img src="img/item-status.svg" alt="status">
+                                                    Подписать
+                                            </span>
                                         </li>
                                     </ul>
                                 </details>
@@ -84,8 +84,8 @@
                                 <details id="secondDropdown" class="custom-dropdown">
                                     <summary class="dropdown-toggle-type">Не выбрано
                                         <span class="dropdown-arrow">
-      <img src="img/dropdown-arrow.svg" alt="v">
-    </span>
+                                            <img src="img/dropdown-arrow.svg" alt="v">
+                                        </span>
                                     </summary>
                                     <ul class="dropdown-list">
                                         <!-- Опция 1 (выбранная) -->
@@ -103,44 +103,121 @@
                         </div>
                     </div>
                 </div>
-                <!-- кнопка добавления реестра-->
-                <div class="add-file-line">
-                    <button class="button-add-file" id="fileToggleBtn">
-                        Добавить реестр
-                    </button>
-                    <span class="status-add-file" id="fileStatus">Реестр не выбран</span>
-                </div>
-
-                <!-- Ссылки на скачивание шаблонов-->
-                <div class="download-links-container">
-                    <div class="download-links">
-                        <div class="one-link">
-                            <img src="img/file-checked.svg" alt="file">
-                            <a href="#">Скачать шаблон для заполнения реестра должников</a>
-                        </div>
+                <!-- выпадающие элементы при выбранных двух значениях селекторов-->
+                <div class="interactive-elements-container" id="judicialContainer">
+                    <!-- кнопка добавления реестра-->
+                    <div class="add-file-line">
+                        <button class="button-add-file" id="fileToggleBtn">
+                            Добавить реестр
+                        </button>
+                        <span class="status-add-file" id="fileStatus">Реестр не выбран</span>
                     </div>
-                    <div class="download-links">
-                        <div class="one-link">
-                            <img src="img/file-checked.svg" alt="file">
-                            <a href="#">Скачать инструкцию для заполнения реестра должников</a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- почта -->
-
-                <div class="dropdown-container-email">
-                    <label for="emailInput" class="dropdown-label">
-                        <span class="asterisk">*</span>
-                        Ваша почта, на которую мы ответим
-                        <div class="tooltip-container">
-                            <img src="img/help.svg" alt="?"/>
-                            <div class="tooltip-text">
-                                Вы можете изменить адрес электронной почты
+                    <!-- Ссылки на скачивание шаблонов-->
+                    <div class="download-links-container">
+                        <div class="download-links">
+                            <div class="one-link">
+                                <img src="img/file-checked.svg" alt="file">
+                                <a href="#">Скачать шаблон для заполнения реестра должников</a>
                             </div>
                         </div>
-                    </label>
-                    <input type="email" id="emailInput" class="email-input" placeholder="example@ya.ru">
+                        <div class="download-links">
+                            <div class="one-link">
+                                <img src="img/file-checked.svg" alt="file">
+                                <a href="#">Скачать инструкцию для заполнения реестра должников</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- почта -->
+
+                    <div class="dropdown-container-email">
+                        <label for="emailInput" class="dropdown-label">
+                            <span class="asterisk">*</span>
+                            Ваша почта, на которую мы ответим
+                            <div class="tooltip-container">
+                                <img src="img/help.svg" alt="?"/>
+                                <div class="tooltip-text">
+                                    Вы можете изменить адрес электронной почты
+                                </div>
+                            </div>
+                        </label>
+                        <input type="email" id="emailInput" class="email-input" placeholder="example@ya.ru">
+                    </div>
+                </div>
+
+                <!-- интерактив для информирования -->
+                <div class="interactive-elements-container" id="informationContainer">
+                    <!-- кнопка добавления реестра-->
+                    <div class="add-file-line">
+                        <button class="button-add-file" id="fileToggleBtnInfo">
+                            Добавить реестр
+                        </button>
+                        <span class="status-add-file" id="fileStatusInfo">Реестр не выбран</span>
+                    </div>
+
+                    <!-- Ссылки на скачивание шаблонов-->
+                    <div class="download-links-container">
+                        <div class="download-links">
+                            <div class="one-link">
+                                <img src="img/file-checked.svg" alt="file">
+                                <a href="#">Скачать шаблон для заполнения реестра информирования</a>
+                            </div>
+                        </div>
+                        <div class="download-links">
+                            <div class="one-link">
+                                <img src="img/file-checked.svg" alt="file">
+                                <a href="#">Скачать инструкцию для заполнения реестра информирования</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- выбор даты и ввод почты -->
+
+                    <div class="date-email-container">
+
+                        <!-- дата-->
+                        <div class="dropdown-container-date">
+                            <label for="myDatepicker" class="dropdown-label">
+                                <span class="asterisk">*</span>
+                                Выберите дату начала периода
+                                <!-- Обёртка для иконки + подсказка -->
+                                <div class="tooltip-container">
+                                    <img src="img/help.svg" alt="?" class="help-icon" />
+                                    <div class="tooltip-text">
+                                        <ul>Вне зависимости от выбранной даты, период предоставления услуги составит:
+                                            <li class="description-line">3 дня <span class="description-muted">текст уведомления уже проходил проверку</span>
+                                            </li>
+                                            <li class="description-line">7 дней <span class="description-muted">текст будет проверен специалистом</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </label>
+                            <div class="date-wrapper">
+                                <input type="text" id="myDatepicker" class="date-input" placeholder="дд/мм/гггг">
+                                <span class="date-arrow" id="myDateArrow">
+        <img src="img/dropdown-arrow.svg" alt="v">
+      </span>
+                            </div>
+                        </div>
+
+                        <!-- Блок для почты -->
+                        <div class="dropdown-container-email">
+                            <label for="emailInput" class="dropdown-label">
+                                <span class="asterisk">*</span>
+                                Ваша почта, на которую мы ответим
+                                <div class="tooltip-container">
+                                    <img src="img/help.svg" alt="?"/>
+                                    <div class="tooltip-text">
+                                        Вы можете изменить адрес электронной почты
+                                    </div>
+                                </div>
+                            </label>
+                            <input type="email" id="emailInputInfo" class="email-input" placeholder="example@ya.ru">
+                        </div>
+
+                    </div>
                 </div>
 
                 <div class="button-line">

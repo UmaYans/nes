@@ -110,12 +110,36 @@ function checkAllForms() {
     emailInput.addEventListener('blur', checkAllForms);
     const emailValue = emailInput.value.trim()
 
+    const isServiceInfo = (serviceText !== 'Информирование');
+    const isServiceJudicial = (serviceText === 'Судебная работа');
+
     const isServiceChosen = (serviceText !== 'Не выбрано');
     const isTypeChosen = (typeText !== 'Не выбрано');
     const isFileChosen = (fileStatus !== 'Реестр не выбран');
     const isEmailFilled = (emailValue !== '');
 
     const sendButton = document.getElementById('openModalBtn');
+    const judicialContainer = document.getElementById('judicialContainer')
+    const informationContainer = document.getElementById('informationContainer')
+
+    if (isTypeChosen) {
+        if (isServiceJudicial) {
+            judicialContainer.classList.add('interactive-elements-container')
+            judicialContainer.classList.remove('interactive-elements-container-hidden')
+            informationContainer.classList.add('interactive-elements-container-hidden')
+            informationContainer.classList.remove('interactive-elements-container')
+        } else {
+            judicialContainer.classList.add('interactive-elements-container-hidden')
+            judicialContainer.classList.remove('interactive-elements-container')
+            informationContainer.classList.add('interactive-elements-container')
+            informationContainer.classList.remove('interactive-elements-container-hidden')
+        }
+    } else {
+        judicialContainer.classList.remove('interactive-elements-container')
+        judicialContainer.classList.add('interactive-elements-container-hidden')
+        informationContainer.classList.remove('interactive-elements-container')
+        informationContainer.classList.add('interactive-elements-container-hidden')
+    }
 
     if (isEmailFilled && isFileChosen && isServiceChosen && isTypeChosen) {
         sendButton.classList.add('send-button-active')
