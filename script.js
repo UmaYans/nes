@@ -1,8 +1,8 @@
 // ПОДКЛЮЧЕНИЕ PDF файлов договоров (на странице agreement.html)
 
 if (typeof pdfjsLib !== 'undefined') {
-    const urlCommon = 'contract/common-contract.pdf';
-    const urlInformation = 'contract/information-contract.pdf';
+    const urlCommon = 'img/common-contract.pdf';
+    const urlInformation = 'img/information-contract.pdf';
 
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
