@@ -97,7 +97,7 @@
                                         </li>
                                         <!-- Опция 2 (невыбранная) -->
                                         <li class="dropdown-item">
-                                            <div class="type-item-name">Заявление на выдачу судебного приказа</div>
+                                            <div class="type-item-name">Направление заявления в суд и получение судебного приказа</div>
                                         </li>
                                     </ul>
                                     <ul class="dropdown-list" id="informationDropdown">
@@ -157,6 +157,7 @@
                         </label>
                         <input type="email" id="emailInput" class="email-input" placeholder="example@ya.ru">
                     </div>
+                    <div id="serviceDescription2" class="service-description-container"></div>
                 </div>
 
                 <!-- интерактив для информирования -->
@@ -194,18 +195,6 @@
                             <label for="myDatepicker" class="dropdown-label">
                                 <span class="asterisk">*</span>
                                 Выберите дату начала периода
-                                <!-- Обёртка для иконки + подсказка -->
-                                <div class="tooltip-container">
-                                    <img src="img/help.svg" alt="?" class="help-icon" />
-                                    <div class="tooltip-text">
-                                        <ul>Вне зависимости от выбранной даты, период предоставления услуги составит:
-                                            <li class="description-line">3 дня <span class="description-muted">текст уведомления уже проходил проверку</span>
-                                            </li>
-                                            <li class="description-line">7 дней <span class="description-muted">текст будет проверен специалистом</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </label>
                             <div class="date-wrapper">
                                 <input type="text" id="myDatepicker" class="date-input" placeholder="дд/мм/гггг">
@@ -229,8 +218,8 @@
                             </label>
                             <input type="email" id="emailInputInfo" class="email-input" placeholder="example@ya.ru">
                         </div>
-
                     </div>
+                    <div id="serviceDescription" class="service-description-container"></div>
                 </div>
 
                 <div class="button-line">

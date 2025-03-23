@@ -141,6 +141,7 @@
 }
 .dropdown-label {
   margin-bottom: 4px;
+  height: 25px;
 }
 .custom-dropdown summary {
   align-items: center;
@@ -342,6 +343,24 @@ details.custom-dropdown.disabled summary {
   flex-direction: column;
   flex: 1;
 }
+
+.service-description-container  {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 40px;
+}
+
+.service-description-container li{
+  margin: 0 11px
+}
+.service-description-container li::marker {
+  color: var(--color-primary);
+}
+.service-description-container ul{
+  font-weight: 600;
+  color: var(--color-primary);
+}
 .date-wrapper {
   position: relative;
 }
@@ -353,6 +372,7 @@ details.custom-dropdown.disabled summary {
   font-size: 14px;
   color: var(--color-text-main);
   background: var(--color-bg);
+  height: 40px;
 }
 .date-arrow {
   position: absolute;
@@ -375,7 +395,7 @@ details.custom-dropdown.disabled summary {
   background: var(--color-bg) url("img/inputImg.png") no-repeat right 16px center;
   background-size: 20px 20px;
   height: 40px;
-  margin-bottom: 150px;
+  margin-bottom: 40px;
 }
 .email-input::placeholder {
   color: var(--color-text-muted);

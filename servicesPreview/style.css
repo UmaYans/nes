@@ -132,7 +132,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 40px;
   align-items: center;
   width: calc(60% - 30px);
 }
@@ -162,7 +161,7 @@
 }
 
 /* Кнопки услуг */
-.service-button {
+.service-button, .service-button-active {
   background-color: var(--color-light-gray);
   color: #fff;
   border: none;
@@ -236,3 +235,44 @@
 .tooltip-close svg {
   color: var(--color-primary);
 }
+
+/* Стили модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 758px;
+  top: 180px;
+  left: 581px;
+  padding: 32px 40px 32px 32px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: var(--color-primary);
+  background: var(--color-bg);
+  border: 1px solid var(--color-light-gray);
+}
+
+.modal-list {
+  padding-left: 8px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
