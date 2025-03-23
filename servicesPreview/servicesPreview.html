@@ -35,43 +35,46 @@
         <ul class="services-list">
           <li class="services-list-item">
             <div class="service-info">
-              <span class="service-name">Информирование – Робот</span>
+              <span class="service-name">Роботизированный звонок</span>
             </div>
             <div class="service-content">
+              <div class="service-description" id="robotDescription">Подробнее</div>
               <span class="service-price">от <span class="price-value">4,8</span> ₽/шт</span>
               <button
                       class="service-button tooltip-button"
                       data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
               >
-                Оставить заявку
+                Воспользоваться сервисом
               </button>
             </div>
           </li>
           <li class="services-list-item-medium">
             <div class="service-info">
-              <span class="service-name">Информирование – SMS</span>
+              <span class="service-name">СМС</span>
             </div>
             <div class="service-content">
+              <div class="service-description" id="smsDescription">Подробнее</div>
               <span class="service-price">от <span class="price-value">8,7</span> ₽/шт</span>
               <button
                       class="service-button tooltip-button"
                       data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
               >
-                Оставить заявку
+                Воспользоваться сервисом
               </button>
             </div>
           </li>
           <li class="services-list-item">
             <div class="service-info">
-              <span class="service-name">Судебная работа – Получение приказа</span>
+              <span class="service-name">Получение приказа</span>
             </div>
             <div class="service-content">
+              <div class="service-description" id="orderDescription">Подробнее</div>
               <span class="service-price">от <span class="price-value">1413</span> ₽/шт</span>
               <button
                       class="service-button tooltip-button"
                       data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
               >
-                Оставить заявку
+                Воспользоваться сервисом
               </button>
             </div>
           </li>
@@ -81,7 +84,7 @@
         <h3 class="manager-title">Консультация менеджера</h3>
         <p>Ваш менеджер Виталий</p>
         <p class="manager-phone">
-          <a href="tel:+7987654321">+7 987 65 43 21</a>
+          <a href="">+7 987 65 43 21</a>
         </p>
       </div>
     </div>
@@ -100,12 +103,29 @@
   </div>
 </div>
 
-<!-- общий тултип для всех кнопок -->
+<!-- общий тултип для "Воспользоваться сервисом" -->
 <div class="tooltip-global" id="global-tooltip">
   <span class="tooltip-text" id="tooltip-text"></span>
   <span class="tooltip-close" id="tooltip-close">
     <img src="img/close.svg" alt="x">
 </span>
+</div>
+
+<!-- Модальное окно при нажатии на "подробнее" -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">
+      <img src="img/close.svg" alt="x">
+    </span>
+    <h3 id="modal-title">Заголовок</h3>
+    <p>Как будет происходить работа?</p>
+    <div id="modal-body">
+      <ol class="modal-list">
+        <li>Шаг 1</li>
+        <li>Шаг 2</li>
+      </ol>
+    </div>
+  </div>
 </div>
 
 <script src="script.js"></script>

@@ -33,6 +33,7 @@ document.querySelectorAll('.custom-dropdown').forEach((dropdown) => {
                 secondSummary.innerHTML = 'Не выбрано' + secondArrowHTML;
             }
             //проверяем заполнены ли все поля
+            updateServiceDescription();
             checkAllForms();
         });
     });
@@ -122,7 +123,7 @@ const fp = flatpickr('#myDatepicker', {
 });
 
 
-//открытие модалки
+//открытие модалки при отправлении ВСЕХ данных
 
 const openModalBtn = document.getElementById('openModalBtn');
 const closeModalBtn = document.getElementById('closeModalBtn');
@@ -197,6 +198,7 @@ function checkAllForms() {
         .querySelector('summary')
     const serviceText = serviceSummary.textContent.trim()
 
+
     const typeDetails = document.getElementById('secondDropdown');
 
     // Если в первом селекторе не выбрано значение, то второй неактивен
@@ -262,6 +264,8 @@ function checkAllForms() {
         information.classList.add('services-right-preview-hidden')
         judicialJob.classList.remove('services-right-preview-hidden')
         judicialJob.classList.add('services-right-preview')
+        descriptionInfo.classList.remove('description')
+        descriptionInfo.classList.add('description-hidden')
     } else {
         descriptionInfo.classList.remove('description')
         descriptionInfo.classList.add('description-hidden')
@@ -307,6 +311,53 @@ function checkAllForms() {
         sendButton.classList.add('send-button');
         sendButton.classList.remove('send-button-active');
     }
+}
+
+function updateServiceDescription() {
+    // Получаем элемент summary второго селектора
+    const secondSummary = document.getElementById('secondDropdown').querySelector('summary');
+    const selectedType = secondSummary.textContent.trim();
+
+    let descriptionHTML = '';
+
+    // Обновляем содержимое в зависимости от выбранного варианта
+    if (selectedType === 'Роботизированный звонок' || selectedType === 'СМС') {
+        descriptionHTML = `
+      <ul>Как будет происходить работа?</ul>
+      <li>Специалисты проверят текст</li>
+      <li>Отслеживайте статус заявки в личном кабинете</li>
+      <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
+      <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
+    `;
+    }
+    else if (selectedType === 'Направление заявления') {
+        descriptionHTML = `
+      <ul>Как будет происходить работа?</ul>
+      <li>Подпишите договор по ЭДО, а также направьте вместе с ним реестр должников</li>
+      <li>С вами свяжется специалист для запроса дополнительной информации</li>
+      <li>Далее работа происходит индивидуально</li>
+      <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
+      <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
+    `;
+    }
+    else if (selectedType === 'Направление заявления в суд и получение судебного приказа') {
+        descriptionHTML = `
+      <ul>Как будет происходить работа?</ul>
+      <li>Подпишите договор по ЭДО, а также направьте вместе с ним реестр должников</li>
+      <li>С вами свяжется специалист для запроса дополнительной информации</li>
+      <li>Далее работа происходит индивидуально</li>
+      <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
+      <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
+      <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
+      <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
+    `;
+    }
+    else {
+        descriptionHTML = '';
+    }
+    document.querySelectorAll('.service-description-container').forEach((container) => {
+        container.innerHTML = descriptionHTML;
+    });
 }
 
 window.addEventListener('load', checkAllForms);

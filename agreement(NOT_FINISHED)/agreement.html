@@ -33,12 +33,16 @@
     </span>
                             </summary>
                             <ul class="dropdown-list">
-                                <!-- Опция 1 (выбранная) -->
+                                <!-- Договор по умолчанию стоит -->
+                                <li class="dropdown-item">
+                                    <div class="type-item-name">Договор</div>
+                                </li>
+                                <!-- Опция 2 (невыбранная) -->
                                 <li class="dropdown-item">
                                     <div class="type-item-name">Информирование</div>
 
                                 </li>
-                                <!-- Опция 2 (невыбранная) -->
+                                <!-- Опция 3 (невыбранная) -->
                                 <li class="dropdown-item">
                                     <div class="type-item-name">Судебная работа</div>
                                 </li>
@@ -46,7 +50,7 @@
                         </details>
                     </div>
                 </div>
-                <button class="agreement-open-button">Открыть</button>
+                <button class="agreement-open-button" id="contractSelectBtn">Открыть</button>
             </div>
 
             <!-- Область прокручиваемого договора-->
