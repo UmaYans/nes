@@ -362,9 +362,11 @@ pdfjsLib.getDocument(urlInformation).promise.then(pdfDoc => {
 
 // отображение разных типов договора при смене значения в селекторе
 
+document.getElementById('contractSelectBtn').addEventListener('click', updatePdfDisplay);
+
 function updatePdfDisplay() {
     // Получаем выбранный текст из первого селектора
-    const contractSelect = document.getElementById('contractSummary')
+    const contractSelect = document.querySelector('.custom-dropdown summary');
     const selectedText = contractSelect.textContent.trim();
 
     const commonPdf = document.getElementById('pdfViewer');
