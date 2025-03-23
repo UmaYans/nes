@@ -359,3 +359,42 @@ pdfjsLib.getDocument(urlInformation).promise.then(pdfDoc => {
 }).catch(err => {
     console.error('Ошибка загрузки PDF: ' + err);
 });
+
+// отображение разных типов договора при смене значения в селекторе
+
+function updatePdfDisplay() {
+    // Получаем выбранный текст из первого селектора
+    const contractSelect = document.getElementById('contractSummary')
+    const selectedText = contractSelect.textContent.trim();
+
+    const commonPdf = document.getElementById('pdfViewer');
+    const judicialPdf = document.getElementById('pdfViewerJudicial');
+    const infoPdf = document.getElementById('pdfViewerInformation');
+
+    commonPdf.classList.add('pdf-viewer-hidden');
+    judicialPdf.classList.add('pdf-viewer-hidden');
+    infoPdf.classList.add('pdf-viewer-hidden');
+
+    if (selectedText === 'Договор') {
+        commonPdf.classList.remove('pdf-viewer-hidden');
+        commonPdf.classList.add('pdf-viewer');
+        judicialPdf.classList.remove('pdf-viewer');
+        judicialPdf.classList.add('pdf-viewer-hidden');
+        infoPdf.classList.remove('pdf-viewer');
+        infoPdf.classList.add('pdf-viewer-hidden');
+    } else if (selectedText === 'Судебная работа') {
+        commonPdf.classList.remove('pdf-viewer');
+        commonPdf.classList.add('pdf-viewer-hidden');
+        judicialPdf.classList.remove('pdf-viewer-hidden');
+        judicialPdf.classList.add('pdf-viewer');
+        infoPdf.classList.remove('pdf-viewer');
+        infoPdf.classList.add('pdf-viewer-hidden');
+    } else if (selectedText === 'Информирование') {
+        commonPdf.classList.remove('pdf-viewer');
+        commonPdf.classList.add('pdf-viewer-hidden');
+        judicialPdf.classList.remove('pdf-viewer');
+        judicialPdf.classList.add('pdf-viewer-hidden');
+        infoPdf.classList.remove('pdf-viewer-hidden');
+        infoPdf.classList.add('pdf-viewer');
+    }
+}
