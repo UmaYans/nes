@@ -475,11 +475,11 @@ details.custom-dropdown.disabled summary {
   display: flex;
   justify-content: space-between;
   margin-top: 32px;
+  gap: 20px;
 }
 .order-list-button,
 .close-button {
   font-size: 16px;
-  width: 200px;
   height: 40px;
   border-radius: 4px;
   padding: 10px 20px;
@@ -491,12 +491,14 @@ details.custom-dropdown.disabled summary {
 .order-list-button {
   background: var(--color-primary);
   color: var(--color-bg);
-  border: 1px solid var(--color-bg);
+  border: 1px solid var(--color-primary);
+  width: calc(55% - 10px);
 }
 .close-button {
   background: var(--color-bg);
   color: var(--color-primary);
   border: 1px solid var(--color-primary);
+  width: calc(45% - 10px);
 }
 .modal-overlay.show {
   display: flex;

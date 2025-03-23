@@ -122,7 +122,7 @@ const fp = flatpickr('#myDatepicker', {
 });
 
 
-//открытие модалки
+//открытие модалки при отправлении ВСЕХ данных
 
 const openModalBtn = document.getElementById('openModalBtn');
 const closeModalBtn = document.getElementById('closeModalBtn');

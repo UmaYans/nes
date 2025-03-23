@@ -51,3 +51,9 @@ window.addEventListener('resize', () => {
         }
     }
 });
+
+
+// Управление подсказкой в "подробнее"
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const modalOverlay = document.getElementById('modalOverlay');

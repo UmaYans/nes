@@ -126,13 +126,21 @@
 .service-info {
   display: flex;
   flex-direction: row;
-  gap: 3px;
+  width: calc(40% - 30px);
 }
 .service-content {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 40px;
   align-items: center;
+  width: calc(60% - 30px);
+}
+
+.service-description{
+  color: var(--color-primary);
+  text-decoration: underline;
+  cursor: pointer;
 }
 .service-name {
   font-weight: 600;
