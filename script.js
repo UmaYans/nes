@@ -251,6 +251,24 @@ document.addEventListener('click', (e) => {
 });
 
 // кастомный календарь
+function isSameDay(d1, d2) {
+    return d1.getFullYear() === d2.getFullYear() &&
+        d1.getMonth() === d2.getMonth() &&
+        d1.getDate() === d2.getDate();
+}
+
+function getNextWorkingDays(startDate, count) {
+    let result = [];
+    let current = new Date(startDate);
+    while (result.length < count) {
+        if (current.getDay() !== 0 && current.getDay() !== 6) {
+            result.push(new Date(current));
+        }
+        current.setDate(current.getDate() + 1);
+    }
+    return result;
+}
+
 const dateInput = document.getElementById('myDatepicker');
 const dateArrow = document.getElementById('myDateArrow');
 if (dateInput && dateArrow) {
