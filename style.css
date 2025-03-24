@@ -45,6 +45,13 @@
     padding: 28px 54px;
     border-radius: 20px;
 }
+.services-right-preview{
+    display: flex;
+    flex-direction: column;
+}
+.services-right-preview-hidden{
+    display: none;
+}
 
 /* Недавние услуги  */
 .recent-services {
