@@ -340,7 +340,7 @@
 .custom-dropdown summary::-webkit-details-marker {
     display: none;
 }
-.details.custom-dropdown.disabled summary {
+.custom-dropdown.disabled summary {
     pointer-events: none;
     color: var(--color-medium-gray);
 }

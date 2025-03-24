@@ -418,7 +418,6 @@ function checkAllForms() {
     const isDateFilled = dateValue !== '';
 
     const sendButton = document.getElementById('openModalBtn');
-    const typeDetails = document.getElementById('secondDropdown');
     const judicialContainer = document.getElementById('judicialContainer');
     const informationContainer = document.getElementById('informationContainer');
     const informationDropdown = document.getElementById('informationDropdown');
@@ -428,10 +427,11 @@ function checkAllForms() {
     const judicialJob = document.getElementById('judicialJob');
     const descriptionInfo = document.getElementById('descriptionInfo');
 
+    const typeSelector = document.getElementById('secondDropdown');
     if (serviceText === 'Не выбрано') {
-        typeDetails?.classList.add('disabled');
+        typeSelector?.classList.add('disabled');
     } else {
-        typeDetails?.classList.remove('disabled');
+        typeSelector?.classList.remove('disabled');
     }
 
     if (emailInput) {
@@ -791,4 +791,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+});
+
+// не раскрываем тип Услуги в обход point-events: none
+document.querySelectorAll('#secondDropdown summary').forEach(summary => {
+    summary.addEventListener('click', (e) => {
+        const parent = summary.closest('.custom-dropdown');
+        if (parent.classList.contains('disabled')) {
+            e.preventDefault();
+        }
+    });
 });
