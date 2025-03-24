@@ -44,6 +44,7 @@
     background-color: var(--color-bg);
     padding: 28px 54px;
     border-radius: 20px;
+    height: fit-content;
 }
 .services-right-preview{
     display: flex;
