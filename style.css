@@ -28,7 +28,7 @@
     flex-direction: column;
     background-color: var(--color-bg-page);
 }
-.services-container {
+.services-container, .services-container-agreement {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -39,17 +39,22 @@
 .title-position {
     padding: 24px 20px 20px 20px;
 }
-.services-left {
+.services-left, .services-left-agreement {
     width: calc(57% - 10px);
     border-radius: 20px;
 }
-.services-right {
+.services-right, .services-right-agreement {
     width: calc(43% - 10px);
     background-color: var(--color-bg);
-    padding: 28px 54px;
+    padding: 0 0 28px 0;
     border-radius: 20px;
     height: fit-content;
 }
+
+.services-right-agreement {
+    padding: 20px;
+}
+
 .services-right-preview{
     display: flex;
     flex-direction: column;
@@ -426,6 +431,11 @@
     width: 30%;
     justify-content: end;
 }
+
+.item-status a{
+    text-decoration: none;
+    color: inherit;
+}
 .item-name {
     display: flex;
     flex-wrap: wrap;
@@ -462,7 +472,6 @@
 .add-file-line {
     margin: 24px 0 56px 0;
     display: flex;
-    align-items: center;
 }
 .button-add-file,
 .button-delete-file {
@@ -506,6 +515,8 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    align-self: center;
+    max-width: 70%;
 }
 
 /* Ссылки для скачивания */
@@ -553,7 +564,7 @@
 }
 
 .service-description-container li{
-    margin: 0 11px
+    margin: 0 8px
 }
 .service-description-container li::marker {
     color: var(--color-primary);
@@ -600,6 +611,12 @@
 }
 .email-input::placeholder {
     color: var(--color-text-muted);
+}
+
+.email-input:focus,
+.date-input:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 /* Блок с описанием и кнопкой отправки */
@@ -1135,7 +1152,7 @@
 
 /* tablet версия*/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     .services-container {
         flex-direction: column;
         gap: 0;
@@ -1145,12 +1162,17 @@
         width: 100%;
         padding: 24px 16px;
     }
+
+    .services-right-agreement{
+        padding: 20px 12px;
+        width: calc(33.33% - 10px);
+    }
+
     .services-left{
         width: 100%;
     }
-
-    .service-description{
-        display: none;
+    .services-left-agreement{
+        width: calc(66.66% - 10px);
     }
 
     .manager-consultation {
@@ -1163,19 +1185,44 @@
 
     .dropdown-container-email {
         display: flex;
-        width: calc(60% - 10px);
     }
     .dropdown-container-date {
         display: flex;
         width: calc(40% - 10px);
     }
 
-    .extra-services-container{
-        margin: 12px;
-    }
-
     .document-area{
         margin-bottom: 20px;
+    }
+
+}
+@media screen and (max-width: 768px) {
+    .profile-settings-button {
+        height: auto;
+    }
+
+    .signing-title {
+        font-size: 16px;
+    }
+
+    .signing-line {
+        flex-direction: column;
+    }
+
+    .extra-services-title {
+        font-size: 16px;
+    }
+
+    .extra-services-label {
+        font-size: 16px;
+    }
+
+    .extra-services-signing-line {
+        flex-direction: column;
+    }
+
+    .check-line {
+        gap: 0;
     }
 }
 @media screen and (max-width: 425px) {

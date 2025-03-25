@@ -56,6 +56,7 @@
                                         <!-- Опция 1 (выбранная) -->
                                         <li class="dropdown-item selected">
                                             <div class="item-name-approved">Судебная работа</div>
+                                            <!-- ЗЕЛЕНАЯ ПОДПИСЬ ПРИ ПОДПИСАННОМ ДОКУМЕНТЕ-->
                                             <span class="item-status-approved">
                                                 <img src="img/item-status-approved.svg" alt="V">
                                                     Подписан
@@ -64,9 +65,10 @@
                                         <!-- Опция 2 (невыбранная) -->
                                         <li class="dropdown-item">
                                             <div class="item-name">Информирование</div>
+                                            <!-- СИНЯЯ ПОДПИСЬ ПРИ НЕПОДПИСАННОМ ДОКУМЕНТЕ-->
                                             <span class="item-status">
-                                                <img src="img/item-status.svg" alt="status">
-                                                    Подписать
+                                                <img src="img/item-status-select.svg" alt="status">
+                                                    <a href="#">Подписать</a>
                                             </span>
                                         </li>
                                     </ul>
@@ -218,15 +220,16 @@
                         </div>
                     </div>
                     <div id="serviceDescription" class="service-description-container"></div>
-                </div>
-
-                <div class="button-line">
                     <ul class="description-hidden" id="descriptionInfo">Вне зависимости от выбранной даты, период предоставления услуги составит:
                         <li class="description-line">3 дня <span class="description-muted">текст уведомления уже проходил проверку</span>
                         </li>
                         <li class="description-line">7 дней <span class="description-muted">текст будет проверен специалистом</span>
                         </li>
                     </ul>
+                </div>
+
+                <div class="button-line">
+
                     <button class="send-button" id="openModalBtn">Отправить</button>
 
                     <!-- модалка + затемнение фона (оверлей) -->
