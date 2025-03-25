@@ -134,30 +134,33 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
+    gap: 30px;
 }
 .services-list-item-medium {
     border-top: 1px solid var(--color-light-gray);
     border-bottom: 1px solid var(--color-light-gray);
+    gap: 30px;
 }
 
 /* Инфо об услугах */
 .service-info {
     display: flex;
     flex-direction: row;
-    width: calc(40% - 30px);
-}
-.service-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: calc(60% - 30px);
+    width: calc(55% - 15px);justify-content: space-between;
 }
 
 .service-description{
     color: var(--color-primary);
     text-decoration: underline;
     cursor: pointer;
+}
+
+.service-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(45% - 15px);
 }
 .service-name {
     font-weight: 600;
@@ -168,6 +171,10 @@
     color: var(--color-text-muted);
 }
 .service-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 90px;
     font-weight: 400;
     font-size: 14px;
     color: var(--color-medium-gray);
@@ -189,6 +196,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    max-width: 50%;
 }
 .service-button-active {
     background: var(--color-secondary);
@@ -275,11 +283,12 @@
     flex-direction: column;
     gap: 20px;
     width: 758px;
-    top: 180px;
-    left: 581px;
+    top: 50%;
+    left: 50%;
     padding: 32px 40px 32px 32px;
     border-radius: 20px;
     position: relative;
+    transform: translate(-50%, -50%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: var(--color-primary);
     background: var(--color-bg);
@@ -1235,6 +1244,39 @@
         width: 100%;
         padding: 24px 16px;
     }
+
+    .services-list-item{
+        flex-direction: column;
+        gap: 8px;
+    }
+    .services-list-item-medium{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .service-info{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .service-content{
+        width: 100%;
+    }
+
+    .service-name{
+        width: 50%;
+        padding: 0;
+    }
+
+    .service-price{
+        width: auto;
+    }
+
+    .service-button{
+        max-width: fit-content;
+    }
+
     .document-area{
         padding: 50px 0;
     }
