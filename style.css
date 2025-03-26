@@ -282,7 +282,6 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 758px;
     top: 50%;
     left: 50%;
     padding: 32px 40px 32px 32px;
@@ -441,7 +440,7 @@
     justify-content: end;
 }
 
-.item-status a{
+.status-link{
     text-decoration: none;
     color: inherit;
 }
@@ -550,6 +549,10 @@
     align-items: center;
     gap: 4px;
     margin-bottom: 8px;
+}
+
+.one-link {
+    text-decoration: underline;
 }
 
 /* Блок для выбора даты и ввода почты */
@@ -860,6 +863,10 @@
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;
+}
+
+.mobile-show-arrow{
+    display: none;
 }
 
 .agreement-open-button:hover{
@@ -1233,11 +1240,64 @@
     .check-line {
         gap: 0;
     }
+    .tooltip-text{
+        transform: translateX(-100%);
+        min-width: 200px;
+    }
 }
 @media screen and (max-width: 425px) {
 
     .services-container {
         gap: 20px;
+        padding: 8px;
+    }
+
+    .services-left{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .title-position{
+        padding: 24px 8px 8px;
+    }
+
+    .services-title{
+        font-size: 18px;
+        padding: 0;
+    }
+
+    .recent-services-header{
+        margin-bottom: 20px;
+    }
+
+    .recent-services-title {
+        font-size: 16px;
+    }
+
+    .recent-services-header p {
+        font-family: Inter, sans-serif;
+        font-size: 12px;
+    }
+    .recent-services-title a {
+        font-size: 12px;
+    }
+
+    .recent-services{
+        padding: 12px;
+        margin-bottom: 0;
+    }
+
+    .manager-consultation{
+        display: block;
+    }
+
+    .manager-consultation h3{
+        font-size: 16px;
+    }
+
+    .info-note{
+        padding: 0;
     }
 
     .services-right{
@@ -1267,14 +1327,23 @@
     .service-name{
         width: 50%;
         padding: 0;
+        font-size: 15px;
     }
 
     .service-price{
         width: auto;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+    }
+
+    .price-value{
+        font-size: 16px;
     }
 
     .service-button{
-        max-width: fit-content;
+        font-size: 14px;
+        padding: 6px;
     }
 
     .document-area{
@@ -1292,11 +1361,255 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+        margin-top: 0;
+        margin-bottom: 40px;
     }
     .dropdown-container-email{
         width: 100%;
     }
     .download-links a {
         display: contents;
+    }
+
+    .dropdown-label{
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .dropdown-list li:first-child, .dropdown-list li:last-child{
+        border-top: none;
+        border-bottom: none;
+    }
+
+    .dropdown-list li{
+        border-top: 1px solid var(--color-light-gray);
+    }
+
+    .dropdown-list span{
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+    }
+    .dropdown-header-row{
+        margin: 8px 6px;
+    }
+    .he-left-left  .header-right{
+        font-size: 12px;
+    }
+
+    .status-link {
+        display: none;
+    }
+
+    .one-link a{
+        font-size: 12px;
+    }
+
+    .one-link img {
+        height: 16px;
+        width: 16px;
+    }
+
+    .button-add-file, .button-delete-file{
+        width: 156px;
+        height: 32px;
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .status-add-file{
+        max-width: 100%;
+        align-self: flex-start;
+        font-size: 14px;
+    }
+
+    .download-links-container{
+        margin-bottom: 40px;
+    }
+
+    .date-email-container{
+        flex-direction: column;
+    }
+
+    .dropdown-container-date{
+        width: 100%;
+    }
+
+    .dropdown-label{
+        height: auto;
+    }
+
+    .service-description-container{
+        font-size: 12px;
+    }
+
+    .description{
+        font-size: 12px;
+        margin-bottom: 40px;
+    }
+
+    .tooltip-text{
+        transform: translateX(-100%);
+        min-width: 200px;
+    }
+
+    .description-line{
+        margin-right: 0;
+    }
+    .send-button, .send-button-active{
+        font-size: 14px;
+        height: 30px;
+        width: 107px;
+    }
+
+    .modal-window h2 {
+        font-size: 16px;
+    }
+
+    .modal-window p {
+        font-size: 13px;
+    }
+
+    .order-list-button, .close-button{
+        font-size: 14px;
+    }
+
+    .order-list-button{
+        width: 130px;
+    }
+
+    .close-button{
+        width: 90px;
+    }
+
+    .services-container-agreement{
+        flex-direction: column-reverse;
+        padding: 8px;
+    }
+    .services-left-agreement{
+        width: 100%;
+    }
+    .services-right-agreement{
+        width: 100%;
+        padding: 8px;
+    }
+
+    .info-note-agreement{
+        font-size: 12px;
+    }
+
+    .profile-settings-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .check-line{
+        gap: 8px;
+    }
+    .check-line img{
+        height: 16px;
+        width: 16px;
+    }
+
+    .contract-name-title{
+        font-size: 14px;
+    }
+
+    .contract-date-title{
+        font-size: 13px;
+    }
+
+    .signing-line{
+        flex-direction: row;
+        font-size: 14px;
+    }
+
+    .signing-line-hidden{
+        display: none;
+    }
+
+    .signing-line img {
+        height: 16px;
+        width: 16px;
+    }
+
+    .sign-button, .sign-button-active{
+        font-size: 14px;
+        height: 32px;
+        width: 130px;
+    }
+
+    .sign-button img, .sign-button-active img {
+        height: 16px;
+        width: 16px;
+    }
+
+    .services-contract{
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .confirmed-display{
+        align-self: end;
+        font-size: 14px;
+    }
+
+    .confirmed-display img{
+        height: 16px;
+        width: 16px;
+    }
+
+    .extra-services-container{
+        padding: 12px;
+    }
+
+    .extra-services-signing-line{
+        flex-direction: row;
+        font-size: 14px;
+    }
+
+    .extra-services-signing-line img {
+        height: 16px;
+        width: 16px;
+    }
+
+    .extra-services{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .download-documents-title{
+        font-size: 12px;
+    }
+
+    .download-documents-button{
+        font-size: 14px;
+    }
+
+    .agreement-open-button{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-hide-text{
+        display: none;
+    }
+
+    .mobile-show-arrow{
+        display: block;
+        rotate: 270deg;
+        height: 16px;
+        width: 16px;
+    }
+
+    .agreement-section{
+        margin-bottom: 8px;
     }
 }
