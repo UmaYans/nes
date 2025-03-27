@@ -566,7 +566,19 @@
 .dropdown-container-email {
     display: flex;
     flex-direction: column;
-    flex: 1;
+}
+
+.dropdown-container-date{
+    width: calc(40% - 10px);
+}
+
+.dropdown-container-email{
+    width: auto;
+    min-width: calc(60% - 10px);
+}
+
+.description-mobile{
+    display: none;
 }
 
 .service-description-container  {
@@ -845,6 +857,10 @@
     margin-bottom: 40px;
 }
 
+.agreement-section-mobile{
+    display: none;
+}
+
 .agreement-and-text {
     display: flex;
     justify-content: space-between;
@@ -1015,7 +1031,7 @@
     margin: 4px;
     gap: 20px;
     border-radius: 12px;
-    padding: 24px 20px;
+    padding: 20px;
     background: var(--color-bg);
 }
 
@@ -1217,39 +1233,6 @@
 
 }
 @media screen and (max-width: 768px) {
-    .profile-settings-button {
-        height: auto;
-    }
-
-    .signing-title {
-        font-size: 16px;
-    }
-
-    .signing-line {
-        flex-direction: column;
-    }
-
-    .extra-services-title {
-        font-size: 16px;
-    }
-
-    .extra-services-label {
-        font-size: 16px;
-    }
-
-    .extra-services-signing-line {
-        flex-direction: column;
-    }
-
-    .check-line {
-        gap: 0;
-    }
-    .tooltip-text{
-        transform: translateX(-100%);
-        min-width: 200px;
-    }
-}
-@media screen and (max-width: 425px) {
 
     .services-container {
         gap: 20px;
@@ -1348,7 +1331,7 @@
         font-size: 16px;
     }
 
-    .service-button{
+    .service-button, .service-button-active{
         font-size: 13px;
         padding: 8px;
     }
@@ -1441,6 +1424,10 @@
         font-size: 12px;
     }
 
+    .service-description{
+        font-size: 15px;
+    }
+
     .description{
         display: none;
     }
@@ -1477,16 +1464,17 @@
     }
 
     .order-list-button{
-        width: 130px;
+        width: 54%;
     }
 
     .close-button{
-        width: 90px;
+        width: 38%;
     }
 
     .services-container-agreement{
         flex-direction: column-reverse;
         padding: 8px;
+        gap: 8px;
     }
     .services-left-agreement{
         width: 100%;
@@ -1613,6 +1601,19 @@
     }
 
     .agreement-section{
-        margin-bottom: 8px;
+       display: none;
+    }
+
+    .agreement-section-mobile {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 8px 0;
+    }
+
+    .email-input{
+        margin-bottom: 20px;
     }
 }

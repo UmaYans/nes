@@ -20,8 +20,39 @@
     <div class="title-position">
         <h2 class="services-title">Договор</h2>
     </div>
+    <!-- Селектор только для мобильных устройств-->
+    <div class="agreement-section-mobile">
+        <div class="agreement-and-text">
+            <div class="dropdown-container">
+                <details class="custom-dropdown">
+                    <summary class="dropdown-toggle-type">Договор
+                        <span class="dropdown-arrow">
+                                    <img src="img/dropdown-arrow.svg" alt="v">
+                                </span>
+                    </summary>
+                    <ul class="dropdown-list">
+                        <!-- Договор по умолчанию стоит -->
+                        <li class="dropdown-item">
+                            <div class="type-item-name">Договор</div>
+                        </li>
+                        <!-- Опция 2 (невыбранная) -->
+                        <li class="dropdown-item">
+                            <div class="type-item-name">Информирование</div>
+
+                        </li>
+                        <!-- Опция 3 (невыбранная) -->
+                        <li class="dropdown-item">
+                            <div class="type-item-name">Судебная работа</div>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+        </div>
+        <button class="agreement-open-button" id="contractSelectBtnMobile"><span class="mobile-hide-text">Открыть</span><img src="img/dropdown-mobile-arrow.svg" alt="v" class="mobile-show-arrow"></button>
+    </div>
+    <!-- Конец селектора-->
     <div class="services-container-agreement">
-        <!--Селектор договора и текст договора-->
+        <!--Селектор договора web версия и текст договора-->
         <div class="services-left-agreement">
             <div class="agreement-section">
                 <div class="agreement-and-text">
@@ -29,8 +60,8 @@
                         <details class="custom-dropdown">
                             <summary class="dropdown-toggle-type">Договор
                                 <span class="dropdown-arrow">
-      <img src="img/dropdown-arrow.svg" alt="v">
-    </span>
+                                    <img src="img/dropdown-arrow.svg" alt="v">
+                                </span>
                             </summary>
                             <ul class="dropdown-list">
                                 <!-- Договор по умолчанию стоит -->
@@ -94,7 +125,7 @@
                 <!-- дополнительные соглашения "подключите все возможности системы)-->
                 <div class="extra-services-container-hidden" id="extraServiceContainer">
                     <div class="extra-services-title">Подключите все возможности системы:</div>
-                    <!-- уведомления-->
+                    <!-- услуга уведомлений подключить-->
                     <div class="extra-services-label">Автоматизируйте важные уведомления</div>
                     <div class="extra-services">
                         <div class="check-line">

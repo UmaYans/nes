@@ -761,34 +761,47 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const contractSelectBtn = document.getElementById('contractSelectBtn');
-    const summary = document.querySelector('.custom-dropdown summary');
-
     const pdfViewer = document.getElementById('pdfViewer');
     const pdfViewerInformation = document.getElementById('pdfViewerInformation');
     const pdfViewerJudicial = document.getElementById('pdfViewerJudicial');
 
-    if (contractSelectBtn && summary && pdfViewer && pdfViewerInformation && pdfViewerJudicial) {
+    // показываем нужный пдф в зависимости от текста в селекторе
+    function showPdfBySelectedText(selectedText) {
+        pdfViewer.classList.add('pdf-viewer-hidden');
+        pdfViewer.classList.remove('pdf-viewer');
+        pdfViewerInformation.classList.add('pdf-viewer-hidden');
+        pdfViewerInformation.classList.remove('pdf-viewer');
+        pdfViewerJudicial.classList.add('pdf-viewer-hidden');
+        pdfViewerJudicial.classList.remove('pdf-viewer');
+
+        if (selectedText === 'Договор') {
+            pdfViewer.classList.remove('pdf-viewer-hidden');
+            pdfViewer.classList.add('pdf-viewer');
+        } else if (selectedText === 'Информирование') {
+            pdfViewerInformation.classList.remove('pdf-viewer-hidden');
+            pdfViewerInformation.classList.add('pdf-viewer');
+        } else if (selectedText === 'Судебная работа') {
+            pdfViewerJudicial.classList.remove('pdf-viewer-hidden');
+            pdfViewerJudicial.classList.add('pdf-viewer');
+        }
+    }
+
+    const contractSelectBtn = document.getElementById('contractSelectBtn');
+    const contractSelectBtnMobile = document.getElementById('contractSelectBtnMobile');
+
+    if (contractSelectBtn) {
         contractSelectBtn.addEventListener('click', () => {
-            const selected = summary.textContent.trim();
+            const dropdown = document.querySelector('.agreement-section .custom-dropdown');
+            const selectedText = dropdown?.querySelector('summary')?.textContent.trim();
+            if (selectedText) showPdfBySelectedText(selectedText);
+        });
+    }
 
-            pdfViewer.classList.add('pdf-viewer-hidden');
-            pdfViewer.classList.remove('pdf-viewer');
-            pdfViewerInformation.classList.add('pdf-viewer-hidden');
-            pdfViewerInformation.classList.remove('pdf-viewer');
-            pdfViewerJudicial.classList.add('pdf-viewer-hidden');
-            pdfViewerJudicial.classList.remove('pdf-viewer');
-
-            if (selected === 'Договор') {
-                pdfViewer.classList.remove('pdf-viewer-hidden');
-                pdfViewer.classList.add('pdf-viewer');
-            } else if (selected === 'Информирование') {
-                pdfViewerInformation.classList.remove('pdf-viewer-hidden');
-                pdfViewerInformation.classList.add('pdf-viewer');
-            } else if (selected === 'Судебная работа') {
-                pdfViewerJudicial.classList.remove('pdf-viewer-hidden');
-                pdfViewerJudicial.classList.add('pdf-viewer');
-            }
+    if (contractSelectBtnMobile) {
+        contractSelectBtnMobile.addEventListener('click', () => {
+            const dropdown = document.querySelector('.agreement-section-mobile .custom-dropdown');
+            const selectedText = dropdown?.querySelector('summary')?.textContent.trim();
+            if (selectedText) showPdfBySelectedText(selectedText);
         });
     }
 });
