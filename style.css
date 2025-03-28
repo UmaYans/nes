@@ -18,12 +18,22 @@
 html, body {
     height: 100%;
 }
+
 body{
     display: flex;
     flex-direction: column;
     background-color: var(--color-bg-page);
 }
-.main-container{
+
+.total-page{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100vh;
+}
+.header-content-footer{
+    display: flex;
+    flex-direction: column;
     flex: 1;
 }
 
@@ -40,6 +50,7 @@ body{
     display: flex;
     flex-direction: column;
     background-color: var(--color-bg-page);
+    flex: 1;
 }
 .services-container {
     display: flex;
@@ -1411,3 +1422,94 @@ body{
     }
 }
 
+
+/* aside*/
+
+.aside-main{
+    display: flex;
+    flex-direction: column;
+    width: 327px;
+    background: var(--color-bg);
+    height: 100%;
+
+}
+
+.aside-logo{
+    height: 88px;
+    padding: 24px 20px;
+}
+
+.aside-select-title{
+    padding: 16px 40px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--color-text-main);
+    border-right: 5px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.aside-select-title:hover,
+.aside-select-title:active,
+.aside-select-title:focus,
+.aside-select-option:hover,
+.aside-select-option:active,
+.aside-select-option:focus {
+    background: var(--color-bg-page);
+    border-right: 5px solid var(--color-primary);
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+.aside-select-title.active,
+.aside-select-option.active{
+    background: var(--color-bg-page);
+    border-right: 5px solid var(--color-primary);
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+.aside-select-option{
+    display: flex;
+    flex-direction: column;
+    padding: 8px 60px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-text-main);
+}
+
+@media screen and (max-width: 1200px){
+    #aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: 100%;
+        background: var(--color-bg);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+    #aside.active {
+        transform: translateX(0);
+    }
+
+    .aside-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+    }
+
+    .aside-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+}

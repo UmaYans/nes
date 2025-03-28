@@ -1,131 +1,142 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Услуги Превью</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги Превью</title>
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-  <link
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
-          rel="stylesheet"
-  />
-  <link
-          href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-  />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+    />
 </head>
 <body>
-<div class="main-container">
-  <div class="title-position">
-    <h2 class="services-title">Услуги</h2>
-  </div>
-  <div class="services-container">
-    <!-- Левая колонка -->
-    <div class="services-left">
-      <div class="recent-services">
-        <div class="recent-services-header">
-          <h3 class="recent-services-title">Недавно предоставленные услуги</h3>
-          <p>
-            Для активации услуг - подпишите
-            <a href="#">договор</a>
-          </p>
+<div class="total-page">
+  <!-- Боковое меню-->
+    <aside id="aside"></aside>
+  <!-- Остальной контент (шапка, контент, подвал)-->
+    <div class="header-content-footer">
+        <header id="header"></header>
+        <div class="main-container">
+            <div class="title-position">
+                <h2 class="services-title">Услуги</h2>
+            </div>
+            <div class="services-container">
+                <!-- Левая колонка -->
+                <div class="services-left">
+                    <div class="recent-services">
+                        <div class="recent-services-header">
+                            <h3 class="recent-services-title">Недавно предоставленные услуги</h3>
+                            <p>
+                                Для активации услуг - подпишите
+                                <a href="#">договор</a>
+                            </p>
+                        </div>
+                        <ul class="services-list">
+                            <li class="services-list-item">
+                                <div class="service-info">
+                                    <span class="service-name">Роботизированный звонок</span>
+                                </div>
+                                <div class="service-content">
+                                    <div class="service-description" id="robotDescription">Подробнее</div>
+                                    <span class="service-price">от <span class="price-value">4,8</span> ₽/шт</span>
+                                    <button
+                                            class="service-button tooltip-button"
+                                            data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
+                                    >
+                                        Воспользоваться сервисом
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="services-list-item-medium">
+                                <div class="service-info">
+                                    <span class="service-name">СМС</span>
+                                </div>
+                                <div class="service-content">
+                                    <div class="service-description" id="smsDescription">Подробнее</div>
+                                    <span class="service-price">от <span class="price-value">8,7</span> ₽/шт</span>
+                                    <button
+                                            class="service-button tooltip-button"
+                                            data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
+                                    >
+                                        Воспользоваться сервисом
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="services-list-item">
+                                <div class="service-info">
+                                    <span class="service-name">Получение приказа</span>
+                                </div>
+                                <div class="service-content">
+                                    <div class="service-description" id="orderDescription">Подробнее</div>
+                                    <span class="service-price">от <span class="price-value">1413</span> ₽/шт</span>
+                                    <button
+                                            class="service-button tooltip-button"
+                                            data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
+                                    >
+                                        Воспользоваться сервисом
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="manager-consultation">
+                        <h3 class="manager-title">Консультация менеджера</h3>
+                        <p>Ваш менеджер Виталий</p>
+                        <p class="manager-phone">
+                            <a href="">+7 987 65 43 21</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- Правая колонка (картинка + текст) -->
+                <div class="services-right">
+                    <img
+                            src="img/heroInfo.png"
+                            alt="Информирование, роботизированный звонок, SMS, судебная работа и т.д."
+                            class="services-reminder-image"
+                    />
+                    <p class="info-note">
+                        Для проведения судебной работы Вам необходимо ознакомиться с условиями договора и направить нам
+                        подписанный
+                        договор по системе ЭДО
+                    </p>
+                </div>
+            </div>
         </div>
-        <ul class="services-list">
-          <li class="services-list-item">
-            <div class="service-info">
-              <span class="service-name">Роботизированный звонок</span>
-            </div>
-            <div class="service-content">
-              <div class="service-description" id="robotDescription">Подробнее</div>
-              <span class="service-price">от <span class="price-value">4,8</span> ₽/шт</span>
-              <button
-                      class="service-button tooltip-button"
-                      data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
-              >
-                Воспользоваться сервисом
-              </button>
-            </div>
-          </li>
-          <li class="services-list-item-medium">
-            <div class="service-info">
-              <span class="service-name">СМС</span>
-            </div>
-            <div class="service-content">
-              <div class="service-description" id="smsDescription">Подробнее</div>
-              <span class="service-price">от <span class="price-value">8,7</span> ₽/шт</span>
-              <button
-                      class="service-button tooltip-button"
-                      data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
-              >
-                Воспользоваться сервисом
-              </button>
-            </div>
-          </li>
-          <li class="services-list-item">
-            <div class="service-info">
-              <span class="service-name">Получение приказа</span>
-            </div>
-            <div class="service-content">
-              <div class="service-description" id="orderDescription">Подробнее</div>
-              <span class="service-price">от <span class="price-value">1413</span> ₽/шт</span>
-              <button
-                      class="service-button tooltip-button"
-                      data-tooltip="Для активации услуг – подпишите <a href='#'>договор</a>"
-              >
-                Воспользоваться сервисом
-              </button>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="manager-consultation">
-        <h3 class="manager-title">Консультация менеджера</h3>
-        <p>Ваш менеджер Виталий</p>
-        <p class="manager-phone">
-          <a href="">+7 987 65 43 21</a>
-        </p>
-      </div>
-    </div>
-    <!-- Правая колонка (картинка + текст) -->
-    <div class="services-right">
-      <img
-              src="img/heroInfo.png"
-              alt="Информирование, роботизированный звонок, SMS, судебная работа и т.д."
-              class="services-reminder-image"
-      />
-      <p class="info-note">
-        Для проведения судебной работы Вам необходимо ознакомиться с условиями договора и направить нам подписанный
-        договор по системе ЭДО
-      </p>
-    </div>
-  </div>
-</div>
 
-<!-- общий тултип для "Воспользоваться сервисом" -->
-<div class="tooltip-global" id="global-tooltip">
-  <span class="tooltip-text-global" id="tooltip-text"></span>
-  <span class="tooltip-close" id="tooltip-close">
+        <!-- общий тултип для "Воспользоваться сервисом" -->
+        <div class="tooltip-global" id="global-tooltip">
+            <span class="tooltip-text-global" id="tooltip-text"></span>
+            <span class="tooltip-close" id="tooltip-close">
     <img src="img/close.svg" alt="x">
 </span>
-</div>
+        </div>
 
-<!-- Модальное окно при нажатии на "подробнее" -->
-<div id="modal" class="modal">
-  <div class="modal-content">
+        <!-- Модальное окно при нажатии на "подробнее" -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
     <span class="modal-close">
       <img src="img/close.svg" alt="x">
     </span>
-    <h3 id="modal-title">Заголовок</h3>
-    <p>Как будет происходить работа?</p>
-    <div id="modal-body">
-      <ol class="modal-list">
-        <li>Шаг 1</li>
-        <li>Шаг 2</li>
-      </ol>
+                <h3 id="modal-title">Заголовок</h3>
+                <p>Как будет происходить работа?</p>
+                <div id="modal-body">
+                    <ol class="modal-list">
+                        <li>Шаг 1</li>
+                        <li>Шаг 2</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+      <footer id="footer"></footer>
     </div>
-  </div>
+    <div id="asideOverlay" class="aside-overlay"></div>
 </div>
 
 <script src="script.js"></script>
