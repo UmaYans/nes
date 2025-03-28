@@ -21,6 +21,7 @@ html, body {
 body{
     display: flex;
     flex-direction: column;
+    background-color: var(--color-bg-page);
 }
 .main-container{
     flex: 1;
@@ -1226,6 +1227,10 @@ body{
 
 /* header, footer styles*/
 
+.header-contacts-mobile{
+    display: none;
+}
+
 .header-main{
     height: 88px;
     display: flex;
@@ -1233,6 +1238,10 @@ body{
     padding: 16px 24px;
     background: var(--color-primary);
     color: var(--color-bg);
+}
+
+.header-description{
+    display: none;
 }
 
 .header-side{
@@ -1323,6 +1332,77 @@ body{
 }
 
 @media screen and (max-width: 425px) {
+
+    .header-contacts-mobile{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 8px;
+        height: 56px;
+        margin: 0 8px;
+    }
+
+    .header-logo-mobile{
+
+    }
+
+    .header-manager-info-mobile{
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 20px
+    }
+
+    .icon-line-mobile a{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-secondary);
+        text-decoration: none;
+        line-height: 18px;
+    }
+
+    .header-manager-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .header-main{
+        height: 48px;
+        border-radius: 8px;
+        margin: 0 8px;
+        padding: 8px;
+    }
+
+    .header-side{
+        display: none;
+    }
+
+    .tablet-ver{
+        gap: 22px;
+    }
+
+    .header-description{
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        font-size: 12px;
+    }
+
+    .header-login-mobile-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-bg);
+        width: 32px;
+        height: 100%;
+        border-radius: 4px;
+        padding: 8px;
+    }
+
     .footer-main{
         flex-direction: column;
         height: auto;
