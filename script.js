@@ -8,7 +8,7 @@ if (typeof pdfjsLib !== 'undefined') {
 
     function renderPage(page, container) {
         const scale = 1.5;
-        const viewport = page.getViewport({ scale });
+        const viewport = page.getViewport({scale});
         const canvas = document.createElement('canvas');
         canvas.classList.add('canvas');
         const context = canvas.getContext('2d');
@@ -814,4 +814,57 @@ document.querySelectorAll('#secondDropdown summary').forEach(summary => {
             e.preventDefault();
         }
     });
+});
+
+//скрытие aside при выборе какой-то кнопки из aside
+function attachAsideHandlers() {
+    const titles = document.querySelectorAll('.aside-select-title, .aside-select-option');
+    const aside = document.getElementById('aside');
+    const overlay = document.getElementById('asideOverlay');
+    titles.forEach(title => {
+        title.addEventListener('click', function() {
+            titles.forEach(el => el.classList.remove('active'));
+            this.classList.add('active');
+            aside.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    });
+}
+
+// скрипты для подключения документов aside.html, header.html и footer.html в документ
+Promise.all([
+    fetch('header.html').then(r => r.text()).then(data => {
+        document.getElementById('header').innerHTML = data;
+    }),
+    fetch('aside.html').then(r => r.text()).then(data => {
+        document.getElementById('aside').innerHTML = data;
+    }),
+    fetch('footer.html').then(r => r.text()).then(data => {
+        document.getElementById('footer').innerHTML = data;
+    })
+]).then(() => {
+
+    const menuButton = document.getElementById('menuButton');
+    const aside = document.getElementById('aside');
+    const overlay = document.getElementById('asideOverlay');
+
+    menuButton.addEventListener('click', (e) => {
+        aside.classList.add('active');
+        overlay.classList.add('active');
+        e.stopPropagation();
+    });
+
+    overlay.addEventListener('click', () => {
+        aside.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!aside.contains(e.target) && !menuButton.contains(e.target)) {
+            aside.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+    });
+
+    attachAsideHandlers();
 });

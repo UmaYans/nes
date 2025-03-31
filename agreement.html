@@ -16,6 +16,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 </head>
 <body>
+
+<div class="total-page">
+    <!-- Боковое меню-->
+    <aside id="aside"></aside>
+    <!-- Остальной контент (шапка, контент, подвал)-->
+    <div class="header-content-footer">
+        <header id="header"></header>
 <div class="main-container">
     <div class="title-position">
         <h2 class="services-title">Договор</h2>
@@ -84,17 +91,20 @@
                 <button class="agreement-open-button" id="contractSelectBtn"><span class="mobile-hide-text">Открыть</span><img src="img/dropdown-mobile-arrow.svg" alt="v" class="mobile-show-arrow"></button>
             </div>
 
-            <!-- Область прокручиваемого договора-->
-            <div class="document-area">
-                <div id="pdfViewer" class="pdf-viewer"></div>
-                <div id="pdfViewerInformation" class="pdf-viewer-hidden"></div>
-                <div id="pdfViewerJudicial" class="pdf-viewer-hidden"></div>
-                <img src="img/read-contract.png" alt="Изучите договор" class="document-img" id="readContract">
-                <img src="img/not-signed-contract.png" alt="Не подписан" class="document-img-hidden" id="notSignedContract">
-                <img src="img/signed-contract.png" alt="Подписан в ЛК" class="document-img-hidden" id="signedContract">
-                <img src="img/signed-edo-contract.png" alt="Подписан по ЭДО" class="document-img-hidden" id="signedEdoContract">
-            </div>
-        </div>
+                    <!-- Область прокручиваемого договора-->
+                    <div class="document-area">
+                        <div id="pdfViewer" class="pdf-viewer"></div>
+                        <div id="pdfViewerInformation" class="pdf-viewer-hidden"></div>
+                        <div id="pdfViewerJudicial" class="pdf-viewer-hidden"></div>
+                        <img src="img/read-contract.png" alt="Изучите договор" class="document-img" id="readContract">
+                        <img src="img/not-signed-contract.png" alt="Не подписан" class="document-img-hidden"
+                             id="notSignedContract">
+                        <img src="img/signed-contract.png" alt="Подписан в ЛК" class="document-img-hidden"
+                             id="signedContract">
+                        <img src="img/signed-edo-contract.png" alt="Подписан по ЭДО" class="document-img-hidden"
+                             id="signedEdoContract">
+                    </div>
+                </div>
 
         <!-- Правая колонка (интерактив) -->
         <div class="services-right-agreement">
@@ -129,7 +139,8 @@
                     <div class="extra-services-label">Автоматизируйте важные уведомления</div>
                     <div class="extra-services">
                         <div class="check-line">
-                            <img id="notificationsCheckbox" src="img/unchecked.svg" alt="[]" class="img-pointer">
+                            <img id="notificationsCheckbox" src="img/unchecked.svg" alt="[]"
+                                 class="img-pointer">
                             <div class="contract-name-and-data" id="notificationsContractInfo">
                                 <span class="contract-name-title" id="notificationUncheckedTitle">Подключить услугу информирования</span>
                                 <span class="contract-name-title-hidden" id="notificationCheckedTitle">Услуга информирования</span>
@@ -146,7 +157,8 @@
                             <img src="img/pdf-file.svg" alt="file">
                             <a href="#">Скачать PDF</a>
                         </div>
-                        <button id="notificationSignButton" class="sign-button"><img src="img/item-status.svg" alt="status">Подключить
+                        <button id="notificationSignButton" class="sign-button"><img src="img/item-status.svg"
+                                                                                     alt="status">Подключить
                         </button>
                     </div>
                     <img src="img/separator.png" alt="_____" class="separator">
@@ -173,7 +185,8 @@
                             <img src="img/pdf-file.svg" alt="file">
                             <a href="#">Скачать PDF</a>
                         </div>
-                        <button id="judicialSignButton" class="sign-button"><img src="img/item-status.svg" alt="status">Подключить
+                        <button id="judicialSignButton" class="sign-button"><img src="img/item-status.svg"
+                                                                                 alt="status">Подключить
                         </button>
                     </div>
                 </div>
@@ -190,9 +203,13 @@
             <div class="down-menu">
                 <span class="download-documents-title">Скачайте пакет документов и отправьте по системе ЭДО</span>
                 <button class="download-documents-button">Скачать пакет документов</button>
+                    </div>
+                </div>
             </div>
         </div>
+        <footer id="footer"></footer>
     </div>
+    <div id="asideOverlay" class="aside-overlay"></div>
 </div>
 
 <script src="script.js"></script>

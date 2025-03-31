@@ -14,6 +14,29 @@
     --color-error-hover: #CE2222 /* кастомный при наведении*/
 }
 
+
+html, body {
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-page);
+}
+
+.total-page{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100vh;
+}
+.header-content-footer{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 /* Сброс и базовые стили */
 * {
     margin: 0;
@@ -27,6 +50,7 @@
     display: flex;
     flex-direction: column;
     background-color: var(--color-bg-page);
+    flex: 1;
 }
 .services-container, .services-container-agreement {
     display: flex;
@@ -160,7 +184,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: calc(45% - 15px);
+    width: calc(60% - 30px);
 }
 .service-name {
     font-weight: 600;
@@ -1616,4 +1640,282 @@
     .email-input{
         margin-bottom: 20px;
     }
+}
+
+/* header, footer styles*/
+
+.header-contacts-mobile{
+    display: none;
+}
+
+.header-main{
+    height: 88px;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: var(--color-primary);
+    color: var(--color-bg);
+}
+
+.header-description{
+    display: none;
+}
+
+.header-side{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: space-between;
+}
+
+.header-links{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.icon-line, .icon-line a{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    line-height: 24px
+}
+
+.icon-line a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-title{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px
+}
+
+.header-manager-info{
+    line-height: 24px
+}
+
+.header-phone{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tablet-ver{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.tablet-menu {
+    display: none;
+}
+
+.footer-main{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    height: 60px;
+    padding: 22px 40px;
+    font-size: 12px;
+    font-weight: 400;
+    background: var(--color-primary);
+    color: var(--color-bg);
+}
+
+.footer-main a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media screen and  (max-width: 1200px) {
+
+    .header-main{
+        height: 64px;
+        padding: 8px 20px;
+    }
+
+    .header-side{
+            gap: 0;
+    }
+
+    .tablet-menu{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    .header-contacts-mobile{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 8px;
+        height: 56px;
+        margin: 0 8px;
+    }
+
+    .header-logo-mobile{
+
+    }
+
+    .header-manager-info-mobile{
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 20px
+    }
+
+    .icon-line-mobile a{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-secondary);
+        text-decoration: none;
+        line-height: 18px;
+    }
+
+    .header-manager-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .header-main{
+        height: 48px;
+        border-radius: 8px;
+        margin: 0 8px;
+        padding: 8px;
+    }
+
+    .header-side{
+        display: none;
+    }
+
+    .tablet-ver{
+        gap: 22px;
+    }
+
+    .header-description{
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        font-size: 12px;
+    }
+
+    .header-login-mobile-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-bg);
+        width: 32px;
+        height: 100%;
+        border-radius: 4px;
+        padding: 8px;
+    }
+
+    .footer-main{
+        flex-direction: column;
+        height: auto;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+}
+
+
+/* aside*/
+
+.aside-main{
+    display: flex;
+    flex-direction: column;
+    width: 327px;
+    background: var(--color-bg);
+    height: 100%;
+
+}
+
+.aside-logo{
+    height: 88px;
+    padding: 24px 20px;
+}
+
+.aside-select-title{
+    padding: 16px 40px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--color-text-main);
+    border-right: 5px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.aside-select-title:hover,
+.aside-select-title:active,
+.aside-select-title:focus,
+.aside-select-option:hover,
+.aside-select-option:active,
+.aside-select-option:focus {
+    background: var(--color-bg-page);
+    border-right: 5px solid var(--color-primary);
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+.aside-select-title.active,
+.aside-select-option.active{
+    background: var(--color-bg-page);
+    border-right: 5px solid var(--color-primary);
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+.aside-select-option{
+    display: flex;
+    flex-direction: column;
+    padding: 8px 60px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-text-main);
+}
+
+@media screen and (max-width: 1200px){
+    #aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: 100%;
+        background: var(--color-bg);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+    #aside.active {
+        transform: translateX(0);
+    }
+
+    .aside-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+    }
+
+    .aside-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
 }

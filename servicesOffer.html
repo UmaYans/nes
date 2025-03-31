@@ -17,23 +17,28 @@
     <link rel="stylesheet" href="custom-flatpickr.css">
 </head>
 <body>
-
-<div class="main-container">
-    <div class="title-position">
-        <h2 class="services-title">Заказ услуги</h2>
-    </div>
-    <div class="services-container">
-        <!-- Окно выбора услуг -->
-        <div class="services-left">
-            <div class="recent-services">
-                <div class="recent-services-header">
-                    <h3 class="recent-services-title">Выберите вид желаемой услуги</h3>
-                    <p>
-                        Вам необходимо принять
-                        <a href="#">условия договора</a>
-                        на предоставления услуги
-                    </p>
-                </div>
+<div class="total-page">
+    <!-- Боковое меню-->
+    <aside id="aside"></aside>
+    <!-- Остальной контент (шапка, контент, подвал)-->
+    <div class="header-content-footer">
+        <header id="header"></header>
+        <div class="main-container">
+            <div class="title-position">
+                <h2 class="services-title">Заказ услуги</h2>
+            </div>
+            <div class="services-container">
+                <!-- Окно выбора услуг -->
+                <div class="services-left">
+                    <div class="recent-services">
+                        <div class="recent-services-header">
+                            <h3 class="recent-services-title">Выберите вид желаемой услуги</h3>
+                            <p>
+                                Вам необходимо принять
+                                <a href="#">условия договора</a>
+                                на предоставления услуги
+                            </p>
+                        </div>
 
                 <div class="selectors">
                     <div class="services-list">
@@ -70,135 +75,135 @@
                                                 <img src="img/item-status-select.svg" alt="status">
                                                     <a href="#" class="status-link">Подписать</a>
                                             </span>
-                                        </li>
-                                    </ul>
-                                </details>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Окно выбора типа услуг -->
-                    <div class="services-types">
-                        <div class="services-list-item">
-                            <div class="dropdown-container">
-                                <label for="secondDropdown" class="dropdown-label"> <span class="asterisk">*</span> Тип
-                                    услуги</label>
-                                <details id="secondDropdown" class="custom-dropdown disabled">
-                                    <summary class="dropdown-toggle-type">Не выбрано
-                                        <span class="dropdown-arrow">
-                                            <img src="img/dropdown-arrow.svg" alt="v">
-                                        </span>
-                                    </summary>
-                                    <ul class="dropdown-list" id="judicialDropdown">
-                                        <!-- Опция 1 (выбранная) -->
-                                        <li class="dropdown-item">
-                                            <div class="type-item-name">Направление заявления</div>
-
-                                        </li>
-                                        <!-- Опция 2 (невыбранная) -->
-                                        <li class="dropdown-item">
-                                            <div class="type-item-name">Направление заявления в суд и получение судебного приказа</div>
-                                        </li>
-                                    </ul>
-                                    <ul class="dropdown-list" id="informationDropdown">
-                                        <!-- Опция информирования 1 (выбранная) -->
-                                        <li class="dropdown-item">
-                                            <div class="type-item-name">Роботизированный звонок</div>
-
-                                        </li>
-                                        <!-- Опция информирования 2 (невыбранная) -->
-                                        <li class="dropdown-item">
-                                            <div class="type-item-name">СМС</div>
-                                        </li>
-                                    </ul>
-                                </details>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- выпадающие элементы при выбранных двух значениях селекторов-->
-                <div class="interactive-elements-container-hidden" id="judicialContainer">
-                    <!-- кнопка добавления реестра-->
-                    <div class="add-file-line">
-                        <button class="button-add-file" id="fileToggleBtn">
-                            Добавить реестр
-                        </button>
-                        <span class="status-add-file" id="fileStatus">Реестр не выбран</span>
-                    </div>
-
-                    <!-- Ссылки на скачивание шаблонов-->
-                    <div class="download-links-container">
-                        <div class="download-links">
-                            <div class="one-link">
-                                <img src="img/file-checked.svg" alt="file">
-                                <a href="#">Скачать шаблон для заполнения реестра должников</a>
-                            </div>
-                        </div>
-                        <div class="download-links">
-                            <div class="one-link">
-                                <img src="img/file-checked.svg" alt="file">
-                                <a href="#">Скачать инструкцию для заполнения реестра должников</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- почта -->
-
-                    <div class="dropdown-container-email">
-                        <label for="emailInput" class="dropdown-label">
-                            <span class="asterisk">*</span>
-                            Ваша почта, на которую мы пришлем отчет
-                            <div class="tooltip-container">
-                                <img src="img/help.svg" alt="?"/>
-                                <div class="tooltip-text">
-                                    Вы можете изменить адрес электронной почты
+                                                </li>
+                                            </ul>
+                                        </details>
+                                    </div>
                                 </div>
                             </div>
-                        </label>
-                        <input type="email" id="emailInput" class="email-input" placeholder="example@ya.ru">
-                    </div>
-                    <div id="serviceDescription2" class="service-description-container"></div>
-                </div>
 
-                <!-- интерактив для информирования -->
-                <div class="interactive-elements-container-hidden" id="informationContainer">
-                    <!-- кнопка добавления реестра-->
-                    <div class="add-file-line">
-                        <button class="button-add-file" id="fileToggleBtnInfo">
-                            Добавить реестр
-                        </button>
-                        <span class="status-add-file" id="fileStatusInfo">Реестр не выбран</span>
-                    </div>
+                            <!-- Окно выбора типа услуг -->
+                            <div class="services-types">
+                                <div class="services-list-item">
+                                    <div class="dropdown-container">
+                                        <label for="secondDropdown" class="dropdown-label"> <span class="asterisk">*</span> Тип
+                                            услуги</label>
+                                        <details id="secondDropdown" class="custom-dropdown disabled">
+                                            <summary class="dropdown-toggle-type">Не выбрано
+                                                <span class="dropdown-arrow">
+                                            <img src="img/dropdown-arrow.svg" alt="v">
+                                        </span>
+                                            </summary>
+                                            <ul class="dropdown-list" id="judicialDropdown">
+                                                <!-- Опция 1 (выбранная) -->
+                                                <li class="dropdown-item">
+                                                    <div class="type-item-name">Направление заявления</div>
 
-                    <!-- Ссылки на скачивание шаблонов-->
-                    <div class="download-links-container">
-                        <div class="download-links">
-                            <div class="one-link">
-                                <img src="img/file-checked.svg" alt="file">
-                                <a href="#">Скачать шаблон для заполнения реестра информирования</a>
+                                                </li>
+                                                <!-- Опция 2 (невыбранная) -->
+                                                <li class="dropdown-item">
+                                                    <div class="type-item-name">Направление заявления в суд и получение судебного приказа</div>
+                                                </li>
+                                            </ul>
+                                            <ul class="dropdown-list" id="informationDropdown">
+                                                <!-- Опция информирования 1 (выбранная) -->
+                                                <li class="dropdown-item">
+                                                    <div class="type-item-name">Роботизированный звонок</div>
+
+                                                </li>
+                                                <!-- Опция информирования 2 (невыбранная) -->
+                                                <li class="dropdown-item">
+                                                    <div class="type-item-name">СМС</div>
+                                                </li>
+                                            </ul>
+                                        </details>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="download-links">
-                            <div class="one-link">
-                                <img src="img/file-checked.svg" alt="file">
-                                <a href="#">Скачать инструкцию для заполнения реестра информирования</a>
+                        <!-- выпадающие элементы при выбранных двух значениях селекторов-->
+                        <div class="interactive-elements-container-hidden" id="judicialContainer">
+                            <!-- кнопка добавления реестра-->
+                            <div class="add-file-line">
+                                <button class="button-add-file" id="fileToggleBtn">
+                                    Добавить реестр
+                                </button>
+                                <span class="status-add-file" id="fileStatus">Реестр не выбран</span>
                             </div>
+
+                            <!-- Ссылки на скачивание шаблонов-->
+                            <div class="download-links-container">
+                                <div class="download-links">
+                                    <div class="one-link">
+                                        <img src="img/file-checked.svg" alt="file">
+                                        <a href="#">Скачать шаблон для заполнения реестра должников</a>
+                                    </div>
+                                </div>
+                                <div class="download-links">
+                                    <div class="one-link">
+                                        <img src="img/file-checked.svg" alt="file">
+                                        <a href="#">Скачать инструкцию для заполнения реестра должников</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- почта -->
+
+                            <div class="dropdown-container-email">
+                                <label for="emailInput" class="dropdown-label">
+                                    <span class="asterisk">*</span>
+                                    Ваша почта, на которую мы пришлем отчет
+                                    <div class="tooltip-container">
+                                        <img src="img/help.svg" alt="?"/>
+                                        <div class="tooltip-text">
+                                            Вы можете изменить адрес электронной почты
+                                        </div>
+                                    </div>
+                                </label>
+                                <input type="email" id="emailInput" class="email-input" placeholder="example@ya.ru">
+                            </div>
+                            <div id="serviceDescription2" class="service-description-container"></div>
                         </div>
-                    </div>
 
-                    <!-- выбор даты и ввод почты -->
+                        <!-- интерактив для информирования -->
+                        <div class="interactive-elements-container-hidden" id="informationContainer">
+                            <!-- кнопка добавления реестра-->
+                            <div class="add-file-line">
+                                <button class="button-add-file" id="fileToggleBtnInfo">
+                                    Добавить реестр
+                                </button>
+                                <span class="status-add-file" id="fileStatusInfo">Реестр не выбран</span>
+                            </div>
 
-                    <div class="date-email-container">
+                            <!-- Ссылки на скачивание шаблонов-->
+                            <div class="download-links-container">
+                                <div class="download-links">
+                                    <div class="one-link">
+                                        <img src="img/file-checked.svg" alt="file">
+                                        <a href="#">Скачать шаблон для заполнения реестра информирования</a>
+                                    </div>
+                                </div>
+                                <div class="download-links">
+                                    <div class="one-link">
+                                        <img src="img/file-checked.svg" alt="file">
+                                        <a href="#">Скачать инструкцию для заполнения реестра информирования</a>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <!-- дата-->
-                        <div class="dropdown-container-date">
-                            <label for="myDatepicker" class="dropdown-label">
-                                <span class="asterisk">*</span>
-                                Выберите дату начала периода
-                            </label>
-                            <div class="date-wrapper">
-                                <input type="text" id="myDatepicker" class="date-input" placeholder="дд/мм/гггг">
-                                <span class="date-arrow" id="myDateArrow">
+                            <!-- выбор даты и ввод почты -->
+
+                            <div class="date-email-container">
+
+                                <!-- дата-->
+                                <div class="dropdown-container-date">
+                                    <label for="myDatepicker" class="dropdown-label">
+                                        <span class="asterisk">*</span>
+                                        Выберите дату начала периода
+                                    </label>
+                                    <div class="date-wrapper">
+                                        <input type="text" id="myDatepicker" class="date-input" placeholder="дд/мм/гггг">
+                                        <span class="date-arrow" id="myDateArrow">
                                     <img src="img/dropdown-arrow.svg" alt="v">
                                 </span>
                             </div>
@@ -238,65 +243,74 @@
 
                     <button class="send-button" id="openModalBtn">Отправить</button>
 
-                    <!-- модалка + затемнение фона (оверлей) -->
-                    <div class="modal-overlay" id="modalOverlay">
-                        <div class="modal-window">
-                            <h2>Заявка была отправлена!</h2>
-                            <p>Номер обращения: <span class="request">NES___</span></p>
-                            <p>Отслеживайте статус заявки в <a href="#">истории заказов</a></p>
-                            <div class="modal-buttons">
-                                <button class="close-button" id="closeModalBtn">Закрыть</button>
-                                <button class="order-list-button" id="ordersListBtn">История заказов</button>
+                            <!-- модалка + затемнение фона (оверлей) -->
+                            <div class="modal-overlay" id="modalOverlay">
+                                <div class="modal-window">
+                                    <h2>Заявка была отправлена!</h2>
+                                    <p>Номер обращения: <span class="request">NES___</span></p>
+                                    <p>Отслеживайте статус заявки в <a href="#">истории заказов</a></p>
+                                    <div class="modal-buttons">
+                                        <button class="close-button" id="closeModalBtn">Закрыть</button>
+                                        <button class="order-list-button" id="ordersListBtn">История заказов</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Правая колонка (картинка + текст) -->
-        <div class="services-right">
-            <div class="services-right-preview" id="preview">
-                <img
-                        src="img/heroInfo.png"
-                        alt="Информирование, роботизированный звонок, SMS, судебная работа и т.д."
-                        class="services-reminder-image"
-                />
-                <p class="info-note">
-                    Для проведения судебной работы Вам необходимо ознакомиться с условиями договора и направить нам
-                    подписанный
-                    договор по системе ЭДО
-                </p>
-            </div>
-            <div class="services-right-preview-hidden" id="information">
-                <img
-                        src="img/information.png"
-                        alt="Информирование"
-                        class="services-reminder-image"
-                />
-                <p class="info-note">
-                    Вы можете воспользоваться нашей накопленной базой контактов или использовать свою
-                </p>
-            </div>
-            <div class="services-right-preview-hidden" id="judicialJob">
-                <img
-                        src="img/JudicialJob.png"
-                        alt="Судебная работа"
-                        class="services-reminder-image"
-                />
-                <p class="info-note">
-                    Для проведения судебной работы Вам необходимо ознакомиться с условиями договора и направить нам
-                    подписанный
-                    договор по системе ЭДО
-                </p>
+                <!-- Правая колонка (картинка + текст) -->
+                <div class="services-right">
+                    <div class="services-right-preview" id="preview">
+                        <img
+                                src="img/heroInfo.png"
+                                alt="Информирование, роботизированный звонок, SMS, судебная работа и т.д."
+                                class="services-reminder-image"
+                        />
+                        <p class="info-note">
+                            Для проведения судебной работы Вам необходимо ознакомиться с условиями договора и направить нам
+                            подписанный
+                            договор по системе ЭДО
+                        </p>
+                    </div>
+                    <div class="services-right-preview-hidden" id="information">
+                        <img
+                                src="img/information.png"
+                                alt="Информирование"
+                                class="services-reminder-image"
+                        />
+                        <p class="info-note">
+                            Вы можете воспользоваться нашей накопленной базой контактов или использовать свою
+                        </p>
+                    </div>
+                    <div class="services-right-preview-hidden" id="judicialJob">
+                        <img
+                                src="img/JudicialJob.png"
+                                alt="Судебная работа"
+                                class="services-reminder-image"
+                        />
+                        <p class="info-note">
+                            Для проведения судебной работы Вам необходимо ознакомиться с условиями договора и направить нам
+                            подписанный
+                            договор по системе ЭДО
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
+        <footer id="footer"></footer>
     </div>
+    <div id="asideOverlay" class="aside-overlay"></div>
 </div>
 
+
+
+
+<!-- скрипты для подключения календаря и логики js-->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js" defer></script>
 <script src="script.js" defer></script>
+
 
 </body>
 </html>
