@@ -523,6 +523,13 @@ body{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    gap: 6px
+}
+
+.button-add-file img,
+.button-delete-file img{
+    height: 16px;
+    width: 16px;
 }
 .button-add-file {
     color: var(--color-bg);
@@ -1421,9 +1428,10 @@ body{
     }
 
     .button-add-file, .button-delete-file{
-        width: 156px;
+        width: 170px;
         height: 32px;
         font-size: 14px;
+        padding: 8px 16px;
         margin-right: 0;
     }
 

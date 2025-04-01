@@ -349,14 +349,18 @@ let fileSelectedInfo = false;
 
 if (fileToggleBtn && fileStatusSpan) {
     fileToggleBtn.addEventListener('click', () => {
+        const span = fileToggleBtn.querySelector('span');
+        const img = fileToggleBtn.querySelector('img');
         if (!fileSelected) {
-            fileToggleBtn.textContent = 'Удалить реестр';
+            span.textContent = 'Удалить реестр';
+            img.src = 'img/delete-file.svg'
             fileToggleBtn.classList.remove('button-add-file');
             fileToggleBtn.classList.add('button-delete-file');
             fileStatusSpan.textContent = 'Реестр_должников_ЖКХ_Ромашка.xls';
             fileSelected = true;
         } else {
-            fileToggleBtn.textContent = 'Добавить реестр';
+            span.textContent = 'Добавить реестр';
+            img.src = 'img/add-file.svg'
             fileToggleBtn.classList.remove('button-delete-file');
             fileToggleBtn.classList.add('button-add-file');
             fileStatusSpan.textContent = 'Реестр не выбран';
@@ -368,14 +372,18 @@ if (fileToggleBtn && fileStatusSpan) {
 
 if (fileToggleBtnInfo && fileStatusSpanInfo) {
     fileToggleBtnInfo.addEventListener('click', () => {
+        const span = fileToggleBtnInfo.querySelector('span');
+        const img = fileToggleBtnInfo.querySelector('img');
         if (!fileSelectedInfo) {
-            fileToggleBtnInfo.textContent = 'Удалить реестр';
+            span.textContent = 'Удалить реестр';
+            img.src = 'img/delete-file.svg'
             fileToggleBtnInfo.classList.remove('button-add-file');
             fileToggleBtnInfo.classList.add('button-delete-file');
             fileStatusSpanInfo.textContent = 'Реестр_контактов_ЖКХ_Ромашка.xls';
             fileSelectedInfo = true;
         } else {
-            fileToggleBtnInfo.textContent = 'Добавить реестр';
+            span.textContent = 'Добавить реестр';
+            img.src = 'img/add-file.svg'
             fileToggleBtnInfo.classList.remove('button-delete-file');
             fileToggleBtnInfo.classList.add('button-add-file');
             fileStatusSpanInfo.textContent = 'Реестр не выбран';
