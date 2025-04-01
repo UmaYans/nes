@@ -1,36 +1,82 @@
-Изменения:
-Файлы aside.html, footer.html, header.html подключаются скриптами. 
- <!-- 
- <div class="total-page"> - обертка, состоящая из aside в левой части и header-content-footer в правой. 
+## Структура проекта
+
+### Основные изменения в верстке
+
+Файлы `aside.html`, `footer.html`, `header.html` подключаются скриптами.  
+Общая структура страниц:
+```html
+<div class="total-page">
     <aside id="aside"></aside>
-    <div class="header-content-footer"> 
-    ...контент...
+    <div class="header-content-footer">
+        ...контент...
     </div>
 </div>
- -->
+```
 
+Страницы `agreement.html`, `servicesOffer.html` и `servicesPreview.html` имеют одинаковую структуру с aside-меню слева и основным контентом (header + content + footer) справа.
 
-agreement.html, servicesOffer.html, servicesPreview.html имеют одинаковую структуру aside + header-content-footer.
-в файле agreement.html добавлен блок для мобильной версии, в т.ч. селектор <details id="customDropdown" class="custom-dropdown"> (<span class="status-link">Подписан</span>, <a href="#" class="status-link">Подписать</a> добавлены,
-first child  <!-- <ul class="dropdown-list"> теперь div, а не li) -->
+---
 
-в блоке web-версии договора 
- <!-- <div class="services-container">
-                <!--Селектор договора и текст договора-->
-                <div class="services-left"> 
-                -->
-изменены классы: 
- <!-- <div class="services-container-agreement">
-        <!--Селектор договора web версия и текст договора-->
-        <div class="services-left-agreement"> -->
+### Изменения в `agreement.html`
 
-переделана кнопка с id='contractSelectBtn': <!-- <button class="agreement-open-button" id="contractSelectBtn"><span class="mobile-hide-text">Открыть</span><img src="img/dropdown-mobile-arrow.svg" alt="v" class="mobile-show-arrow"></button> ->>
+Добавлен блок для мобильной версии с селектором:
+```html
+<details id="customDropdown" class="custom-dropdown">
+    <span class="status-link">Подписан</span>
+    <a href="#" class="status-link">Подписать</a>
+</details>
+<!-- Первый элемент списка теперь <div> вместо <li> -->
+```
 
-<!-- Правая колонка (интерактив) -->
-      <!--  <div class="services-right-agreement"> - изменен класс (Был services-right) -->
+В web-версии договора изменены классы:
 
-serviceOffer.html: 
-<!-- <ul class="dropdown-list">:  <span class="status-link">Подписан</span> и   <a href="#" class="status-link">Подписать</a> (вместо просто надписей Подписан/подписать)
-аналогично для <button class="button-add-file" id="fileToggleBtn"> и  <button class="button-add-file" id="fileToggleBtnInfo"> (вместо Добавить реестр/Удалить реестр) -->
+Было:
+```html
+<div class="services-container">
+    <div class="services-left">
+```
 
-Измененчия css и js файлов, добавление стилей/функций.
+Стало:
+```html
+<div class="services-container-agreement">
+    <div class="services-left-agreement">
+```
+
+Кнопка выбора договора переработана:
+```html
+<button class="agreement-open-button" id="contractSelectBtn">
+    <span class="mobile-hide-text">Открыть</span>
+    <img src="img/dropdown-mobile-arrow.svg" alt="v" class="mobile-show-arrow">
+</button>
+```
+
+Правая колонка (интерактивная часть) теперь использует класс:
+```html
+<div class="services-right-agreement"> <!-- раньше был services-right -->
+```
+
+---
+
+### Изменения в `serviceOffer.html`
+
+Обновлены элементы интерфейса:
+
+В выпадающем списке:
+```html
+<span class="status-link">Подписан</span>
+<a href="#" class="status-link">Подписать</a>
+<!-- Вместо просто текста -->
+```
+
+Кнопки для загрузки/удаления реестра:
+```html
+<button class="button-add-file" id="fileToggleBtn">
+<button class="button-add-file" id="fileToggleBtnInfo">
+<!-- Вместо текста "Добавить реестр"/"Удалить реестр" -->
+```
+
+---
+
+### Дополнительные изменения
+
+Обновлены CSS и JavaScript файлы — добавлены новые стили и функции для поддержки изменений в верстке.
