@@ -29,12 +29,12 @@ body{
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    height: 100vh;
 }
 .header-content-footer{
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-height: 100vh;
 }
 
 /* Сброс и базовые стили */
@@ -52,7 +52,7 @@ body{
     background-color: var(--color-bg-page);
     flex: 1;
 }
-.services-container {
+.services-container, .services-container-agreement {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -63,17 +63,22 @@ body{
 .title-position {
     padding: 24px 20px 20px 20px;
 }
-.services-left {
+.services-left, .services-left-agreement {
     width: calc(57% - 10px);
     border-radius: 20px;
 }
-.services-right {
+.services-right, .services-right-agreement {
     width: calc(43% - 10px);
     background-color: var(--color-bg);
-    padding: 28px 54px;
+    padding: 0 0 28px 0;
     border-radius: 20px;
     height: fit-content;
 }
+
+.services-right-agreement {
+    padding: 20px;
+}
+
 .services-right-preview{
     display: flex;
     flex-direction: column;
@@ -115,6 +120,10 @@ body{
 }
 
 /* Консультант блок */
+.manager-consultation-mobile {
+    display: none;
+}
+
 .manager-title {
     margin-bottom: 15px;
     font-size: 22px;
@@ -153,30 +162,33 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
+    gap: 30px;
 }
 .services-list-item-medium {
     border-top: 1px solid var(--color-light-gray);
     border-bottom: 1px solid var(--color-light-gray);
+    gap: 30px;
 }
 
 /* Инфо об услугах */
 .service-info {
     display: flex;
     flex-direction: row;
-    width: calc(40% - 30px);
-}
-.service-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: calc(60% - 30px);
+    width: calc(50% - 15px);justify-content: space-between;
 }
 
 .service-description{
     color: var(--color-primary);
     text-decoration: underline;
     cursor: pointer;
+}
+
+.service-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(60% - 30px);
 }
 .service-name {
     font-weight: 600;
@@ -187,6 +199,10 @@ body{
     color: var(--color-text-muted);
 }
 .service-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 90px;
     font-weight: 400;
     font-size: 14px;
     color: var(--color-medium-gray);
@@ -208,6 +224,7 @@ body{
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    max-width: 50%;
 }
 .service-button-active {
     background: var(--color-secondary);
@@ -293,12 +310,13 @@ body{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 758px;
-    top: 180px;
-    left: 581px;
+    top: 50%;
+    left: 50%;
+    max-width: 50%;
     padding: 32px 40px 32px 32px;
     border-radius: 20px;
     position: relative;
+    transform: translate(-50%, -50%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: var(--color-primary);
     background: var(--color-bg);
@@ -411,6 +429,7 @@ body{
     font-size: 14px;
     font-weight: 400;
     pointer-events: none;
+    color: var(--color-text-muted);
 }
 .dropdown-list li {
     display: flex;
@@ -421,12 +440,8 @@ body{
     cursor: pointer;
     border-bottom: 1px solid var(--color-light-gray);
 }
-.dropdown-list li:last-child,
-.dropdown-list li:first-child {
+.dropdown-list li:last-child{
     border-bottom: none;
-}
-.dropdown-list li:first-child {
-    color: var(--color-text-muted);
 }
 .dropdown-item div:hover {
     background: var(--color-bg-page);
@@ -437,9 +452,11 @@ body{
     align-items: center;
     gap: 4px;
     color: var(--color-success);
-    padding: 10px 16px;
+    padding: 10px 0;
     width: 30%;
     justify-content: end;
+    height: 40px;
+    margin-right: 16px;
 }
 .item-status {
     display: flex;
@@ -449,6 +466,11 @@ body{
     padding: 10px 16px;
     width: 30%;
     justify-content: end;
+}
+
+.status-link{
+    text-decoration: none;
+    color: inherit;
 }
 .item-name {
     display: flex;
@@ -461,8 +483,10 @@ body{
     display: flex;
     flex-wrap: wrap;
     width: 70%;
-    padding: 10px 16px;
+    padding: 10px 0;
     color: var(--color-text-main);
+    height: 40px;
+    margin-left: 16px;
 }
 .type-item-name {
     display: flex;
@@ -486,7 +510,6 @@ body{
 .add-file-line {
     margin: 24px 0 56px 0;
     display: flex;
-    align-items: center;
 }
 .button-add-file,
 .button-delete-file {
@@ -500,6 +523,13 @@ body{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    gap: 6px
+}
+
+.button-add-file img,
+.button-delete-file img{
+    height: 16px;
+    width: 16px;
 }
 .button-add-file {
     color: var(--color-bg);
@@ -530,6 +560,8 @@ body{
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    align-self: center;
+    max-width: 70%;
 }
 
 /* Ссылки для скачивания */
@@ -556,6 +588,10 @@ body{
     margin-bottom: 8px;
 }
 
+.one-link {
+    text-decoration: underline;
+}
+
 /* Блок для выбора даты и ввода почты */
 .date-email-container {
     display: flex;
@@ -566,7 +602,19 @@ body{
 .dropdown-container-email {
     display: flex;
     flex-direction: column;
-    flex: 1;
+}
+
+.dropdown-container-date{
+    width: calc(40% - 10px);
+}
+
+.dropdown-container-email{
+    width: auto;
+    min-width: calc(60% - 10px);
+}
+
+.description-mobile{
+    display: none;
 }
 
 .service-description-container  {
@@ -577,7 +625,7 @@ body{
 }
 
 .service-description-container li{
-    margin: 0 11px
+    margin: 0 8px
 }
 .service-description-container li::marker {
     color: var(--color-primary);
@@ -624,6 +672,12 @@ body{
 }
 .email-input::placeholder {
     color: var(--color-text-muted);
+}
+
+.email-input:focus,
+.date-input:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 /* Блок с описанием и кнопкой отправки */
@@ -797,7 +851,7 @@ body{
 
 .document-area {
     width: 100%;
-    height: 700px;
+    height: 70vh;
     padding: 120px 0 0;
     background-color: var(--color-bg);
     overflow-y: scroll;
@@ -839,6 +893,10 @@ body{
     margin-bottom: 40px;
 }
 
+.agreement-section-mobile{
+    display: none;
+}
+
 .agreement-and-text {
     display: flex;
     justify-content: space-between;
@@ -858,6 +916,10 @@ body{
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;
+}
+
+.mobile-show-arrow{
+    display: none;
 }
 
 .agreement-open-button:hover{
@@ -1005,7 +1067,7 @@ body{
     margin: 4px;
     gap: 20px;
     border-radius: 12px;
-    padding: 24px 20px;
+    padding: 20px;
     background: var(--color-bg);
 }
 
@@ -1159,22 +1221,30 @@ body{
 
 /* tablet версия*/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     .services-container {
         flex-direction: column;
         gap: 0;
     }
 
+    .service-button, .service-button-active{
+        max-width: 100%;
+    }
     .services-right{
         width: 100%;
         padding: 24px 16px;
     }
+
+    .services-right-agreement{
+        padding: 20px 12px;
+        width: calc(33.33% - 10px);
+    }
+
     .services-left{
         width: 100%;
     }
-
-    .service-description{
-        display: none;
+    .services-left-agreement{
+        width: calc(66.66% - 10px);
     }
 
     .manager-consultation {
@@ -1187,31 +1257,121 @@ body{
 
     .dropdown-container-email {
         display: flex;
-        width: calc(60% - 10px);
     }
     .dropdown-container-date {
         display: flex;
         width: calc(40% - 10px);
     }
 
-    .extra-services-container{
-        margin: 12px;
-    }
-
     .document-area{
         margin-bottom: 20px;
     }
+
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
 
     .services-container {
         gap: 20px;
+        padding: 8px;
+    }
+
+    .services-left{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .title-position{
+        padding: 24px 8px 8px;
+    }
+
+    .services-title{
+        font-size: 18px;
+        padding: 0;
+    }
+
+    .recent-services-header{
+        margin-bottom: 20px;
+    }
+
+    .recent-services-title {
+        font-size: 16px;
+    }
+
+    .recent-services-header p {
+        font-family: Inter, sans-serif;
+        font-size: 12px;
+    }
+    .recent-services-title a {
+        font-size: 12px;
+    }
+
+    .recent-services{
+        padding: 12px;
+        margin-bottom: 0;
+    }
+
+    .manager-consultation-mobile {
+        display: block;
+        width: 100%;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: var(--color-bg);
+    }
+
+    .manager-consultation-mobile h3{
+        font-size: 16px;
+    }
+
+    .info-note{
+        padding: 0;
     }
 
     .services-right{
         width: 100%;
         padding: 24px 16px;
     }
+
+    .services-list-item{
+        flex-direction: column;
+        gap: 8px;
+    }
+    .services-list-item-medium{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .service-info{
+        width: 100%;
+        display: flex;
+    }
+
+    .service-content{
+        width: 100%;
+    }
+
+    .service-name{
+        width: 50%;
+        padding: 0;
+        font-size: 15px;
+    }
+
+    .service-price{
+        width: auto;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+    }
+
+    .price-value{
+        font-size: 16px;
+    }
+
+    .service-button, .service-button-active{
+        font-size: 13px;
+        padding: 8px;
+    }
+
     .document-area{
         padding: 50px 0;
     }
@@ -1227,12 +1387,275 @@ body{
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+        margin-top: 0;
+        margin-bottom: 40px;
     }
     .dropdown-container-email{
         width: 100%;
     }
     .download-links a {
         display: contents;
+    }
+
+    .dropdown-label{
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+
+    .dropdown-list span{
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+    }
+    .dropdown-header-row{
+        margin: 8px 6px;
+    }
+    .he-left-left  .header-right{
+        font-size: 12px;
+    }
+
+    .status-link {
+        display: none;
+    }
+
+    .one-link a{
+        font-size: 12px;
+    }
+
+    .one-link img {
+        height: 16px;
+        width: 16px;
+    }
+
+    .button-add-file, .button-delete-file{
+        width: 170px;
+        height: 32px;
+        font-size: 14px;
+        padding: 8px 16px;
+        margin-right: 0;
+    }
+
+    .status-add-file{
+        max-width: 100%;
+        align-self: flex-start;
+        font-size: 14px;
+    }
+
+    .download-links-container{
+        margin-bottom: 40px;
+    }
+
+    .date-email-container{
+        flex-direction: column;
+    }
+
+    .dropdown-container-date{
+        width: 100%;
+    }
+
+    .dropdown-label{
+        height: auto;
+    }
+
+    .service-description-container{
+        font-size: 12px;
+    }
+
+    .service-description{
+        font-size: 15px;
+    }
+
+    .description{
+        display: none;
+    }
+
+    .tooltip-text{
+        transform: translateX(-100%);
+        min-width: 200px;
+    }
+
+    .description-mobile{
+        display: block;
+        font-size: 12px;
+        margin-bottom: 0;
+        margin-top: 20px;
+        margin-right: 12px;
+        color: var(--color-text-muted);
+    }
+    .send-button, .send-button-active{
+        font-size: 14px;
+        height: 30px;
+        width: 107px;
+    }
+
+    .modal-window h2 {
+        font-size: 16px;
+    }
+
+    .modal-window p {
+        font-size: 13px;
+    }
+
+    .order-list-button, .close-button{
+        font-size: 14px;
+    }
+
+    .order-list-button{
+        width: 54%;
+    }
+
+    .close-button{
+        width: 38%;
+    }
+
+    .services-container-agreement{
+        flex-direction: column-reverse;
+        padding: 8px;
+        gap: 8px;
+    }
+    .services-left-agreement{
+        width: 100%;
+    }
+    .services-right-agreement{
+        width: 100%;
+        padding: 8px;
+    }
+
+    .info-note-agreement{
+        font-size: 12px;
+    }
+
+    .profile-settings-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .check-line{
+        gap: 8px;
+    }
+    .check-line img{
+        height: 16px;
+        width: 16px;
+    }
+
+    .contract-name-title{
+        font-size: 14px;
+    }
+
+    .contract-date-title{
+        font-size: 13px;
+    }
+
+    .signing-line{
+        flex-direction: row;
+        font-size: 14px;
+    }
+
+    .signing-line-hidden{
+        display: none;
+    }
+
+    .signing-line img {
+        height: 16px;
+        width: 16px;
+    }
+
+    .sign-button, .sign-button-active{
+        font-size: 14px;
+        height: 32px;
+        width: 130px;
+    }
+
+    .sign-button img, .sign-button-active img {
+        height: 16px;
+        width: 16px;
+    }
+
+    .services-contract{
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .confirmed-display{
+        align-self: end;
+        font-size: 14px;
+    }
+
+    .confirmed-display img{
+        height: 16px;
+        width: 16px;
+    }
+
+    .extra-services-container{
+        padding: 12px;
+    }
+
+    .extra-services-signing-line{
+        flex-direction: row;
+        font-size: 14px;
+    }
+
+    .extra-services-signing-line img {
+        height: 16px;
+        width: 16px;
+    }
+
+    .extra-services{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .download-documents-title{
+        font-size: 12px;
+    }
+
+    .download-documents-button{
+        font-size: 14px;
+    }
+
+    .agreement-open-button{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-hide-text{
+        display: none;
+    }
+
+    .mobile-show-arrow{
+        display: block;
+        rotate: 270deg;
+        height: 16px;
+        width: 16px;
+    }
+
+    .agreement-section{
+       display: none;
+    }
+
+    .agreement-section-mobile {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 8px 0;
+    }
+
+    .email-input{
+        margin-bottom: 20px;
+    }
+
+    .modal-content{
+        max-width: 90%;
     }
 }
 
@@ -1302,7 +1725,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
 }
 
 .tablet-menu {

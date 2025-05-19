@@ -40,38 +40,40 @@
                             </p>
                         </div>
 
-                        <div class="selectors">
-                            <div class="services-list">
-                                <div class="services-list-item">
-                                    <div class="dropdown-container">
-                                        <label for="customDropdown" class="dropdown-label"> <span class="asterisk">*</span>
-                                            Услуга</label>
-                                        <details id="customDropdown" class="custom-dropdown">
-                                            <summary class="dropdown-toggle">Не выбрано
-                                                <span class="dropdown-arrow">
+                <div class="selectors">
+                    <div class="services-list">
+                        <div class="services-list-item">
+                            <div class="dropdown-container">
+                                <label for="customDropdown" class="dropdown-label"> <span class="asterisk">*</span>
+                                    Услуга</label>
+                                <details id="customDropdown" class="custom-dropdown">
+                                    <summary class="dropdown-toggle">Не выбрано
+                                        <span class="dropdown-arrow">
                                             <img src="img/dropdown-arrow.svg" alt="v"/>
                                         </span>
-                                            </summary>
-                                            <ul class="dropdown-list">
-                                                <!-- Невыбираемая строка (типа "хедер" для опций) -->
-                                                <li class="dropdown-header-row">
-                                                    <span class="header-left">Наименование услуги</span>
-                                                    <span class="header-right">Статус договора</span>
-                                                </li>
-                                                <!-- Опция 1 (выбранная) -->
-                                                <li class="dropdown-item selected">
-                                                    <div class="item-name-approved">Судебная работа</div>
-                                                    <span class="item-status-approved">
+                                    </summary>
+                                    <ul class="dropdown-list">
+                                        <!-- Невыбираемая строка (типа "хедер" для опций) -->
+                                        <div class="dropdown-header-row">
+                                            <span class="header-left">Наименование услуги</span>
+                                            <span class="header-right">Статус договора</span>
+                                        </div>
+                                        <!-- Опция 1 (выбранная) -->
+                                        <li class="dropdown-item selected">
+                                            <div class="item-name-approved">Судебная работа</div>
+                                            <!-- ЗЕЛЕНАЯ ПОДПИСЬ ПРИ ПОДПИСАННОМ ДОКУМЕНТЕ-->
+                                            <span class="item-status-approved">
                                                 <img src="img/item-status-approved.svg" alt="V">
-                                                    Подписан
+                                                    <span class="status-link">Подписан</span>
                                             </span>
-                                                </li>
-                                                <!-- Опция 2 (невыбранная) -->
-                                                <li class="dropdown-item">
-                                                    <div class="item-name">Информирование</div>
-                                                    <span class="item-status">
-                                                <img src="img/item-status.svg" alt="status">
-                                                    Подписать
+                                        </li>
+                                        <!-- Опция 2 (невыбранная) -->
+                                        <li class="dropdown-item">
+                                            <div class="item-name">Информирование</div>
+                                            <!-- СИНЯЯ ПОДПИСЬ ПРИ НЕПОДПИСАННОМ ДОКУМЕНТЕ-->
+                                            <span class="item-status">
+                                                <img src="img/item-status-select.svg" alt="status">
+                                                    <a href="#" class="status-link">Подписать</a>
                                             </span>
                                                 </li>
                                             </ul>
@@ -124,7 +126,10 @@
                             <!-- кнопка добавления реестра-->
                             <div class="add-file-line">
                                 <button class="button-add-file" id="fileToggleBtn">
-                                    Добавить реестр
+                                    <img src="img/add-file.svg" alt="add">
+                                    <span>
+                                        Добавить реестр
+                                    </span>
                                 </button>
                                 <span class="status-add-file" id="fileStatus">Реестр не выбран</span>
                             </div>
@@ -168,7 +173,10 @@
                             <!-- кнопка добавления реестра-->
                             <div class="add-file-line">
                                 <button class="button-add-file" id="fileToggleBtnInfo">
-                                    Добавить реестр
+                                    <img src="img/add-file.svg" alt="add">
+                                    <span>
+                                        Добавить реестр
+                                    </span>
                                 </button>
                                 <span class="status-add-file" id="fileStatusInfo">Реестр не выбран</span>
                             </div>
@@ -204,35 +212,42 @@
                                         <span class="date-arrow" id="myDateArrow">
                                     <img src="img/dropdown-arrow.svg" alt="v">
                                 </span>
-                                    </div>
-                                </div>
-
-                                <!-- Блок для почты -->
-                                <div class="dropdown-container-email">
-                                    <label for="emailInputInfo" class="dropdown-label">
-                                        <span class="asterisk">*</span>
-                                        Ваша почта, на которую мы пришлем отчет
-                                        <div class="tooltip-container">
-                                            <img src="img/help.svg" alt="?"/>
-                                            <div class="tooltip-text">
-                                                Вы можете изменить адрес электронной почты
-                                            </div>
-                                        </div>
-                                    </label>
-                                    <input type="email" id="emailInputInfo" class="email-input" placeholder="example@ya.ru">
-                                </div>
                             </div>
-                            <div id="serviceDescription" class="service-description-container"></div>
-                        </div>
-
-                        <div class="button-line">
-                            <ul class="description-hidden" id="descriptionInfo">Вне зависимости от выбранной даты, период предоставления услуги составит:
+                            <ul class="description-mobile">Вне зависимости от выбранной даты, период предоставления услуги составит:
                                 <li class="description-line">3 дня <span class="description-muted">текст уведомления уже проходил проверку</span>
                                 </li>
                                 <li class="description-line">7 дней <span class="description-muted">текст будет проверен специалистом</span>
                                 </li>
                             </ul>
-                            <button class="send-button" id="openModalBtn">Отправить</button>
+                        </div>
+
+                        <!-- Блок для почты -->
+                        <div class="dropdown-container-email">
+                            <label for="emailInputInfo" class="dropdown-label">
+                                <span class="asterisk">*</span>
+                                Ваша почта, на которую мы пришлем отчет
+                                <div class="tooltip-container">
+                                    <img src="img/help.svg" alt="?"/>
+                                    <div class="tooltip-text">
+                                        Вы можете изменить адрес электронной почты
+                                    </div>
+                                </div>
+                            </label>
+                            <input type="email" id="emailInputInfo" class="email-input" placeholder="example@ya.ru">
+                        </div>
+                    </div>
+                    <div id="serviceDescription" class="service-description-container"></div>
+                    <ul class="description-hidden" id="descriptionInfo">Вне зависимости от выбранной даты, период предоставления услуги составит:
+                        <li class="description-line">3 дня <span class="description-muted">текст уведомления уже проходил проверку</span>
+                        </li>
+                        <li class="description-line">7 дней <span class="description-muted">текст будет проверен специалистом</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="button-line">
+
+                    <button class="send-button" id="openModalBtn">Отправить</button>
 
                             <!-- модалка + затемнение фона (оверлей) -->
                             <div class="modal-overlay" id="modalOverlay">
