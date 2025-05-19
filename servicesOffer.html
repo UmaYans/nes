@@ -42,7 +42,7 @@
 
                 <div class="selectors">
                     <div class="services-list">
-                        <div class="services-list-item">
+                        <div class="services-list-item-offer">
                             <div class="dropdown-container">
                                 <label for="customDropdown" class="dropdown-label"> <span class="asterisk">*</span>
                                     Услуга</label>
@@ -84,7 +84,7 @@
 
                             <!-- Окно выбора типа услуг -->
                             <div class="services-types">
-                                <div class="services-list-item">
+                                <div class="services-list-item-offer">
                                     <div class="dropdown-container">
                                         <label for="secondDropdown" class="dropdown-label"> <span class="asterisk">*</span> Тип
                                             услуги</label>
@@ -311,6 +311,41 @@
 
 
 
+
+<!-- шаблон для Роботизированного звонка -->
+<template id="tmpl-robotDescription">
+    <ul>Как будет происходить работа?</ul>
+    <li>Специалисты проверят текст</li>
+    <li>Отслеживайте статус заявки в личном кабинете</li>
+    <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
+    <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
+</template>
+
+<!-- шаблон для СМС -->
+<template id="tmpl-smsDescription">
+    <ul>Как будет происходить работа?</ul>
+    <li>Ознакомьтесь с договором</li>
+    <li>Заполните заявку</li>
+    <li>Прикрепите реестр</li>
+    <li>Специалисты проверят текст</li>
+    <li>Отслеживайте статус заявки в личном кабинете</li>
+    <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
+    <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
+</template>
+
+<!-- шаблон для судебного приказа -->
+<template id="tmpl-orderDescription">
+    <ul>Как будет происходить работа?</ul>
+    <li>Ознакомьтесь с договором</li>
+    <li>Заполните заявку</li>
+    <li>Прикрепите реестр должников</li>
+    <li>Подпишите договор по ЭДО, а также направьте вместе с ним реестр должников</li>
+    <li>С вами свяжется специалист для запроса дополнительной информации</li>
+    <li>Далее работа происходит индивидуально</li>
+    <li>Передаем вам судебные приказы с реестром полученных приказов по должникам</li>
+    <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
+    <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
+</template>
 
 <!-- скрипты для подключения календаря и логики js-->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
