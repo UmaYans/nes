@@ -118,80 +118,49 @@ window.addEventListener('resize', () => {
     }
 });
 
-// модальное окно при нажатии на "подробнее"
+// модальное окно при нажатии на "Подробнее"
 document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("modal");
-    const modalClose = document.querySelector(".modal-close");
-    const modalContent = document.querySelector(".modal-content");
+    const modal       = document.getElementById("modal");
+    const modalClose  = document.querySelector(".modal-close");
+    const modalTitle  = document.getElementById("modal-title");
+    const modalBody   = document.getElementById("modal-body");
 
-    if (!modal || !modalClose || !modalContent) return;
+    if (!modal || !modalClose || !modalTitle || !modalBody) return;
 
-    // Хранилище текстов для модального окна
-    const modalTexts = {
-        robotDescription: {
-            title: "Оповещение потребителя о задолженности звонком с помощью голосового робота",
-            content: `
-        <ol class="modal-list">
-          <li>Ознакомьтесь с договором</li>
-          <li>Заполните заявку</li>
-          <li>Прикрепите реестр должников</li>
-          <li>Специалисты проверят текст</li>
-          <li>Отслеживайте статус заявки в личном кабинете</li>
-          <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
-          <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
-        </ol>
-      `
-        },
-        smsDescription: {
-            title: "Оповещение потребителя о задолженности по СМС",
-            content: `
-        <ol class="modal-list">
-          <li>Ознакомьтесь с договором</li>
-          <li>Заполните заявку</li>
-          <li>Прикрепите реестр</li>
-          <li>Специалисты проверят текст</li>
-          <li>Отслеживайте статус заявки в личном кабинете</li>
-          <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
-          <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
-        </ol>
-      `
-        },
-        orderDescription: {
-            title: "Направление заявления в суд на получение судебного приказа",
-            content: `
-        <ol class="modal-list">
-          <li>Ознакомьтесь с договором</li>
-          <li>Заполните заявку</li>
-          <li>Прикрепите реестр должников</li>
-          <li>Подпишите договор по ЭДО, а также направьте вместе с ним реестр должников</li>
-          <li>С вами свяжется специалист для запроса дополнительной информации</li>
-          <li>Далее работа происходит индивидуально</li>
-          <li>Передаем вам судебные приказы с реестром полученных приказов по должникам</li>
-          <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
-          <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
-        </ol>
-      `
-        }
+    const templateMap = {
+        robotDescription: "tmpl-robotDescription",
+        smsDescription:   "tmpl-smsDescription",
+        orderDescription: "tmpl-orderDescription"
     };
 
-    // Обработчик кликов по "Подробнее"
     document.querySelectorAll(".service-description").forEach(item => {
         item.addEventListener("click", () => {
-            const id = item.id;
-            if (modalTexts[id]) {
-                modalContent.querySelector("h3").innerHTML = modalTexts[id].title;
-                modalContent.querySelector("ol").innerHTML = modalTexts[id].content;
-                modal.style.display = "block";
+            const tplId = templateMap[item.id];
+            if (!tplId) return;
+
+            const tpl = document.getElementById(tplId);
+            if (!tpl || !tpl.content) return;
+
+            const clone = tpl.content.cloneNode(true);
+            const newTitleElem = clone.querySelector("h3");
+            const newListElem  = clone.querySelector("ol");
+
+            if (newTitleElem) {
+                modalTitle.innerHTML = newTitleElem.innerHTML;
             }
+            if (newListElem) {
+                modalBody.innerHTML = "";
+                modalBody.appendChild(newListElem.cloneNode(true));
+            }
+
+            modal.style.display = "block";
         });
     });
 
-    // Закрытие модального окна
     modalClose.addEventListener("click", () => {
         modal.style.display = "none";
     });
 
-    // Закрытие при клике вне окна
     window.addEventListener("click", (e) => {
         if (e.target === modal) {
             modal.style.display = "none";
@@ -515,48 +484,39 @@ function checkAllForms() {
     }
 }
 
+// Логика описания предложенных услуг
 function updateServiceDescription() {
     const secondDropdown = document.getElementById('secondDropdown');
-    const summary = secondDropdown?.querySelector('summary');
+    const summary        = secondDropdown?.querySelector('summary');
     if (!summary) return;
 
-    const selectedType = summary.textContent.trim();
-    let descriptionHTML = '';
+    // текст выбранного типа услуги
+    const typeText = summary.textContent.trim();
 
-    if (selectedType === 'Роботизированный звонок' || selectedType === 'СМС') {
-        descriptionHTML = `
-      <ul>Как будет происходить работа?</ul>
-      <li>Специалисты проверят текст</li>
-      <li>Отслеживайте статус заявки в личном кабинете</li>
-      <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
-      <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
-    `;
-    } else if (selectedType === 'Направление заявления') {
-        descriptionHTML = `
-      <ul>Как будет происходить работа?</ul>
-      <li>Подпишите договор по ЭДО, а также направьте вместе с ним реестр должников</li>
-      <li>С вами свяжется специалист для запроса дополнительной информации</li>
-      <li>Далее работа происходит индивидуально</li>
-      <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
-      <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
-    `;
-    } else if (selectedType === 'Направление заявления в суд и получение судебного приказа') {
-        descriptionHTML = `
-      <ul>Как будет происходить работа?</ul>
-      <li>Подпишите договор по ЭДО, а также направьте вместе с ним реестр должников</li>
-      <li>С вами свяжется специалист для запроса дополнительной информации</li>
-      <li>Далее работа происходит индивидуально</li>
-      <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
-      <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
-      <li>Отчет о проделанной работе загрузим в личный кабинет и направим по почте</li>
-      <li>Первичные документы направим по ЭДО по итогам расчетного периода</li>
-    `;
-    }
+    const templateMap = {
+        'Роботизированный звонок':'tmpl-robotDescription',
+        'СМС': 'tmpl-smsDescription',
+        'Направление заявления':'tmpl-orderDescription',
+        'Направление заявления в суд и получение судебного приказа':'tmpl-orderDescription'
+    };
 
+    const tplId = templateMap[typeText];
+
+    // проставляем всем контейнерам описания
     document.querySelectorAll('.service-description-container').forEach(container => {
-        container.innerHTML = descriptionHTML;
+        if (tplId) {
+            const tpl = document.getElementById(tplId);
+            container.innerHTML = tpl ? tpl.innerHTML : '';
+        } else {
+            container.innerHTML = '';
+        }
     });
+
+    if (typeof checkAllForms === 'function') {
+        checkAllForms();
+    }
 }
+
 
 window.addEventListener('load', () => {
     if (typeof checkAllForms === 'function') checkAllForms();
