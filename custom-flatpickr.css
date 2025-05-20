@@ -2,10 +2,18 @@
 /*         КАСТОМНЫЙ ДатаПикер (flatpickr)      */
 /* ========================================== */
 
+@font-face {
+    font-family: 'Oswald Variable';
+    src: url('/img/fonts/Oswald-VariableFont_wght.ttf')   format('truetype');
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 .flatpickr-calendar {
     border: 1px solid var(--color-light-gray);
     border-radius: 10px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans Variable', sans-serif;
 }
 
 .flatpickr-months .flatpickr-month {
