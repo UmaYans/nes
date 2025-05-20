@@ -31,6 +31,14 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Roboto Variable';
+    src: url('/img/fonts/Roboto-VariableFont_wdth,wght.ttf')   format('truetype');
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 
 html, body {
@@ -402,7 +410,8 @@ body{
     display: flex;
 }
 .custom-dropdown summary {
-    font-family: "Roboto Thin", sans-serif;
+    display: flex;
+    font-family: "Roboto Variable", sans-serif;
     align-items: center;
     cursor: pointer;
     padding: 10px 16px;
@@ -421,6 +430,26 @@ body{
     pointer-events: none;
     color: var(--color-medium-gray);
 }
+
+
+.dropdown-input {
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    color: var(--color-primary);
+    flex: 1;
+    cursor: pointer;
+}
+
+.dropdown-input::placeholder{
+    font-family: "Roboto Variable", sans-serif;
+    color: var(--color-primary);
+    font-size: 14px;
+}
+.dropdown-input:focus {
+    outline: none;
+}
+
 .dropdown-arrow {
     display: inline-block;
     transition: transform 0.3s ease;
@@ -1980,3 +2009,4 @@ body{
     }
 
 }
+
