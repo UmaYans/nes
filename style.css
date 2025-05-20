@@ -213,6 +213,13 @@ body{
     font-weight: 600;
     padding-left: 0;
     color: var(--color-primary);
+    display: inline-block;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 .service-date {
     color: var(--color-text-muted);
@@ -1301,8 +1308,8 @@ body{
     }
 
 }
-@media screen and (max-width: 768px) {
 
+@media screen and (max-width: 1440px) {
     .services-list-item,
     .services-list-item-medium {
         display: flex;
@@ -1323,6 +1330,11 @@ body{
         padding: 8px;
     }
 
+    .service-price{
+        justify-content: start;
+    }
+}
+@media screen and (max-width: 768px) {
     .services-left{
         display: flex;
         flex-direction: column;
@@ -1778,6 +1790,7 @@ body{
     text-decoration: none;
 }
 
+
 @media screen and  (max-width: 1200px) {
 
     .header-main{
@@ -1792,6 +1805,7 @@ body{
     .tablet-menu{
         display: block;
     }
+
 }
 
 @media screen and (max-width: 425px) {
