@@ -1332,6 +1332,7 @@ body{
 
     .service-price{
         justify-content: start;
+        align-items: center;
     }
 }
 @media screen and (max-width: 768px) {
