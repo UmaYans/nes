@@ -14,12 +14,31 @@
     --color-error-hover: #CE2222 /* кастомный при наведении*/
 }
 
+@font-face {
+    font-family: 'Open Sans Variable';
+    src: url('/img/fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 300 600;
+    font-stretch: 100%;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oswald Variable';
+    src: url('/img/fonts/Oswald-VariableFont_wght.ttf')   format('truetype');
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 
 html, body {
     height: 100%;
 }
 
 body{
+    font-family: 'Open Sans Variable', sans-serif;
     display: flex;
     flex-direction: column;
     background-color: var(--color-bg-page);
@@ -42,7 +61,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans Variable', sans-serif;
 }
 
 /* Основные блоки */
@@ -241,7 +260,7 @@ body{
     height: auto;
 }
 .info-note {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald Variable', sans-serif;
     font-size: 16px;
     font-weight: 300;
     color: var(--color-text-main);
@@ -358,7 +377,7 @@ body{
     position: relative;
     display: inline-block;
     width: 100%;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans Variable', sans-serif;
 }
 .asterisk {
     color: var(--color-secondary);
@@ -1414,7 +1433,7 @@ body{
     }
 
     .dropdown-list span{
-        font-family: "Open Sans", sans-serif;
+        font-family: "Open Sans Variable", sans-serif;
         font-size: 12px;
     }
     .dropdown-header-row{
