@@ -15,45 +15,12 @@
     <!-- Остальной контент (шапка, контент, подвал)-->
     <div class="header-content-footer">
         <header id="header"></header>
-<div class="main-container">
-    <div class="title-position">
-        <h2 class="services-title">Договор</h2>
-    </div>
-    <!-- Селектор только для мобильных устройств-->
-    <div class="agreement-section-mobile">
-        <div class="agreement-and-text">
-            <div class="dropdown-container">
-                <details class="custom-dropdown">
-                    <summary class="dropdown-toggle-type">Договор
-                        <span class="dropdown-arrow">
-                                    <img src="img/dropdown-arrow.svg" alt="v">
-                                </span>
-                    </summary>
-                    <ul class="dropdown-list">
-                        <!-- Договор по умолчанию стоит -->
-                        <li class="dropdown-item">
-                            <div class="type-item-name">Договор</div>
-                        </li>
-                        <!-- Опция 2 (невыбранная) -->
-                        <li class="dropdown-item">
-                            <div class="type-item-name">Информирование</div>
-
-                        </li>
-                        <!-- Опция 3 (невыбранная) -->
-                        <li class="dropdown-item">
-                            <div class="type-item-name">Судебная работа</div>
-                        </li>
-                    </ul>
-                </details>
+        <div class="main-container">
+            <div class="title-position">
+                <h2 class="services-title">Договор</h2>
             </div>
-        </div>
-        <button class="agreement-open-button" id="contractSelectBtnMobile"><span class="mobile-hide-text">Открыть</span><img src="img/dropdown-mobile-arrow.svg" alt="v" class="mobile-show-arrow"></button>
-    </div>
-    <!-- Конец селектора-->
-    <div class="services-container-agreement">
-        <!--Селектор договора web версия и текст договора-->
-        <div class="services-left-agreement">
-            <div class="agreement-section">
+            <!-- Селектор только для мобильных устройств-->
+            <div class="agreement-section-mobile">
                 <div class="agreement-and-text">
                     <div class="dropdown-container">
                         <details class="custom-dropdown">
@@ -80,8 +47,43 @@
                         </details>
                     </div>
                 </div>
-                <button class="agreement-open-button" id="contractSelectBtn"><span class="mobile-hide-text">Открыть</span><img src="img/dropdown-mobile-arrow.svg" alt="v" class="mobile-show-arrow"></button>
+                <button class="agreement-open-button" id="contractSelectBtnMobile"><span class="mobile-hide-text">Открыть</span><img
+                        src="img/dropdown-mobile-arrow.svg" alt="v" class="mobile-show-arrow"></button>
             </div>
+            <!-- Конец селектора-->
+            <div class="services-container-agreement">
+                <!--Селектор договора web версия и текст договора-->
+                <div class="services-left-agreement">
+                    <div class="agreement-section">
+                        <div class="agreement-and-text">
+                            <div class="dropdown-container">
+                                <details class="custom-dropdown">
+                                    <summary class="dropdown-toggle-type">Договор
+                                        <span class="dropdown-arrow">
+                                    <img src="img/dropdown-arrow.svg" alt="v">
+                                </span>
+                                    </summary>
+                                    <ul class="dropdown-list">
+                                        <!-- Договор по умолчанию стоит -->
+                                        <li class="dropdown-item">
+                                            <div class="type-item-name">Договор</div>
+                                        </li>
+                                        <!-- Опция 2 (невыбранная) -->
+                                        <li class="dropdown-item">
+                                            <div class="type-item-name">Информирование</div>
+
+                                        </li>
+                                        <!-- Опция 3 (невыбранная) -->
+                                        <li class="dropdown-item">
+                                            <div class="type-item-name">Судебная работа</div>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </div>
+                        </div>
+                        <button class="agreement-open-button" id="contractSelectBtn"><span class="mobile-hide-text">Открыть</span><img
+                                src="img/dropdown-mobile-arrow.svg" alt="v" class="mobile-show-arrow"></button>
+                    </div>
 
                     <!-- Область прокручиваемого договора-->
                     <div class="document-area">
@@ -98,103 +100,105 @@
                     </div>
                 </div>
 
-        <!-- Правая колонка (интерактив) -->
-        <div class="services-right-agreement">
-            <div class="menu">
-                <span class="info-note-agreement">Проверьте ваши данные в договоре, в случае неточности отредактируйте реквизиты договора</span>
-                <button class="profile-settings-button">Отредактировать реквизиты</button>
-            </div>
-            <!-- конец настроек профиля-->
-            <div class="signing-area">
-                <span class="signing-title" id="signing-title">
-                    <span>Получить доступ к услугам?</span>
-                    <span>Подпишите договор</span>
-                </span>
-                <!-- чекбокс с услугами-->
-                <div class="services-contract">
-                    <div class="check-line">
-                        <img id="checkbox" src="img/unchecked.svg" alt="[]" class="img-pointer">
-                        <div class="contract-name-and-data" id="contractInfo">
-                            <span class="contract-name-title">Договор предоставления услуг</span>
-                            <span class="contract-date-title">Дата согласия: 14.02.2025</span>
-                        </div>
+                <!-- Правая колонка (интерактив) -->
+                <div class="services-right-agreement">
+                    <div class="menu">
+                        <span class="info-note-agreement">Проверьте ваши данные в договоре, в случае неточности отредактируйте реквизиты договора</span>
+                        <button class="profile-settings-button">Отредактировать реквизиты</button>
                     </div>
-                    <div class="confirmed" id="confirmation">
-                        <img src="img/item-status-approved.svg" alt="V">
-                        Подписан
-                    </div>
-                </div>
-                <!-- дополнительные соглашения "подключите все возможности системы)-->
-                <div class="extra-services-container-hidden" id="extraServiceContainer">
-                    <div class="extra-services-title">Подключите все возможности системы:</div>
-                    <!-- услуга уведомлений подключить-->
-                    <div class="extra-services-label">Автоматизируйте важные уведомления</div>
-                    <div class="extra-services">
-                        <div class="check-line">
-                            <img id="notificationsCheckbox" src="img/unchecked.svg" alt="[]"
-                                 class="img-pointer">
-                            <div class="contract-name-and-data" id="notificationsContractInfo">
-                                <span class="contract-name-title" id="notificationUncheckedTitle">Подключить услугу информирования</span>
-                                <span class="contract-name-title-hidden" id="notificationCheckedTitle">Услуга информирования</span>
-                                <span class="contract-date-title">Дата согласия: 14.02.2025</span>
+                    <!-- конец настроек профиля-->
+                    <div class="signing-area">
+                            <span class="signing-title" id="signing-title">
+                                <span>Получить доступ к услугам?</span>
+                                <span>Подпишите договор</span>
+                            </span>
+                        <!-- чекбокс с услугами-->
+                        <div class="services-contract">
+                            <div class="check-line">
+                                <img id="checkbox" src="img/unchecked.svg" alt="[]" class="img-pointer">
+                                <div class="contract-name-and-data" id="contractInfo">
+                                    <span class="contract-name-title">Договор предоставления услуг</span>
+                                    <span class="contract-date-title">Дата согласия: 14.02.2025</span>
+                                </div>
+                            </div>
+                            <div class="confirmed" id="confirmation">
+                                <img src="img/item-status-approved.svg" alt="V">
+                                Подписан
                             </div>
                         </div>
-                        <div class="confirmed" id="notificationConfirmation">
-                            <img src="img/item-status-approved.svg" alt="V">
-                            Подключена
-                        </div>
-                    </div>
-                    <div class="extra-services-signing-line" id="notificationSigningLine">
-                        <div class="pdf-line">
-                            <img src="img/pdf-file.svg" alt="file">
-                            <a href="#">Скачать PDF</a>
-                        </div>
-                        <button id="notificationSignButton" class="sign-button"><img src="img/item-status.svg"
-                                                                                     alt="status">Подключить
-                        </button>
-                    </div>
-                    <img src="img/separator.png" alt="_____" class="separator">
-                    <!-- судебная работа экспертам label-->
-                    <div class="extra-services-label">Доверьте судебную работу экспертам</div>
-                    <!-- судебная работа экспертам-->
-                    <div class="extra-services">
-                        <div class="check-line">
-                            <img id="judicialCheckbox" src="img/unchecked.svg" alt="[]" class="img-pointer">
-                            <div class="contract-name-and-data" id="judicialContractInfo">
-                                <span class="contract-name-title" id="judicialUncheckedTitle">Подключить эксперта для судебной работы</span>
-                                <span class="contract-name-title-hidden" id="judicialCheckedTitle">Эксперт для судебной работы</span>
-                                <span class="contract-date-title">Дата согласия: 14.02.2025</span>
+                        <div class="signing-line" id="signingLine">
+                            <div class="pdf-line">
+                                <img src="img/pdf-file.svg" alt="file">
+                                <a href="#">Скачать PDF</a>
                             </div>
+                            <button id="signButton" class="sign-button"><img src="img/item-status.svg" alt="status">Подписать
+                            </button>
                         </div>
-                        <div class="confirmed" id="judicialConfirmation">
-                            <img src="img/item-status-approved.svg" alt="V">
-                            Подключен
+                        <!-- дополнительные соглашения "подключите все возможности системы)-->
+                        <div class="extra-services-container extra-services--hidden" id="extraServiceContainer">
+                            <div class="extra-services-title">Подключите все возможности системы:</div>
+
+                            <!-- Сервис Автоматизируйте важные уведомления -->
+                            <div class="extra-service-section"
+                                 data-service-type="notifications"
+                                 data-pdf-target="pdfViewerInformation"
+                            >
+                                <div class="extra-services-label">Автоматизируйте важные уведомления</div>
+                                <div class="extra-services">
+                                    <div class="check-line">
+                                        <img src="img/unchecked.svg" alt="[]" class="service-checkbox img-pointer">
+                                        <div class="contract-name-and-data">
+                                            <span class="contract-name-title name-unchecked">Подключить услугу информирования</span>
+                                            <span class="contract-name-title-hidden name-checked">Услуга информирования</span>
+                                            <span class="contract-date-title">Дата согласия: 14.02.2025</span>
+                                        </div>
+                                    </div>
+                                    <div class="confirmed">Подключена</div>
+                                </div>
+                                <div class="extra-services-signing-line signing-line">
+                                    <div class="pdf-line">
+                                        <img src="img/pdf-file.svg" alt="file">
+                                        <a href="#">Скачать PDF</a>
+                                    </div>
+                                    <button class="sign-button">Подключить</button>
+                                </div>
+                            </div>
+
+                            <img src="img/separator.png" alt="_____" class="separator">
+
+                            <!-- Сервис Доверьте судебную работу экспертам -->
+                            <div class="extra-service-section"
+                                 data-service-type="judicial"
+                                 data-pdf-target="pdfViewerJudicial"
+                            >
+                                <div class="extra-services-label">Доверьте судебную работу экспертам</div>
+                                <div class="extra-services">
+                                    <div class="check-line">
+                                        <img src="img/unchecked.svg" alt="[]" class="service-checkbox img-pointer">
+                                        <div class="contract-name-and-data">
+                                            <span class="contract-name-title name-unchecked">Подключить эксперта для судебной работы</span>
+                                            <span class="contract-name-title-hidden name-checked">Эксперт для судебной работы</span>
+                                            <span class="contract-date-title">Дата согласия: 14.02.2025</span>
+                                        </div>
+                                    </div>
+                                    <div class="confirmed">Подключен</div>
+                                </div>
+                                <div class="extra-services-signing-line signing-line">
+                                    <div class="pdf-line">
+                                        <img src="img/pdf-file.svg" alt="file">
+                                        <a href="#">Скачать PDF</a>
+                                    </div>
+                                    <button class="sign-button">Подключить</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <!-- конец для "судебная работа экспертам"-->
-                    <div class="extra-services-signing-line" id="judicialSigningLine">
-                        <div class="pdf-line">
-                            <img src="img/pdf-file.svg" alt="file">
-                            <a href="#">Скачать PDF</a>
-                        </div>
-                        <button id="judicialSignButton" class="sign-button"><img src="img/item-status.svg"
-                                                                                 alt="status">Подключить
-                        </button>
-                    </div>
-                </div>
-                <div class="signing-line" id="signingLine">
-                    <div class="pdf-line">
-                        <img src="img/pdf-file.svg" alt="file">
-                        <a href="#">Скачать PDF</a>
-                    </div>
-                    <button id="signButton" class="sign-button"><img src="img/item-status.svg" alt="status">Подписать
-                    </button>
-                </div>
-            </div>
-            <!-- Подвал меню справа. Кнопка скачивания документов-->
-            <div class="down-menu">
-                <span class="download-documents-title">Скачайте пакет документов и отправьте по системе ЭДО</span>
-                <button class="download-documents-button">Скачать пакет документов</button>
+
+                    <!-- Подвал меню справа. Кнопка скачивания документов-->
+                    <div class="down-menu">
+                        <span class="download-documents-title">Скачайте пакет документов и отправьте по системе ЭДО</span>
+                        <button class="download-documents-button">Скачать пакет документов</button>
                     </div>
                 </div>
             </div>
