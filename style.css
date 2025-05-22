@@ -2010,3 +2010,31 @@ body{
 
 }
 
+/* Обновления css */
+.extra-services-container {
+    /* убираем display:none*/
+}
+
+.extra-services-container.extra-services--hidden {
+    display: none;
+}
+
+.extra-services-container.active {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.name-checked {
+    display: none;
+}
+.name-unchecked {
+    display: inline;
+}
+
+.extra-service-section.active .name-checked {
+    display: inline;
+}
+.extra-service-section.active .name-unchecked {
+    display: none;
+}
