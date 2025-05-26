@@ -1117,7 +1117,7 @@ body{
     display: flex;
     justify-content: center;
     margin: 20px 0;
-    max-width: 100%;
+    width: 100%;
 }
 
 .confirmed {
