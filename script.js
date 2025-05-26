@@ -627,10 +627,8 @@ Promise.all([
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    //  Скрываем блок доп услуг по умолчанию
+    // 1 константы
     const extraServicesBlock = document.getElementById('extraServiceContainer');
-    extraServicesBlock.classList.add('extra-services--hidden');
-
     const checkbox = document.getElementById('checkbox');
     const signButton = document.getElementById('signButton');
     const readContract = document.getElementById('readContract');
@@ -641,7 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmation = document.getElementById('confirmation');
     const contractInfo = document.getElementById('contractInfo');
 
-    //  PDF
+    // 2 PDF и функц их отображения
     const pdfCommon = document.getElementById('pdfViewer');
     const pdfInfo = document.getElementById('pdfViewerInformation');
     const pdfJudicial = document.getElementById('pdfViewerJudicial');
@@ -655,31 +653,28 @@ document.addEventListener('DOMContentLoaded', () => {
         viewer.classList.add('pdf-viewer');
     }
 
-    ['contractSelectBtn', 'contractSelectBtnMobile'].forEach(btnId => {
-        const btn = document.getElementById(btnId);
+    // 3 Обработчики "Открыть" для дропдаунов
+    ['contractSelectBtn', 'contractSelectBtnMobile'].forEach(id => {
+        const btn = document.getElementById(id);
         if (!btn) return;
         btn.addEventListener('click', () => {
-
             const dropdown = btn.closest('.agreement-section, .agreement-section-mobile')
                 .querySelector('.custom-dropdown');
-            const selected = dropdown.querySelector('summary').textContent.trim();
-            let targetViewer = pdfCommon;
-            if (selected === 'Информирование')       targetViewer = pdfInfo;
-            else if (selected === 'Судебная работа') targetViewer = pdfJudicial;
-            showPdf(targetViewer);
+            const sel = dropdown.querySelector('summary').textContent.trim();
+            if (sel === 'Информирование') showPdf(pdfInfo);
+            else if (sel === 'Судебная работа') showPdf(pdfJudicial);
+            else showPdf(pdfCommon);
         });
     });
 
-    // ————— клик по основному чекбоксу «✔ Подписать договор» —————
+    // 4 Основной чекбокс "Подписать договор"
     if (checkbox) {
         checkbox.addEventListener('click', () => {
             const isChecked = checkbox.src.endsWith('unchecked.svg');
             checkbox.src = isChecked ? 'img/checked.svg' : 'img/unchecked.svg';
             checkbox.alt = isChecked ? '[v]' : '[]';
-
             signButton.classList.toggle('sign-button-active', isChecked);
             signButton.classList.toggle('sign-button', !isChecked);
-
             readContract.classList.toggle('document-img-hidden', isChecked);
             readContract.classList.toggle('document-img', !isChecked);
             notSignedContract.classList.toggle('document-img-hidden', !isChecked);
@@ -687,7 +682,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ————— нажатие на «Подписать» — открываем блок доп. услуг —————
+    // 5 биндинг событий доп услуг
+    function bindExtraServiceEvents() {
+        document.querySelectorAll('.extra-service-section').forEach(section => {
+            const svcCheckbox = section.querySelector('.service-checkbox');
+            const svcSignBtn = section.querySelector('.sign-button');
+            const pdfTarget = document.getElementById(section.dataset.pdfTarget) || pdfCommon;
+
+            // удаляем старые слушатели
+            const newChk = svcCheckbox.cloneNode(true);
+            svcCheckbox.replaceWith(newChk);
+            const newBtn = svcSignBtn.cloneNode(true);
+            svcSignBtn.replaceWith(newBtn);
+
+            // клик по чекбоксу доп услуги
+            newChk.addEventListener('click', () => {
+                const now = newChk.src.endsWith('unchecked.svg');
+                newChk.src = now ? 'img/checked.svg' : 'img/unchecked.svg';
+                newChk.alt = now ? '[v]' : '[]';
+                showPdf(now ? pdfTarget : pdfCommon);
+                newBtn.classList.toggle('sign-button-active', now);
+                newBtn.classList.toggle('sign-button', !now);
+            });
+
+            // клик "Подключить" внутри доп услуги
+            newBtn.addEventListener('click', () => {
+                if (!newBtn.classList.contains('sign-button-active')) return;
+                newChk.classList.add('checkbox-hidden');
+                section.querySelector('.extra-services-signing-line')
+                    .classList.add('signing-line-hidden');
+                section.querySelector('.confirmed')
+                    .classList.add('confirmed-display');
+                section.classList.add('active');
+                showPdf(pdfCommon);
+                signedContract.classList.replace('document-img-hidden', 'document-img');
+            });
+        });
+    }
+
+    // 6 Показываем и биндим при загрузке
+    extraServicesBlock.classList.add('extra-services--hidden');
+    bindExtraServiceEvents();
+
+    // 7 После нажатия "Подписать" показываем доп услуги и биндим заново
     if (signButton) {
         signButton.addEventListener('click', () => {
             extraServicesBlock.classList.remove('extra-services--hidden');
@@ -698,44 +735,8 @@ document.addEventListener('DOMContentLoaded', () => {
             confirmation.classList.replace('confirmed', 'confirmed-display');
             checkbox.classList.add('checkbox-hidden');
             contractInfo.classList.replace('contract-name-and-data', 'contract-name-and-data-signed');
+
+            bindExtraServiceEvents();
         });
     }
-
-    document.querySelectorAll('.extra-service-section').forEach(section => {
-        const checkbox = section.querySelector('.service-checkbox');
-        const signBtn = section.querySelector('.sign-button');
-        const svcType = section.dataset.serviceType;
-
-        // клик по чекбоксу услуги
-        checkbox.addEventListener('click', () => {
-            const nowChecked = checkbox.src.endsWith('unchecked.svg');
-            checkbox.src = nowChecked ? 'img/checked.svg' : 'img/unchecked.svg';
-            checkbox.alt = nowChecked ? '[v]' : '[]';
-
-            readContract.classList.replace('document-img-hidden', 'document-img');
-            signedContract.classList.add('document-img-hidden');
-            notSignedContract.classList.add('document-img-hidden');
-
-            if (nowChecked) {
-                showPdf(svcType === 'notifications' ? pdfInfo : pdfJudicial);
-            } else {
-                showPdf(pdfCommon);
-            }
-
-            signBtn.classList.toggle('sign-button-active', nowChecked);
-            signBtn.classList.toggle('sign-button', !nowChecked);
-        });
-
-        signBtn.addEventListener('click', () => {
-            if (!signBtn.classList.contains('sign-button-active')) return;
-
-            checkbox.classList.add('checkbox-hidden');
-            section.querySelector('.extra-services-signing-line').classList.add('signing-line-hidden');
-            section.querySelector('.confirmed').classList.add('confirmed-display');
-            section.classList.add('active');
-
-            readContract.classList.replace('document-img', 'document-img-hidden');
-            signedContract.classList.replace('document-img-hidden', 'document-img');
-        });
-    });
 });
