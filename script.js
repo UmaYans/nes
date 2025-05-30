@@ -168,15 +168,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.querySelectorAll('.services-dropdown-item').forEach(item => {
+    if (item.querySelector('.item-status-approved')) {
+        item.classList.add('selected');
+    } else {
+        item.classList.remove('selected');
+    }
+});
+
 //выбор значения в селекторе
 document.querySelectorAll('.custom-dropdown').forEach((dropdown) => {
     const summary = dropdown.querySelector('summary');
     if (!summary) return;
     const arrow = summary.querySelector('.dropdown-arrow');
     const arrowHTML = arrow ? arrow.outerHTML : '';
-    const items = dropdown.querySelectorAll('.dropdown-item');
+    const items = dropdown.querySelectorAll('.services-dropdown-item');
     items.forEach((item) => {
         item.addEventListener('click', (e) => {
+
+            if (e.target.closest('.item-status')) return;
+
             e.stopPropagation();
             let selectedText = '';
             const approvedName = item.querySelector('.item-name-approved');
@@ -706,7 +717,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // клик "Подключить" внутри доп услуги
-            newBtn.addEventListener('click', () => {
+            newBtn.addEventListener('click', (e) => {
+                e.preventDefault()
+                e.stopPropagation()
                 if (!newBtn.classList.contains('sign-button-active')) return;
                 newChk.classList.add('checkbox-hidden');
                 section.querySelector('.extra-services-signing-line')
