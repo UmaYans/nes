@@ -193,6 +193,19 @@ document.querySelectorAll('.custom-dropdown').forEach((dropdown) => {
             const approvedName = item.querySelector('.item-name-approved');
             const normalName = item.querySelector('.item-name');
             const typeName = item.querySelector('.type-item-name');
+
+            const button = e.target.closest('.tooltip-button');
+            if (button && tooltip && tooltipText) {
+                e.stopPropagation();
+                tooltipText.innerHTML = button.getAttribute('data-tooltip') || 'Подпишите договор';
+                tooltip.style.display = 'block';
+                positionTooltip(button);
+            } else {
+                if (tooltip && !tooltip.contains(e.target)) {
+                    tooltip.style.display = 'none';
+                }
+            }
+
             if (approvedName) {
                 selectedText = approvedName.textContent.trim();
             } else if (normalName) {
@@ -202,29 +215,31 @@ document.querySelectorAll('.custom-dropdown').forEach((dropdown) => {
             } else {
                 selectedText = item.textContent.trim();
             }
-            summary.innerHTML = selectedText + arrowHTML;
-            dropdown.removeAttribute('open');
-
-            // Сбрасываем значение второго селектора при изменении первого
-            if (dropdown.id === 'customDropdown') {
-                const secondDropdown = document.getElementById('secondDropdown');
-                if (!secondDropdown) return;
-                const secondSummary = secondDropdown.querySelector('summary');
-                const secondArrow = secondSummary?.querySelector('.dropdown-arrow');
-                const secondArrowHTML = secondArrow ? secondArrow.outerHTML : '';
-                if (secondSummary) {
-                    secondSummary.innerHTML = 'Не выбрано' + secondArrowHTML;
+            if(approvedName) {
+                summary.innerHTML = selectedText + arrowHTML;
+                dropdown.removeAttribute('open');
+    
+                // Сбрасываем значение второго селектора при изменении первого
+                if (dropdown.id === 'customDropdown') {
+                    const secondDropdown = document.getElementById('secondDropdown');
+                    if (!secondDropdown) return;
+                    const secondSummary = secondDropdown.querySelector('summary');
+                    const secondArrow = secondSummary?.querySelector('.dropdown-arrow');
+                    const secondArrowHTML = secondArrow ? secondArrow.outerHTML : '';
+                    if (secondSummary) {
+                        secondSummary.innerHTML = 'Не выбрано' + secondArrowHTML;
+                    }
                 }
+    
+                updateServiceDescription?.();
+                checkAllForms?.();
             }
-
-            updateServiceDescription?.();
-            checkAllForms?.();
         });
     });
 });
 document.addEventListener('click', (e) => {
     document.querySelectorAll('.custom-dropdown').forEach((dropdown) => {
-        if (!dropdown.contains(e.target)) {
+        if (!dropdown.contains(e.target) && !e.target.closest('.tooltip-global')) {
             dropdown.removeAttribute('open');
         }
     });
@@ -566,7 +581,7 @@ if (document.querySelectorAll('.custom-dropdown').length) {
 
     document.addEventListener('click', (e) => {
         document.querySelectorAll('.custom-dropdown').forEach((dropdown) => {
-            if (!dropdown.contains(e.target)) {
+            if (!dropdown.contains(e.target) && !e.target.closest('.tooltip-global')) {
                 dropdown.removeAttribute('open');
             }
         });

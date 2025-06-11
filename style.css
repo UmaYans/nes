@@ -533,7 +533,7 @@ body{
     width: 70%;
     padding: 10px 16px;
     color: var(--color-text-muted);
-    pointer-events: inherit;
+    pointer-events:all; 
 }
 
 .services-dropdown-item {
@@ -1736,7 +1736,7 @@ body{
         width: 100%;
         gap: 8px;
         align-items: center;
-        padding: 8px 8px 0;
+        margin: 8px 0;
     }
 
     .email-input{
@@ -1856,7 +1856,7 @@ body{
 
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 650px) {
 
     .header-contacts-mobile{
         display: flex;
